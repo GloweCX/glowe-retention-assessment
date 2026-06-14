@@ -458,7 +458,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         <button class="btn btn-p" onclick="submitGate()">See My Results</button>
       </div>
       <div class="gate-err" id="gate-err">Please enter a valid email address.</div>
-      <p class="gate-privacy">No spam. Unsubscribe anytime. <a href="https://helloglowe.com/privacy" style="color:var(--green-d)">Privacy Policy</a>.</p>
+      <p class="gate-privacy">No spam. Unsubscribe anytime.</p>
     </div>
   </div>
 
@@ -684,24 +684,16 @@ function submitGate() {
   }).catch(function() {}); // silent fail — results already showing
 
   // ── Google Apps Script — result storage (async, silent fail) ──
-  // HOW TO SET UP YOUR GOOGLE APPS SCRIPT WEBHOOK:
-  // 1. Go to script.google.com → New Project
-  // 2. Paste the script from the bottom of this file (search GOOGLE_APPS_SCRIPT_CODE)
-  // 3. Click Deploy → New Deployment → Web App
-  // 4. Execute as: Me · Who has access: Anyone
-  // 5. Click Deploy → copy the Web App URL
-  // 6. Replace https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec below with that URL
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
   const payload = buildPayload();
   payload.email = email;
   payload.timestamp = new Date().toISOString();
-  if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec') {
-    fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).catch(function() {}); // silent fail — results already showing
-  }
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).catch(function() {}); // silent fail — results already showing
 
   // ── GHL webhook (Ezekiel wires after build) ──────────────
   // fetch('YOUR_GHL_WEBHOOK_URL', { method:'POST',
@@ -1032,43 +1024,84 @@ showQ(1);
 
 <!--
 ═══════════════════════════════════════════════════════════════
-GOOGLE_APPS_SCRIPT_CODE — Copy everything between the dashes
-into a new Google Apps Script project (script.google.com)
+GOOGLE APPS SCRIPT — deployed at:
+https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec
+
+Sheet: Glowe Assessment Results
+Columns match buildPayload() exactly including cat_scores.*
 ═══════════════════════════════════════════════════════════════
 
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
-    var sheet = SpreadsheetApp.openById('PASTE_YOUR_GOOGLE_SHEET_ID_HERE').getActiveSheet();
+    var sheet = SpreadsheetApp.openById('1-NtdnvXZNIX1l0NOSwNmOcF9vTl8fCNSwU2Uwmb0Gg4').getActiveSheet();
 
-    // Write headers if row 1 is empty
+    var HEADERS = [
+      'Timestamp',
+      'Email',
+      'Business Type',
+      'Active Clients',
+      'Average Visit Value',
+      'Monthly Appointments',
+      'Booking Platform',
+      'Google Reviews',
+      'Google Rating',
+      'Review Process',
+      'Missed Call Process',
+      'Follow-Up Process',
+      'Reactivation Process',
+      'First Visit Process',
+      'Rebook Process',
+      'Lead Response Speed',
+      'Lead Capture',
+      'Total Score',
+      'Score Label',
+      'Top Gap',
+      'Top Gap Label',
+      'Review Score',
+      'Missed Call Score',
+      'Retention Score',
+      'Nurture Score',
+      'Lead Score',
+      'Source',
+      'Raw Payload'
+    ];
+
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow([
-        'Timestamp', 'Email', 'Business Name', 'Business Type',
-        'City', 'Monthly Appointments', 'Avg Visit Value',
-        'Total Score', 'Tier', 'Revenue Gap Estimate',
-        'Review Score', 'Missed Call Score', 'Retention Score',
-        'Nurture Score', 'Lead Score', 'Source'
-      ]);
+      sheet.appendRow(HEADERS);
     }
 
+    var cats = data.cat_scores || {};
+
     sheet.appendRow([
-      data.timestamp || new Date().toISOString(),
-      data.email || '',
-      data.business_name || '',
-      data.business_type || '',
-      data.city || '',
-      data.monthly_appointments || '',
-      data.avg_visit_value || '',
-      data.total_score || '',
-      data.tier || '',
-      data.revenue_gap || '',
-      data.score_review || '',
-      data.score_missed_call || '',
-      data.score_retention || '',
-      data.score_nurture || '',
-      data.score_lead || '',
-      data.source || 'revenue-assessment'
+      data.timestamp             || new Date().toISOString(),
+      data.email                 || '',
+      data.business_type         || '',
+      data.active_clients        || '',
+      data.avg_visit_value       || '',
+      data.monthly_appointments  || '',
+      data.booking_platform      || '',
+      data.google_reviews        || '',
+      data.google_rating         || '',
+      data.review_process        || '',
+      data.missed_call_process   || '',
+      data.followup_process      || '',
+      data.reactivation_process  || '',
+      data.first_visit_process   || '',
+      data.rebook_process        || '',
+      data.lead_response_speed   || '',
+      data.lead_capture          || '',
+      data.total_score           || '',
+      data.score_label           || '',
+      data.top_gap               || '',
+      data.top_gap_label         || '',
+      cats.review                || '',
+      cats.missed                || '',
+      cats.retention             || '',
+      cats.nurture               || '',
+      cats.lead                  || '',
+      data.source                || 'revenue-assessment',
+      JSON.stringify(data)
     ]);
 
     return ContentService
@@ -1082,15 +1115,8 @@ function doPost(e) {
   }
 }
 
-HOW TO CREATE YOUR GOOGLE SHEET ID:
-1. Go to sheets.google.com → New blank spreadsheet
-2. Name it: Glowe Assessment Results
-3. The Sheet ID is in the URL:
-   docs.google.com/spreadsheets/d/[THIS_IS_YOUR_SHEET_ID]/edit
-4. Copy that ID and replace PASTE_YOUR_GOOGLE_SHEET_ID_HERE above
-
 ═══════════════════════════════════════════════════════════════
-END OF GOOGLE_APPS_SCRIPT_CODE
+END OF GOOGLE APPS SCRIPT
 ═══════════════════════════════════════════════════════════════
 -->
 </html>
