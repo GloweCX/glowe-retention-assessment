@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Glowe Revenue Assessment — Free Diagnostic for Local Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#262626;--cream:#F9F8F5;--white:#fff;
+  --green:#00CA72;--green-d:#009f5a;--green-l:rgba(0,202,114,.10);
+  --orange:#F16122;--orange-l:rgba(241,97,34,.08);
+  --g1:#f0efeb;--g2:#e8e6e0;--border:#dddbd4;--muted:#6b6a66;
+  --font:'Poppins',sans-serif;--r:10px;--rl:16px;--rx:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--g1);color:var(--ink);
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* ── NAV ── */
+.a-nav{display:flex;align-items:center;justify-content:space-between;
+  padding:18px 32px;background:var(--white);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100}
+.a-logo{font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.a-logo span{color:var(--green-d)}
+.a-tagline{font-size:12px;color:var(--muted)}
+
+/* ── HERO ── */
+.a-hero{background:var(--ink);padding:80px 28px 72px;text-align:center}
+.a-hero .eyebrow{display:inline-block;font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--green);
+  background:rgba(0,202,114,.14);padding:6px 16px;border-radius:100px;margin-bottom:20px}
+.a-hero h1{font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--cream);
+  letter-spacing:-.5px;line-height:1.15;margin-bottom:16px;max-width:720px;margin-left:auto;margin-right:auto}
+.a-hero h1 em{font-style:normal;color:var(--green)}
+.a-hero p{font-size:17px;color:rgba(249,248,245,.55);line-height:1.75;
+  max-width:560px;margin:0 auto 32px}
+.a-meta{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.a-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(249,248,245,.45)}
+.a-meta-item svg{opacity:.6}
+
+/* ── ASSESSMENT SHELL ── */
+.a-shell{max-width:760px;margin:0 auto;padding:48px 28px 80px}
+
+/* ── PROGRESS ── */
+.prog-wrap{background:var(--white);border:1px solid var(--border);
+  border-radius:var(--rx);padding:20px 24px;margin-bottom:28px}
+.prog-label{display:flex;justify-content:space-between;
+  font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.prog-bar{height:6px;background:var(--g2);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;background:var(--green);border-radius:100px;
+  transition:width .4s ease;width:0%}
+.prog-section{font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--green-d);margin-top:8px}
+
+/* ── QUESTION CARD ── */
+.q-card{background:var(--white);border:1px solid var(--border);
+  border-radius:var(--rx);padding:36px 40px;margin-bottom:16px}
+.q-num{font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.q-text{font-size:20px;font-weight:700;color:var(--ink);
+  line-height:1.4;margin-bottom:8px}
+.q-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+
+/* ── CHOICES ── */
+.choices{display:flex;flex-direction:column;gap:10px}
+.cbtn{display:flex;align-items:center;gap:14px;padding:14px 18px;
+  background:var(--g1);border:1.5px solid var(--border);border-radius:var(--r);
+  cursor:pointer;transition:all .18s;text-align:left;font-family:var(--font);
+  font-size:14.5px;font-weight:500;color:var(--ink);width:100%}
+.cbtn:hover{background:var(--green-l);border-color:rgba(0,202,114,.4);color:var(--ink)}
+.cbtn.selected{background:var(--green-l);border-color:var(--green);
+  color:var(--ink);font-weight:600}
+.cbtn .cradio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.cbtn.selected .cradio{border-color:var(--green);background:var(--green)}
+.cbtn.selected .cradio::after{content:'';width:6px;height:6px;
+  border-radius:50%;background:#fff}
+.cbtn:hover .cradio{border-color:var(--green)}
+
+/* ── TEXT INPUT ── */
+.q-input{width:100%;padding:13px 16px;border:1.5px solid var(--border);
+  border-radius:var(--r);font-family:var(--font);font-size:15px;color:var(--ink);
+  background:var(--g1);outline:none;transition:border-color .18s}
+.q-input:focus{border-color:var(--green);background:var(--white)}
+.q-input-note{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ── NAV BUTTONS ── */
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 28px;border-radius:100px;font-family:var(--font);font-size:14.5px;
+  font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:normal;
+  text-decoration:none;line-height:1.3}
+.btn-p{background:var(--green);color:var(--ink)}
+.btn-p:hover{background:var(--green-d);color:#fff}
+.btn-g{background:transparent;color:var(--muted);border:1.5px solid var(--border)}
+.btn-g:hover{border-color:var(--ink);color:var(--ink)}
+.btn-lg{padding:16px 36px;font-size:15px}
+.btn-full{width:100%}
+.q-err{font-size:13px;color:var(--orange);margin-top:8px;display:none}
+.q-err.show{display:block}
+
+/* ── EMAIL GATE ── */
+.gate-card{background:var(--white);border:1px solid var(--border);
+  border-radius:var(--rx);padding:48px 40px;text-align:center}
+.gate-icon{font-size:48px;margin-bottom:16px}
+.gate-card h2{font-size:26px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.gate-card p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px;
+  max-width:480px;margin-left:auto;margin-right:auto}
+.gate-form{display:flex;gap:10px;max-width:440px;margin:0 auto 12px}
+.gate-input{flex:1;padding:13px 16px;border:1.5px solid var(--border);
+  border-radius:100px;font-family:var(--font);font-size:14px;outline:none;
+  transition:border-color .18s}
+.gate-input:focus{border-color:var(--green)}
+.gate-err{font-size:13px;color:var(--orange);text-align:center;margin-top:6px;display:none}
+.gate-err.show{display:block}
+.gate-privacy{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* ── SCORE RING ── */
+.score-wrap{text-align:center;padding:48px 40px 36px;background:var(--white);
+  border:1px solid var(--border);border-radius:var(--rx);margin-bottom:20px}
+.ring-container{position:relative;width:160px;height:160px;margin:0 auto 24px}
+.ring-svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--g2);stroke-width:12}
+.ring-fill{fill:none;stroke-width:12;stroke-linecap:round;
+  transition:stroke-dashoffset 1.2s ease;stroke-dasharray:440;stroke-dashoffset:440}
+.ring-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;line-height:1}
+.ring-num{font-size:36px;font-weight:700;color:var(--ink);letter-spacing:-1px}
+.ring-denom{font-size:13px;color:var(--muted);margin-top:2px}
+.score-label{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.score-sublabel{font-size:14px;color:var(--muted);line-height:1.6;
+  max-width:440px;margin:0 auto}
+
+/* ── SCORE CATEGORIES ── */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.cat-card{background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 20px}
+.cat-label{font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cat-score-row{display:flex;align-items:center;gap:10px}
+.cat-score{font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-1px}
+.cat-max{font-size:12px;color:var(--muted)}
+.cat-bar-wrap{flex:1;background:var(--g2);border-radius:100px;height:6px;overflow:hidden}
+.cat-bar{height:100%;border-radius:100px;transition:width 1s ease}
+
+/* ── REPORT SECTIONS ── */
+.report-section{background:var(--white);border:1px solid var(--border);
+  border-radius:var(--rx);padding:32px 36px;margin-bottom:16px}
+.report-section.priority{border-color:var(--orange);background:var(--orange-l)}
+.report-section.priority .rs-label{color:var(--orange)}
+.rs-label{font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--green-d);margin-bottom:8px}
+.rs-title{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.rs-body{font-size:14.5px;color:var(--muted);line-height:1.75}
+.rs-body strong{color:var(--ink)}
+
+/* ── ACTIONS LIST ── */
+.actions-card{background:var(--ink);border-radius:var(--rx);padding:36px 40px;margin-bottom:16px}
+.actions-title{font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--green);margin-bottom:20px}
+.action-item{display:flex;gap:16px;align-items:flex-start;
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.action-item:last-child{border-bottom:none}
+.action-num{width:28px;height:28px;border-radius:50%;background:rgba(0,202,114,.2);
+  border:1px solid rgba(0,202,114,.4);display:flex;align-items:center;
+  justify-content:center;font-size:12px;font-weight:700;color:var(--green);flex-shrink:0}
+.action-text{font-size:14px;color:rgba(249,248,245,.75);line-height:1.65}
+.action-text strong{color:var(--cream);display:block;margin-bottom:4px;font-size:14.5px}
+
+/* ── GLOWE CTA ── */
+.glowe-cta{background:var(--green);border-radius:var(--rx);padding:40px;
+  text-align:center;margin-bottom:16px}
+.glowe-cta h3{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.glowe-cta p{font-size:14.5px;color:rgba(38,38,38,.7);line-height:1.7;
+  margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
+.glowe-cta .btn{background:var(--ink);color:var(--cream)}
+.glowe-cta .btn:hover{background:#1a1a1a}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .a-hero{padding:56px 20px 52px}
+  .q-card{padding:28px 22px}
+  .gate-card{padding:36px 24px}
+  .score-wrap{padding:36px 24px 28px}
+  .report-section{padding:24px 22px}
+  .actions-card{padding:28px 22px}
+  .glowe-cta{padding:32px 24px}
+  .cat-grid{grid-template-columns:1fr}
+  .gate-form{flex-direction:column}
+  .gate-input{border-radius:var(--r)}
+  .a-nav .a-tagline{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="a-nav">
+  <div class="a-logo">g<span>LOWE</span></div>
+  <div class="a-tagline">Free Revenue Assessment</div>
+</nav>
+
+<!-- HERO -->
+<div class="a-hero">
+  <div class="eyebrow">Free Diagnostic Tool</div>
+  <h1>Find out exactly where your business is <em>losing revenue</em> right now</h1>
+  <p>15 questions. 2 minutes. A personalized score, a gap analysis, and five concrete actions — specific to your business.</p>
+  <div class="a-meta">
+    <div class="a-meta-item">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#fff" stroke-width="1.3"/><path d="M8 5v3.5L10 10" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Takes about 2 minutes
+    </div>
+    <div class="a-meta-item">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5L7 11l-3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Instant personalized results
+    </div>
+    <div class="a-meta-item">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#fff" stroke-width="1.3"/><path d="M5 8h6M5 5.5h3M5 10.5h4" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+      No obligation
+    </div>
+  </div>
+</div>
+
+<!-- ASSESSMENT SHELL -->
+<div class="a-shell">
+
+  <!-- PROGRESS -->
+  <div class="prog-wrap" id="prog-wrap">
+    <div class="prog-label">
+      <span id="prog-label-text">Question 1 of 15</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    <div class="prog-section" id="prog-section">Section: Your Business</div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="assessment-questions">
+
+    <!-- Q1 -->
+    <div class="q-card" id="q1">
+      <div class="q-num">Question 1 of 15 &nbsp;·&nbsp; Your Business</div>
+      <div class="q-text">What type of business do you run?</div>
+      <div class="q-sub">Select the option that best describes your primary service.</div>
+      <div class="choices" id="c1">
+        <button class="cbtn" data-v="Lash Studio"><span class="cradio"></span>Lash Studio</button>
+        <button class="cbtn" data-v="Brow Studio"><span class="cradio"></span>Brow Studio</button>
+        <button class="cbtn" data-v="Salon (hair, nails, or full service)"><span class="cradio"></span>Salon (hair, nails, or full service)</button>
+        <button class="cbtn" data-v="Pilates or Fitness Studio"><span class="cradio"></span>Pilates or Fitness Studio</button>
+        <button class="cbtn" data-v="Wellness or Med Spa"><span class="cradio"></span>Wellness or Med Spa</button>
+        <button class="cbtn" data-v="Other local service business"><span class="cradio"></span>Other local service business</button>
+      </div>
+      <div class="q-err" id="e1">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card" id="q2" style="display:none">
+      <div class="q-num">Question 2 of 15 &nbsp;·&nbsp; Your Business</div>
+      <div class="q-text">How many active clients do you currently have?</div>
+      <div class="q-sub">Active means clients who have visited in the last 6 months.</div>
+      <div class="choices" id="c2">
+        <button class="cbtn" data-v="under50" data-score="0"><span class="cradio"></span>Fewer than 50</button>
+        <button class="cbtn" data-v="50to149" data-score="1"><span class="cradio"></span>50–149</button>
+        <button class="cbtn" data-v="150to499" data-score="2"><span class="cradio"></span>150–499</button>
+        <button class="cbtn" data-v="500plus" data-score="3"><span class="cradio"></span>500 or more</button>
+      </div>
+      <div class="q-err" id="e2">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card" id="q3" style="display:none">
+      <div class="q-num">Question 3 of 15 &nbsp;·&nbsp; Your Business</div>
+      <div class="q-text">What is the average value of a single client visit?</div>
+      <div class="choices" id="c3">
+        <button class="cbtn" data-v="under75" data-display="Under $75"><span class="cradio"></span>Under $75</button>
+        <button class="cbtn" data-v="75to149" data-display="$75–$149"><span class="cradio"></span>$75–$149</button>
+        <button class="cbtn" data-v="150to299" data-display="$150–$299"><span class="cradio"></span>$150–$299</button>
+        <button class="cbtn" data-v="300plus" data-display="$300 or more"><span class="cradio"></span>$300 or more</button>
+      </div>
+      <div class="q-err" id="e3">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card" id="q4" style="display:none">
+      <div class="q-num">Question 4 of 15 &nbsp;·&nbsp; Your Business</div>
+      <div class="q-text">How many appointments do you complete in an average month?</div>
+      <div class="choices" id="c4">
+        <button class="cbtn" data-v="under20" data-score="0"><span class="cradio"></span>Fewer than 20</button>
+        <button class="cbtn" data-v="20to49" data-score="1"><span class="cradio"></span>20–49</button>
+        <button class="cbtn" data-v="50to149" data-score="2"><span class="cradio"></span>50–149</button>
+        <button class="cbtn" data-v="150plus" data-score="3"><span class="cradio"></span>150 or more</button>
+      </div>
+      <div class="q-err" id="e4">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card" id="q5" style="display:none">
+      <div class="q-num">Question 5 of 15 &nbsp;·&nbsp; Your Business</div>
+      <div class="q-text">What booking platform does your business use?</div>
+      <div class="choices" id="c5">
+        <button class="cbtn" data-v="Vagaro"><span class="cradio"></span>Vagaro</button>
+        <button class="cbtn" data-v="GlossGenius"><span class="cradio"></span>GlossGenius</button>
+        <button class="cbtn" data-v="Boulevard"><span class="cradio"></span>Boulevard</button>
+        <button class="cbtn" data-v="Mindbody"><span class="cradio"></span>Mindbody</button>
+        <button class="cbtn" data-v="Square Appointments"><span class="cradio"></span>Square Appointments</button>
+        <button class="cbtn" data-v="Acuity or Calendly"><span class="cradio"></span>Acuity or Calendly</button>
+        <button class="cbtn" data-v="Other platform"><span class="cradio"></span>A different platform</button>
+        <button class="cbtn" data-v="No booking platform"><span class="cradio"></span>I don't use a booking platform</button>
+      </div>
+      <div class="q-err" id="e5">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card" id="q6" style="display:none">
+      <div class="q-num">Question 6 of 15 &nbsp;·&nbsp; Review Health</div>
+      <div class="q-text">How many Google reviews does your business currently have?</div>
+      <div class="q-sub">Check your Google Business Profile if you're not sure.</div>
+      <input type="number" class="q-input" id="i6" placeholder="Enter a number (e.g. 47)" min="0"/>
+      <p class="q-input-note">Enter 0 if you don't have a Google Business Profile yet.</p>
+      <div class="q-err" id="e6">Please enter a number to continue.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card" id="q7" style="display:none">
+      <div class="q-num">Question 7 of 15 &nbsp;·&nbsp; Review Health</div>
+      <div class="q-text">What is your current Google star rating?</div>
+      <div class="choices" id="c7">
+        <button class="cbtn" data-v="5.0" data-score="25"><span class="cradio"></span>5.0 stars</button>
+        <button class="cbtn" data-v="4.5to4.9" data-score="20"><span class="cradio"></span>4.5–4.9 stars</button>
+        <button class="cbtn" data-v="4.0to4.4" data-score="12"><span class="cradio"></span>4.0–4.4 stars</button>
+        <button class="cbtn" data-v="below4" data-score="4"><span class="cradio"></span>Below 4.0 stars</button>
+        <button class="cbtn" data-v="no_rating" data-score="0"><span class="cradio"></span>No rating yet / No GBP</button>
+      </div>
+      <div class="q-err" id="e7">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card" id="q8" style="display:none">
+      <div class="q-num">Question 8 of 15 &nbsp;·&nbsp; Review Health</div>
+      <div class="q-text">How do you currently ask clients for reviews?</div>
+      <div class="choices" id="c8">
+        <button class="cbtn" data-v="automated" data-score="25"><span class="cradio"></span>We have an automated system that sends review requests</button>
+        <button class="cbtn" data-v="always_manual" data-score="15"><span class="cradio"></span>We ask verbally or manually after every appointment</button>
+        <button class="cbtn" data-v="sometimes" data-score="8"><span class="cradio"></span>We ask sometimes, but not consistently</button>
+        <button class="cbtn" data-v="never" data-score="0"><span class="cradio"></span>We don't ask for reviews</button>
+      </div>
+      <div class="q-err" id="e8">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card" id="q9" style="display:none">
+      <div class="q-num">Question 9 of 15 &nbsp;·&nbsp; Follow-Up & Retention</div>
+      <div class="q-text">What happens when you miss a phone call?</div>
+      <div class="choices" id="c9">
+        <button class="cbtn" data-v="automated_text" data-score="20"><span class="cradio"></span>An automatic text response goes out immediately</button>
+        <button class="cbtn" data-v="call_back" data-score="10"><span class="cradio"></span>We call back when we're available</button>
+        <button class="cbtn" data-v="sometimes" data-score="5"><span class="cradio"></span>We try to call back but it doesn't always happen</button>
+        <button class="cbtn" data-v="nothing" data-score="0"><span class="cradio"></span>Nothing — the caller has to try again</button>
+      </div>
+      <div class="q-err" id="e9">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card" id="q10" style="display:none">
+      <div class="q-num">Question 10 of 15 &nbsp;·&nbsp; Follow-Up & Retention</div>
+      <div class="q-text">Do you follow up with clients after their appointment?</div>
+      <div class="choices" id="c10">
+        <button class="cbtn" data-v="always_auto" data-score="25"><span class="cradio"></span>Yes — automatically after every appointment</button>
+        <button class="cbtn" data-v="always_manual" data-score="15"><span class="cradio"></span>Yes — but we do it manually, not every time</button>
+        <button class="cbtn" data-v="sometimes" data-score="8"><span class="cradio"></span>Sometimes, when we remember</button>
+        <button class="cbtn" data-v="never" data-score="0"><span class="cradio"></span>We don't follow up after appointments</button>
+      </div>
+      <div class="q-err" id="e10">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card" id="q11" style="display:none">
+      <div class="q-num">Question 11 of 15 &nbsp;·&nbsp; Follow-Up & Retention</div>
+      <div class="q-text">Do you contact clients who haven't visited in 60 or more days?</div>
+      <div class="choices" id="c11">
+        <button class="cbtn" data-v="always_auto" data-score="25"><span class="cradio"></span>Yes — we have an automated reactivation system</button>
+        <button class="cbtn" data-v="sometimes_manual" data-score="10"><span class="cradio"></span>Occasionally — we reach out manually when we think of it</button>
+        <button class="cbtn" data-v="rarely" data-score="4"><span class="cradio"></span>Rarely — it doesn't happen consistently</button>
+        <button class="cbtn" data-v="never" data-score="0"><span class="cradio"></span>We don't reach out to lapsed clients</button>
+      </div>
+      <div class="q-err" id="e11">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card" id="q12" style="display:none">
+      <div class="q-num">Question 12 of 15 &nbsp;·&nbsp; New Customer Nurture</div>
+      <div class="q-text">What happens after a client's first visit?</div>
+      <div class="choices" id="c12">
+        <button class="cbtn" data-v="full_sequence" data-score="15"><span class="cradio"></span>They receive an automated welcome and follow-up sequence</button>
+        <button class="cbtn" data-v="thank_you" data-score="10"><span class="cradio"></span>We send a personal thank-you message</button>
+        <button class="cbtn" data-v="just_review" data-score="5"><span class="cradio"></span>They get a review request but nothing else</button>
+        <button class="cbtn" data-v="nothing" data-score="0"><span class="cradio"></span>Nothing specific happens after a first visit</button>
+      </div>
+      <div class="q-err" id="e12">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card" id="q13" style="display:none">
+      <div class="q-num">Question 13 of 15 &nbsp;·&nbsp; New Customer Nurture</div>
+      <div class="q-text">How do you encourage first-time clients to rebook?</div>
+      <div class="choices" id="c13">
+        <button class="cbtn" data-v="automated_rebook" data-score="15"><span class="cradio"></span>Automated reminder with a booking link</button>
+        <button class="cbtn" data-v="manual_ask" data-score="8"><span class="cradio"></span>We ask in person at checkout</button>
+        <button class="cbtn" data-v="hope" data-score="2"><span class="cradio"></span>We hope they come back on their own</button>
+        <button class="cbtn" data-v="nothing" data-score="0"><span class="cradio"></span>We don't have a rebook process</button>
+      </div>
+      <div class="q-err" id="e13">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card" id="q14" style="display:none">
+      <div class="q-num">Question 14 of 15 &nbsp;·&nbsp; Lead Capture Speed</div>
+      <div class="q-text">When someone reaches out via social media, DM, or your website, how quickly do you typically respond?</div>
+      <div class="choices" id="c14">
+        <button class="cbtn" data-v="under5min" data-score="15"><span class="cradio"></span>Within 5 minutes — we have a system for this</button>
+        <button class="cbtn" data-v="same_day" data-score="8"><span class="cradio"></span>Same day, when we see the message</button>
+        <button class="cbtn" data-v="day_or_more" data-score="3"><span class="cradio"></span>A day or more — whenever we get to it</button>
+        <button class="cbtn" data-v="inconsistent" data-score="0"><span class="cradio"></span>No consistent process</button>
+      </div>
+      <div class="q-err" id="e14">Please select an option to continue.</div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="q-card" id="q15" style="display:none">
+      <div class="q-num">Question 15 of 15 &nbsp;·&nbsp; Lead Capture Speed</div>
+      <div class="q-text">Do you have a way to capture leads who reach out but don't book immediately?</div>
+      <div class="choices" id="c15">
+        <button class="cbtn" data-v="yes_automated" data-score="15"><span class="cradio"></span>Yes — automated follow-up goes out if they don't book</button>
+        <button class="cbtn" data-v="yes_manual" data-score="8"><span class="cradio"></span>Yes — we follow up manually sometimes</button>
+        <button class="cbtn" data-v="no" data-score="0"><span class="cradio"></span>No — if they don't book we don't hear from them again</button>
+      </div>
+      <div class="q-err" id="e15">Please select an option to continue.</div>
+    </div>
+
+    <!-- NAV BUTTONS -->
+    <div class="q-nav" id="q-nav">
+      <button class="btn btn-g" id="btn-back" onclick="goBack()" style="display:none">← Back</button>
+      <button class="btn btn-p btn-lg" id="btn-next" onclick="goNext()" style="margin-left:auto">Continue →</button>
+    </div>
+
+  </div><!-- /assessment-questions -->
+
+  <!-- EMAIL GATE -->
+  <div id="email-gate" style="display:none">
+    <div class="gate-card">
+      <div class="gate-icon">📊</div>
+      <h2>Your results are ready.</h2>
+      <p>Enter your email and we'll show your personalized Revenue Assessment score, category breakdown, biggest opportunity, and five concrete next actions.</p>
+      <div class="gate-form">
+        <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com" autocomplete="email"/>
+        <button class="btn btn-p" onclick="submitGate()">See My Results</button>
+      </div>
+      <div class="gate-err" id="gate-err">Please enter a valid email address.</div>
+      <p class="gate-privacy">No spam. Unsubscribe anytime. <a href="https://helloglowe.com/privacy" style="color:var(--green-d)">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" style="display:none">
+
+    <!-- Score ring -->
+    <div class="score-wrap">
+      <div class="ring-container">
+        <svg class="ring-svg" width="160" height="160" viewBox="0 0 160 160">
+          <circle class="ring-bg" cx="80" cy="80" r="70"/>
+          <circle class="ring-fill" id="ring-fill" cx="80" cy="80" r="70"/>
+        </svg>
+        <div class="ring-text">
+          <div class="ring-num" id="ring-num">0</div>
+          <div class="ring-denom">out of 100</div>
+        </div>
+      </div>
+      <div class="score-label" id="score-label">Calculating...</div>
+      <div class="score-sublabel" id="score-sublabel"></div>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="cat-grid" id="cat-grid"></div>
+
+    <!-- Top gap -->
+    <div class="report-section priority" id="top-gap-section">
+      <div class="rs-label">Your Biggest Opportunity</div>
+      <div class="rs-title" id="top-gap-title"></div>
+      <div class="rs-body" id="top-gap-body"></div>
+    </div>
+
+    <!-- Business context -->
+    <div class="report-section" id="business-context-section">
+      <div class="rs-label">What This Means For Your Business</div>
+      <div class="rs-title" id="biz-title"></div>
+      <div class="rs-body" id="biz-body"></div>
+    </div>
+
+    <!-- Five actions -->
+    <div class="actions-card">
+      <div class="actions-title">Your Five Next Actions</div>
+      <div id="actions-list"></div>
+    </div>
+
+    <!-- Glowe CTA -->
+    <div class="glowe-cta">
+      <h3>These five actions work. The hard part is doing them consistently.</h3>
+      <p>Every action above can be automated — running for every client, every day, without you lifting a finger. That's what Glowe does. Take two minutes to see if your business qualifies.</p>
+      <a id="founding-cta-btn" href="https://helloglowe.com/#survey" class="btn btn-lg">See If Your Business Qualifies for Glowe →</a>
+    </div>
+
+    <!-- Feedback prompt -->
+    <div style="
+      background:#F9F8F5;
+      border:1px solid #DDDBD4;
+      border-radius:14px;
+      padding:24px 28px;
+      margin-top:20px;
+      text-align:center;
+    ">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#009f5a;margin-bottom:10px">
+        One quick thing
+      </div>
+      <p style="font-size:15px;font-weight:700;color:#262626;line-height:1.4;margin-bottom:8px">
+        Did this tool give you something useful?
+      </p>
+      <p style="font-size:13.5px;color:#6b6a66;line-height:1.75;margin-bottom:16px;max-width:420px;margin-left:auto;margin-right:auto">
+        I built it to help — but I'm genuinely curious whether it landed the way I intended. Did it show you something you hadn't thought about? Leave you with a question it didn't answer? Feel free to reply to whatever email brought you here and tell me honestly. I read everything.
+      </p>
+      <a href="mailto:hello@helloglowe.com?subject=Assessment feedback" style="
+        display:inline-block;
+        background:#262626;
+        color:#F9F8F5;
+        font-family:'Poppins',sans-serif;
+        font-size:13px;
+        font-weight:700;
+        padding:11px 28px;
+        border-radius:100px;
+        text-decoration:none;
+        letter-spacing:.02em;
+      ">Reply with your thoughts →</a>
+      <p style="font-size:11px;color:#9e9b96;margin-top:10px">
+        hello@helloglowe.com &nbsp;·&nbsp; We read every reply
+      </p>
+    </div>
+
+    <!-- Footer note -->
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.65">
+      Glowe Revenue Assessment · helloglowe.com/assessment · Results are directional and based on your self-reported inputs.<br>
+      Individual results vary. This assessment is not a guarantee of outcomes.
+    </p>
+
+  </div><!-- /results -->
+
+</div><!-- /a-shell -->
+
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════ */
+const TOTAL = 15;
+let current = 1;
+const resp = {};
+
+const SECTIONS = {
+  1:'Your Business', 2:'Your Business', 3:'Your Business',
+  4:'Your Business', 5:'Your Business',
+  6:'Review Health', 7:'Review Health', 8:'Review Health',
+  9:'Follow-Up & Retention', 10:'Follow-Up & Retention', 11:'Follow-Up & Retention',
+  12:'New Customer Nurture', 13:'New Customer Nurture',
+  14:'Lead Capture Speed', 15:'Lead Capture Speed'
+};
+
+/* ══════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════ */
+function updateProgress() {
+  const pct = Math.round(((current - 1) / TOTAL) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-label-text').textContent = 'Question ' + current + ' of ' + TOTAL;
+  document.getElementById('prog-section').textContent = 'Section: ' + SECTIONS[current];
+  document.getElementById('btn-back').style.display = current > 1 ? '' : 'none';
+}
+
+function showQ(n) {
+  for (let i = 1; i <= TOTAL; i++) {
+    const el = document.getElementById('q' + i);
+    if (el) el.style.display = i === n ? '' : 'none';
+  }
+  current = n;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validate(n) {
+  const err = document.getElementById('e' + n);
+  // Text input questions
+  if (n === 6) {
+    const v = document.getElementById('i6').value.trim();
+    if (v === '' || isNaN(parseInt(v))) {
+      err && err.classList.add('show');
+      return false;
+    }
+    resp[6] = parseInt(v);
+    err && err.classList.remove('show');
+    return true;
+  }
+  // Choice questions
+  const sel = document.querySelector('#c' + n + ' .cbtn.selected');
+  if (!sel) { err && err.classList.add('show'); return false; }
+  err && err.classList.remove('show');
+  resp[n] = { value: sel.dataset.v, score: parseInt(sel.dataset.score || 0),
+               display: sel.dataset.display || sel.dataset.v };
+  return true;
+}
+
+function goNext() {
+  if (!validate(current)) return;
+  if (current < TOTAL) {
+    showQ(current + 1);
+  } else {
+    // Show email gate
+    document.getElementById('assessment-questions').style.display = 'none';
+    document.getElementById('prog-wrap').style.display = 'none';
+    document.getElementById('email-gate').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function goBack() {
+  if (current > 1) showQ(current - 1);
+}
+
+// Choice button wiring
+document.querySelectorAll('.choices').forEach(group => {
+  group.querySelectorAll('.cbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.cbtn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
+});
+
+// Enter key on number input
+document.getElementById('i6').addEventListener('keydown', e => {
+  if (e.key === 'Enter') goNext();
+});
+
+/* ══════════════════════════════════════════════════
+   EMAIL GATE
+══════════════════════════════════════════════════ */
+function submitGate() {
+  const email = document.getElementById('gate-email').value.trim();
+  const err = document.getElementById('gate-err');
+  if (!/\S+@\S+\.\S+/.test(email)) { err.classList.add('show'); return; }
+  err.classList.remove('show');
+  resp.email = email;
+
+  // ── KIT subscriber sync ───────────────────────────────────
+  // VA: Replace YOUR_KIT_FORM_ID with your Kit form ID
+  //     (Kit dashboard → Grow → Landing Pages & Forms → your form → Settings → ID)
+  // VA: Replace YOUR_KIT_API_KEY with your Kit PUBLIC API key
+  //     (Kit dashboard → Settings → Developer → API keys → Public API key)
+  const KIT_FORM_ID = 'YOUR_KIT_FORM_ID';
+  const KIT_API_KEY = 'YOUR_KIT_API_KEY';
+  fetch('https://api.convertkit.com/v3/forms/' + KIT_FORM_ID + '/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: KIT_API_KEY,
+      email: email,
+      tags: ['revenue-assessment', 'glowe-waitlist'],
+      fields: { source: 'revenue-assessment' }
+    })
+  }).catch(function() {}); // silent fail — never block user experience
+  // ── GHL webhook (Ezekiel wires after build) ───────────────
+  const payload = buildPayload();
+  console.log('[Glowe Assessment] Submitted:', payload);
+  // fetch('YOUR_GHL_WEBHOOK_URL', { method:'POST',
+  //   headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+
+  document.getElementById('email-gate').style.display = 'none';
+  showResults();
+}
+
+/* ══════════════════════════════════════════════════
+   SCORING
+══════════════════════════════════════════════════ */
+function calcScores() {
+  const reviewScore =
+    (resp[7]?.score || 0) * 0.4 +
+    (resp[8]?.score || 0) * 0.6;
+
+  const missedCallScore = resp[9]?.score || 0;
+
+  const retentionScore =
+    (resp[10]?.score || 0) * 0.5 +
+    (resp[11]?.score || 0) * 0.5;
+
+  const nurtureScore =
+    (resp[12]?.score || 0) * 0.5 +
+    (resp[13]?.score || 0) * 0.5;
+
+  const leadScore =
+    (resp[14]?.score || 0) * 0.5 +
+    (resp[15]?.score || 0) * 0.5;
+
+  const cats = [
+    { key:'review',    label:'Review Generation',     score: Math.round(reviewScore),     max:25, color:'#00CA72' },
+    { key:'missed',    label:'Missed Call Recovery',   score: resp[9]?.score || 0,          max:20, color:'#9226A7' },
+    { key:'retention', label:'Customer Retention',     score: Math.round(retentionScore),  max:25, color:'#F16122' },
+    { key:'nurture',   label:'New Customer Nurture',   score: Math.round(nurtureScore),    max:15, color:'#1B2A4A' },
+    { key:'lead',      label:'Lead Capture Speed',     score: Math.round(leadScore),       max:15, color:'#6b6a66' },
+  ];
+
+  const total = cats.reduce((s, c) => s + c.score, 0);
+  return { cats, total };
+}
+
+function getScoreLabel(total) {
+  if (total >= 80) return { label:'Strong Foundation', sub:'Your core systems are mostly in place. The opportunities below are refinements that can meaningfully improve your results.' };
+  if (total >= 60) return { label:'Growing Business', sub:'You have solid instincts but clear gaps in your follow-up and retention systems. The actions below will move the needle quickly.' };
+  if (total >= 40) return { label:'Revenue Leaking', sub:'Multiple systems are either missing or inconsistent. Your business is losing recoverable revenue every week. The actions below are high-priority.' };
+  return { label:'Significant Opportunity', sub:'The foundational systems that protect and grow customer relationships aren\'t yet in place. The good news: each action below is achievable and the impact is immediate.' };
+}
+
+function getTopGap(cats) {
+  return cats.slice().sort((a, b) => (a.score/a.max) - (b.score/b.max))[0];
+}
+
+/* ══════════════════════════════════════════════════
+   PERSONALIZED CONTENT
+══════════════════════════════════════════════════ */
+const GAP_INSIGHTS = {
+  review: {
+    title: 'Review Generation — Your reputation isn\'t reflecting your work',
+    body: (r) => {
+      const reviewCount = resp[6] || 0;
+      const method = resp[8]?.value;
+      let s = '';
+      if (reviewCount < 20) s += '<strong>Your business has ' + reviewCount + ' Google reviews.</strong> For a local service business, this is a significant gap. Most customers check Google reviews before booking — a low count creates hesitation before they\'ve even walked in the door. ';
+      else s += '<strong>Your business has ' + reviewCount + ' Google reviews</strong>, which is a solid starting point. But the consistency of how you\'re generating them matters as much as the volume. ';
+      if (method === 'never') s += 'You indicated you don\'t currently ask for reviews. This is the most common and most correctable review gap. Reviews don\'t accumulate on their own — they require a consistent ask at the right moment.';
+      else if (method === 'sometimes') s += 'You ask for reviews sometimes, but not consistently. Inconsistent asking means inconsistent results. The businesses with the strongest local reputation systems have made review requests automatic, not optional.';
+      else s += 'You have a process, but there\'s room to make it more consistent and systematic.';
+      return s;
+    }
+  },
+  missed: {
+    title: 'Missed Call Recovery — Every unanswered call is a customer who just called your competitor',
+    body: () => {
+      const method = resp[9]?.value;
+      let s = '';
+      if (method === 'nothing') s = '<strong>When you miss a call, nothing happens.</strong> That caller either waits to hear back — or books with someone else. Research on lead response consistently shows that businesses responding within 5 minutes convert at dramatically higher rates than those responding in an hour or more. A missed call without a text-back is an unforced error.';
+      else if (method === 'sometimes') s = '<strong>You try to call back, but it doesn\'t always happen.</strong> This is the most common scenario — and the most frustrating. The intention is there, but the execution is inconsistent. Inconsistency is where revenue leaks.';
+      else s = '<strong>You call back when available</strong> — which means the window of highest engagement has often already closed. The best time to respond to a missed call is within the first few minutes, not the next available moment.';
+      return s;
+    }
+  },
+  retention: {
+    title: 'Customer Retention — Clients are disappearing without anyone noticing',
+    body: () => {
+      const followup = resp[10]?.value;
+      const reactivate = resp[11]?.value;
+      let s = '';
+      if (followup === 'never' && reactivate === 'never') {
+        s = '<strong>Your data tells a clear story: clients visit, and then hear nothing.</strong> No follow-up after their appointment. No outreach if they go 60 days without returning. In a service business where repeat visits are the revenue model, this gap compounds quietly — and by the time you notice, the client has moved on.';
+      } else if (reactivate === 'never') {
+        s = '<strong>You follow up after appointments, but lapsed clients go uncontacted.</strong> This is a significant missed opportunity. A customer who visited regularly and stopped coming didn\'t necessarily leave because of something you did wrong. They may just need to be reminded that you exist.';
+      } else {
+        s = '<strong>Your retention systems are inconsistent.</strong> Manual outreach is better than nothing, but it can\'t scale. The businesses that maintain the highest repeat visit rates have systems that contact every lapsed client, on schedule, in their voice — without depending on someone remembering to do it.';
+      }
+      return s;
+    }
+  },
+  nurture: {
+    title: 'New Customer Nurture — First-time clients aren\'t becoming returning clients',
+    body: () => {
+      const firstVisit = resp[12]?.value;
+      const rebook = resp[13]?.value;
+      let s = '';
+      if (firstVisit === 'nothing') {
+        s = '<strong>Nothing happens after a first visit.</strong> The window immediately after a first appointment is the highest-leverage moment in the client relationship. The experience is fresh. The intent to return is highest. This is exactly when a follow-up, a thank-you, and a gentle rebook reminder make the most impact. That window is currently empty.';
+      } else {
+        s = '<strong>Your first-visit follow-up has gaps.</strong> ';
+        if (rebook === 'hope' || rebook === 'nothing') s += 'Specifically: you don\'t have a consistent process to bring first-time clients back for a second visit. In service businesses, the second visit is where loyalty starts. Without a system to encourage it, you\'re relying on the client to remember — and most won\'t.';
+        else s += 'The systems around the first visit could be more consistent and automated. Every new client represents a relationship that\'s still being formed — how you treat the first 30 days after their visit largely determines whether they become a loyal regular.';
+      }
+      return s;
+    }
+  },
+  lead: {
+    title: 'Lead Capture Speed — Slow responses are costing you bookings',
+    body: () => {
+      const speed = resp[14]?.value;
+      const capture = resp[15]?.value;
+      let s = '';
+      if (speed === 'inconsistent' || speed === 'day_or_more') {
+        s = '<strong>Your lead response time is a conversion problem.</strong> When someone reaches out to book and doesn\'t hear back quickly, they move on — not because they didn\'t want your service, but because another business was faster. Speed of response is one of the most reliable predictors of booking conversion.';
+      } else {
+        s = '<strong>Your response time is reasonable, but lead capture has gaps.</strong> ';
+      }
+      if (capture === 'no') s += ' Additionally, you have no system to follow up with leads who reach out but don\'t book immediately. Every inquiry that goes cold is a potential client you paid attention to acquire and then let walk away.';
+      return s;
+    }
+  }
+};
+
+const ACTIONS = {
+  review: [
+    { title: 'Create your Google review link', body: 'Go to your Google Business Profile and copy your direct review URL. You\'ll use this link in every review request message. If you don\'t have a GBP yet, setting one up is the first priority — it\'s free and takes 30 minutes.' },
+    { title: 'Text your last 10 clients personally this week', body: 'Don\'t wait for a system. Right now, this week, send a personal message to the last 10 clients you served. "Hi [name] — I wanted to check in after your recent visit and ask if you\'d be willing to leave us a quick Google review. Here\'s the link: [link]." Track how many respond.' },
+  ],
+  missed: [
+    { title: 'Set up a missed call text-back response today', body: 'Write the message your business sends when a call goes unanswered: "Hi, this is [Business Name] — sorry we missed your call! We\'d love to help. Reply here or book at [booking link]." Set this up manually through your phone system or messaging app. Every missed call without a response is a conversion waiting to happen.' },
+  ],
+  retention: [
+    { title: 'Pull your lapsed client list this week', body: 'Export your client list and identify everyone who hasn\'t visited in 60 or more days. Send them a personal text — not a promotion, just a check-in: "Hi [name], it\'s been a while and we\'ve been thinking about you. Hope everything\'s great — we\'d love to see you back." Track responses.' },
+    { title: 'Set a personal rule: every client gets a follow-up within 48 hours', body: 'After every appointment, send a quick thank-you message within 48 hours. It doesn\'t have to be long. "Hi [name], thank you so much for coming in — we loved having you. See you next time!" This single habit improves second-visit rates measurably.' },
+  ],
+  nurture: [
+    { title: 'Create a first-visit follow-up message and send it to every new client', body: 'Write one message you\'ll send to every client after their first visit: a genuine thank-you, one care tip for their service, and a soft rebook invitation. Send it within 24 hours of their appointment. Do this manually for 30 days, then evaluate whether to automate it.' },
+    { title: 'Create a 3-week rebook reminder', body: 'Three weeks after a first visit, send a simple reminder: "Hi [name], it\'s almost time for your next [service]! Here\'s your booking link: [link]." One message, one link. This alone meaningfully improves second-visit rates.' },
+  ],
+  lead: [
+    { title: 'Set a personal response time commitment', body: 'Every inquiry gets a response within one hour during business hours. Set a phone alarm if needed. This isn\'t about being pushy — it\'s about being present when interest is highest. Leads contacted within an hour are dramatically more likely to book than those contacted a day later.' },
+    { title: 'Create a follow-up message for leads who don\'t book immediately', body: 'When someone reaches out and doesn\'t book in the same conversation, follow up 24 hours later: "Hi [name], just following up from [Business Name] — is there anything we can answer for you? We\'d love to help." One message. Most businesses never send it.' },
+  ]
+};
+
+const UNIVERSAL_ACTIONS = [
+  { title: 'Audit where you\'re losing clients', body: 'Spend 30 minutes this week tracking your client numbers: how many new clients came in last month? How many returned vs. first-time? How many lapsed? Most business owners don\'t know these numbers — and not knowing them is how the leaks stay invisible.' },
+];
+
+function generateActions(cats) {
+  const sorted = cats.slice().sort((a,b) => (a.score/a.max)-(b.score/b.max));
+  const actions = [];
+  sorted.forEach(cat => {
+    if (actions.length >= 5 && ACTIONS[cat.key]) return;
+    (ACTIONS[cat.key] || []).forEach(a => { if (actions.length < 5) actions.push(a); });
+  });
+  while (actions.length < 5) actions.push(UNIVERSAL_ACTIONS[0]);
+  return actions.slice(0, 5);
+}
+
+/* ══════════════════════════════════════════════════
+   BUSINESS CONTEXT
+══════════════════════════════════════════════════ */
+function getBizContext() {
+  const bizType = resp[1]?.value || 'local service business';
+  const clients = resp[2]?.value;
+  const visits = resp[4]?.value;
+  const visitVal = resp[3]?.value;
+
+  const visitValMidpoints = { under75:50, '75to149':110, '150to299':220, '300plus':400 };
+  const visitCounts = { under20:10, '20to49':35, '50to149':100, '150plus':200 };
+  const val = visitValMidpoints[visitVal] || 120;
+  const cnt = visitCounts[visits] || 50;
+  const monthlyRev = val * cnt;
+
+  // Missed call opportunity
+  const missedCallsEst = Math.round(cnt * 0.08);
+  const missedCallRev = Math.round(missedCallsEst * val * 0.3);
+
+  // Lapsed opportunity
+  const clientCountMid = { under50:25, '50to149':90, '150to499':300, '500plus':600 };
+  const clientCount = clientCountMid[clients] || 100;
+  const lapsedEst = Math.round(clientCount * 0.25);
+  const lapsedRev = Math.round(lapsedEst * val * 0.15);
+
+  const totalOpp = missedCallRev + lapsedRev;
+
+  return {
+    title: 'Based on your inputs — here\'s what the gaps may be costing you',
+    body: `Your ${bizType.toLowerCase()} completes approximately <strong>${cnt} appointments per month</strong> at an average value of around <strong>$${val}</strong>. That puts your estimated monthly revenue at approximately <strong>$${monthlyRev.toLocaleString()}</strong>.<br><br>
+    Based on industry patterns for businesses your size:<br><br>
+    <strong>Missed call opportunity:</strong> An estimated ${missedCallsEst} missed calls per month could represent roughly <strong>$${missedCallRev.toLocaleString()}/month</strong> in recoverable revenue — assuming a 30% text-back conversion rate.<br><br>
+    <strong>Lapsed client opportunity:</strong> With approximately ${lapsedEst} clients who haven't visited in 60+ days, a 15% reactivation rate represents roughly <strong>$${lapsedRev.toLocaleString()}/month</strong> in potential returning revenue.<br><br>
+    <strong>Combined monthly opportunity: ~$${totalOpp.toLocaleString()}</strong><br><br>
+    These are directional estimates based on your inputs — not guarantees. But they represent the order of magnitude of what systematic follow-up can recover for a business like yours.`
+  };
+}
+
+/* ══════════════════════════════════════════════════
+   SHOW RESULTS
+══════════════════════════════════════════════════ */
+function showResults() {
+  document.getElementById('results').style.display = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const { cats, total } = calcScores();
+  const { label, sub } = getScoreLabel(total);
+  const topGap = getTopGap(cats);
+  const actions = generateActions(cats);
+  const bizCtx = getBizContext();
+
+  // Animate ring
+  setTimeout(() => {
+    const circumference = 2 * Math.PI * 70;
+    const offset = circumference - (total / 100) * circumference;
+    const ring = document.getElementById('ring-fill');
+    const scoreColor = total >= 80 ? '#00CA72' : total >= 60 ? '#009f5a' : total >= 40 ? '#F16122' : '#C0392B';
+    ring.style.stroke = scoreColor;
+    ring.style.strokeDashoffset = offset;
+
+    // Animate number
+    let n = 0;
+    const step = Math.ceil(total / 40);
+    const interval = setInterval(() => {
+      n = Math.min(n + step, total);
+      document.getElementById('ring-num').textContent = n;
+      if (n >= total) clearInterval(interval);
+    }, 30);
+  }, 200);
+
+  document.getElementById('score-label').textContent = label;
+  document.getElementById('score-sublabel').textContent = sub;
+
+  // Categories
+  const catGrid = document.getElementById('cat-grid');
+  catGrid.innerHTML = cats.map(c => {
+    const pct = Math.round((c.score / c.max) * 100);
+    return `<div class="cat-card">
+      <div class="cat-label">${c.label}</div>
+      <div class="cat-score-row">
+        <div class="cat-score">${c.score}</div>
+        <div class="cat-max">/ ${c.max}</div>
+        <div class="cat-bar-wrap">
+          <div class="cat-bar" style="width:${pct}%;background:${c.color}"></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Trigger bar animations
+  setTimeout(() => {
+    document.querySelectorAll('.cat-bar').forEach(b => {
+      const w = b.style.width;
+      b.style.width = '0';
+      setTimeout(() => { b.style.width = w; }, 50);
+    });
+  }, 100);
+
+  // Top gap
+  const gapInsight = GAP_INSIGHTS[topGap.key];
+  document.getElementById('top-gap-title').textContent = gapInsight.title;
+  document.getElementById('top-gap-body').innerHTML =
+    typeof gapInsight.body === 'function' ? gapInsight.body() : gapInsight.body;
+
+  // Business context
+  document.getElementById('biz-title').textContent = bizCtx.title;
+  document.getElementById('biz-body').innerHTML = bizCtx.body;
+
+  // Actions
+  const actionsList = document.getElementById('actions-list');
+  actionsList.innerHTML = actions.map((a, i) => `
+    <div class="action-item">
+      <div class="action-num">${i + 1}</div>
+      <div class="action-text">
+        <strong>${a.title}</strong>
+        ${a.body}
+      </div>
+    </div>`).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   PAYLOAD FOR GHL
+══════════════════════════════════════════════════ */
+function buildPayload() {
+  const { cats, total } = calcScores();
+  const topGap = getTopGap(cats);
+  return {
+    submitted_at: new Date().toISOString(),
+    email: resp.email,
+    business_type: resp[1]?.value || '',
+    active_clients: resp[2]?.value || '',
+    avg_visit_value: resp[3]?.value || '',
+    monthly_appointments: resp[4]?.value || '',
+    booking_platform: resp[5]?.value || '',
+    google_reviews: resp[6] || 0,
+    google_rating: resp[7]?.value || '',
+    review_process: resp[8]?.value || '',
+    missed_call_process: resp[9]?.value || '',
+    followup_process: resp[10]?.value || '',
+    reactivation_process: resp[11]?.value || '',
+    first_visit_process: resp[12]?.value || '',
+    rebook_process: resp[13]?.value || '',
+    lead_response_speed: resp[14]?.value || '',
+    lead_capture: resp[15]?.value || '',
+    total_score: total,
+    score_label: getScoreLabel(total).label,
+    top_gap: topGap.key,
+    top_gap_label: topGap.label,
+    cat_scores: cats.reduce((o, c) => { o[c.key] = c.score; return o; }, {}),
+    source: 'helloglowe.com / Revenue Assessment'
+  };
+}
+
+/* ══════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════ */
+showQ(1);
+</script>
+</body>
+</html>
