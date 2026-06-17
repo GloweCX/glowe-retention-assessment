@@ -192,6 +192,358 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   .gate-input{border-radius:var(--r)}
   .a-nav .a-tagline{display:none}
 }
+
+/* ── ACTIONS BRIDGE ── */
+.actions-bridge {
+  background: var(--ink);
+  border-radius: var(--rx);
+  padding: 28px 36px 20px;
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.actions-bridge-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 8px;
+}
+.actions-bridge-title {
+  font-size: 19px; font-weight: 700; color: var(--cream);
+  line-height: 1.4; margin-bottom: 10px;
+}
+.actions-bridge-body {
+  font-size: 14px; color: rgba(249,248,245,.55); line-height: 1.75;
+}
+.actions-bridge-body strong { color: rgba(249,248,245,.85); }
+
+/* ── DOWNLOAD REPORT BUTTON ── */
+.download-bar {
+  background: rgba(0,202,114,.08);
+  border: 1.5px dashed rgba(0,202,114,.35);
+  border-radius: var(--r);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.download-bar-text {
+  font-size: 13.5px; color: var(--ink); line-height: 1.5;
+}
+.download-bar-text strong { display: block; font-size: 14.5px; margin-bottom: 2px; }
+.btn-download {
+  background: var(--ink); color: var(--cream);
+  font-family: var(--font); font-size: 13px; font-weight: 700;
+  padding: 11px 22px; border-radius: 100px;
+  border: none; cursor: pointer; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+  text-decoration: none; flex-shrink: 0;
+}
+.btn-download:hover { background: #1a1a1a; }
+
+/* ── PLAN RECOMMENDATION SECTION ── */
+.plan-rec-section {
+  margin-bottom: 16px;
+}
+.plan-rec-intro {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--rx);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 28px 32px 24px;
+  border-bottom: none;
+}
+.plan-rec-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--green-d); margin-bottom: 10px;
+}
+.plan-rec-headline {
+  font-size: 22px; font-weight: 700; color: var(--ink);
+  line-height: 1.3; margin-bottom: 10px;
+}
+.plan-rec-sub {
+  font-size: 14px; color: var(--muted); line-height: 1.75;
+}
+.plan-rec-sub strong { color: var(--ink); }
+
+/* ── PLAN CARDS ── */
+.plan-cards-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--rx) var(--rx);
+  overflow: hidden;
+}
+.plan-card {
+  padding: 22px 20px;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  position: relative;
+  transition: all .2s;
+}
+.plan-card:last-child { border-right: none; }
+.plan-card.recommended {
+  background: var(--ink);
+  transform: scaleY(1);
+}
+.plan-card-badge {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 4px 10px;
+  border-radius: 100px; margin-bottom: 12px;
+}
+.plan-card.recommended .plan-card-badge {
+  background: var(--green); color: var(--ink);
+}
+.plan-card:not(.recommended) .plan-card-badge {
+  background: var(--g1); color: var(--muted);
+  font-size: 8px;
+}
+.plan-card-name {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.plan-card.recommended .plan-card-name { color: var(--green); }
+.plan-card:not(.recommended) .plan-card-name { color: var(--muted); }
+.plan-card-price {
+  font-size: 28px; font-weight: 800; letter-spacing: -1px;
+  line-height: 1; margin-bottom: 4px;
+}
+.plan-card.recommended .plan-card-price { color: var(--cream); }
+.plan-card:not(.recommended) .plan-card-price { color: var(--ink); opacity: .5; }
+.plan-card-per { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.plan-card.recommended .plan-card-per { color: rgba(249,248,245,.45); }
+.plan-card-rationale {
+  font-size: 12px; line-height: 1.6;
+}
+.plan-card.recommended .plan-card-rationale { color: rgba(249,248,245,.6); }
+.plan-card:not(.recommended) .plan-card-rationale { color: var(--muted); opacity: .7; font-size: 11.5px; }
+.plan-card-features {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: none;
+}
+.plan-card.recommended .plan-card-features { display: block; }
+.plan-feat {
+  font-size: 12px; color: rgba(249,248,245,.55);
+  padding: 3px 0; display: flex; gap: 7px; align-items: flex-start;
+}
+.plan-feat::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+/* ── RESERVE FORM ── */
+.reserve-section {
+  background: linear-gradient(135deg, #00CA72 0%, #009f5a 100%);
+  border-radius: var(--rx);
+  padding: 36px 36px 32px;
+  margin-bottom: 16px;
+}
+.reserve-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(38,38,38,.6); margin-bottom: 10px;
+}
+.reserve-headline {
+  font-size: 22px; font-weight: 700; color: var(--ink);
+  line-height: 1.3; margin-bottom: 8px;
+}
+.reserve-sub {
+  font-size: 14px; color: rgba(38,38,38,.65); line-height: 1.7;
+  margin-bottom: 20px; max-width: 520px;
+}
+.reserve-sub strong { color: var(--ink); }
+.reserve-form {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;
+}
+.reserve-input {
+  flex: 1; min-width: 200px;
+  padding: 13px 16px;
+  border: 2px solid rgba(38,38,38,.15);
+  border-radius: var(--r);
+  font-family: var(--font); font-size: 14px;
+  background: rgba(255,255,255,.9);
+  color: var(--ink);
+  outline: none;
+}
+.reserve-input:focus { border-color: var(--ink); background: var(--white); }
+.btn-reserve {
+  background: var(--ink); color: var(--cream);
+  font-family: var(--font); font-size: 14px; font-weight: 700;
+  padding: 13px 28px; border-radius: var(--r);
+  border: none; cursor: pointer; white-space: nowrap;
+}
+.btn-reserve:hover { background: #1a1a1a; }
+.reserve-disclaimers {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+.reserve-disc-item {
+  font-size: 12px; color: rgba(38,38,38,.6);
+  display: flex; align-items: center; gap: 5px;
+}
+.reserve-disc-item::before { content: '✓'; color: var(--ink); font-weight: 700; }
+.reserve-err {
+  font-size: 13px; color: var(--ink);
+  background: rgba(255,255,255,.5); border-radius: 6px;
+  padding: 6px 12px; margin-top: 6px;
+  display: none;
+}
+.reserve-err.show { display: block; }
+
+/* ── CONFIRMATION ── */
+.confirmation-section {
+  display: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--rx);
+  padding: 40px 36px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.conf-icon { font-size: 48px; margin-bottom: 16px; }
+.conf-headline {
+  font-size: 24px; font-weight: 700; color: var(--ink);
+  margin-bottom: 10px; line-height: 1.3;
+}
+.conf-sub {
+  font-size: 14.5px; color: var(--muted); line-height: 1.75;
+  max-width: 500px; margin: 0 auto 24px;
+}
+.conf-sub strong { color: var(--ink); }
+.conf-referral {
+  background: var(--g1); border-radius: var(--r);
+  padding: 16px 20px; margin-bottom: 24px;
+  font-size: 13.5px; color: var(--muted); line-height: 1.65;
+  text-align: left;
+}
+.conf-referral strong { color: var(--ink); display: block; margin-bottom: 4px; }
+
+/* ── PREP GUIDE ── */
+.prep-guide {
+  background: var(--ink);
+  border-radius: var(--rx);
+  padding: 32px 36px;
+  margin-top: 20px;
+  display: none;
+  text-align: left;
+}
+.prep-guide-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 10px;
+}
+.prep-guide-title {
+  font-size: 18px; font-weight: 700; color: var(--cream);
+  margin-bottom: 6px;
+}
+.prep-guide-sub {
+  font-size: 13.5px; color: rgba(249,248,245,.5);
+  line-height: 1.65; margin-bottom: 24px;
+}
+.prep-cats { display: flex; flex-direction: column; gap: 16px; }
+.prep-cat-title {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 8px;
+}
+.prep-items { list-style: none; }
+.prep-item {
+  font-size: 13px; color: rgba(249,248,245,.6);
+  padding: 5px 0; display: flex; gap: 10px; align-items: flex-start;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  line-height: 1.55;
+}
+.prep-item:last-child { border-bottom: none; }
+.prep-item::before { content: '→'; color: var(--green); flex-shrink: 0; font-weight: 700; }
+.prep-item strong { color: var(--cream); }
+.btn-download-prep {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--green); color: var(--ink);
+  font-family: var(--font); font-size: 13px; font-weight: 700;
+  padding: 11px 22px; border-radius: 100px;
+  border: none; cursor: pointer; margin-top: 20px;
+  text-decoration: none;
+}
+.btn-download-prep:hover { background: #00b565; }
+
+/* ── NOT READY PATH ── */
+.not-ready-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--rx);
+  padding: 32px 36px;
+  margin-bottom: 16px;
+  display: none;
+}
+.not-ready-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--green-d); margin-bottom: 10px;
+}
+.not-ready-headline {
+  font-size: 21px; font-weight: 700; color: var(--ink);
+  line-height: 1.3; margin-bottom: 10px;
+}
+.not-ready-sub {
+  font-size: 14px; color: var(--muted); line-height: 1.75;
+  margin-bottom: 24px;
+}
+.not-ready-sub strong { color: var(--ink); }
+.gap-steps { display: flex; flex-direction: column; gap: 16px; }
+.gap-step {
+  padding: 16px 20px;
+  border-radius: var(--r);
+  border-left: 4px solid var(--green);
+  background: var(--g1);
+}
+.gap-step-title {
+  font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px;
+}
+.gap-step-body {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+}
+.gap-step-body a { color: var(--green-d); font-weight: 600; }
+.not-ready-reserve {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.not-ready-reserve p {
+  font-size: 14px; color: var(--muted); margin-bottom: 14px; line-height: 1.7;
+}
+.not-ready-reserve strong { color: var(--ink); }
+
+/* ── PRINT / PDF ── */
+@media print {
+  .a-nav, .prog-wrap, #assessment-questions, #email-gate,
+  .reserve-section, .reserve-form, .confirmation-section,
+  .download-bar, .btn-download, .btn-download-prep,
+  .not-ready-reserve, .plan-rec-section, .not-ready-section > .not-ready-reserve,
+  [style*="One quick thing"], .report-footer-note { display: none !important; }
+  .results-print-header {
+    display: block !important;
+    text-align: center; padding: 24px 0 12px;
+    font-size: 11px; color: #666; letter-spacing: .1em; text-transform: uppercase;
+  }
+  body { background: white; font-size: 13px; }
+  .a-shell { padding: 0 20px; }
+  .score-wrap, .cat-grid, .report-section, .actions-card, .glowe-cta { break-inside: avoid; }
+  .actions-card { background: #262626 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+.results-print-header { display: none; }
+
+@media (max-width: 580px) {
+  .plan-cards-wrap { grid-template-columns: 1fr; }
+  .plan-card { border-right: none; border-bottom: 1px solid var(--border); }
+  .plan-card:last-child { border-bottom: none; }
+  .download-bar { flex-direction: column; align-items: flex-start; }
+  .reserve-form { flex-direction: column; }
+  .reserve-input, .btn-reserve { width: 100%; }
+  .plan-rec-intro { padding: 22px 20px; }
+  .reserve-section { padding: 28px 20px; }
+  .prep-guide { padding: 24px 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -465,6 +817,9 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   <!-- RESULTS -->
   <div id="results" style="display:none">
 
+    <!-- Print header (hidden on screen) -->
+    <div class="results-print-header">Glowe Revenue Assessment · helloglowe.com/assessment · Confidential</div>
+
     <!-- Score ring -->
     <div class="score-wrap">
       <div class="ring-container">
@@ -491,63 +846,123 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="rs-body" id="top-gap-body"></div>
     </div>
 
-    <!-- Business context -->
+    <!-- Business context / revenue opportunity -->
     <div class="report-section" id="business-context-section">
       <div class="rs-label">What This Means For Your Business</div>
       <div class="rs-title" id="biz-title"></div>
       <div class="rs-body" id="biz-body"></div>
     </div>
 
-    <!-- Five actions -->
-    <div class="actions-card">
-      <div class="actions-title">Your Five Next Actions</div>
+    <!-- Download report CTA — early, before actions -->
+    <div class="download-bar" id="download-bar">
+      <div class="download-bar-text">
+        <strong>Save your report before you close this page.</strong>
+        Your score, gap analysis, revenue opportunity estimate, and five actions — as a PDF you can reference and share.
+      </div>
+      <button class="btn-download" onclick="downloadReport()">⬇ Download My Report</button>
+    </div>
+
+    <!-- Actions bridge — connects actions to Glowe -->
+    <div class="actions-bridge">
+      <div class="actions-bridge-label">Your Five Next Actions</div>
+      <div class="actions-bridge-title">Here's exactly what to do. And what it actually takes to do it consistently.</div>
+      <div class="actions-bridge-body">These five actions will move the needle. Every one of them is achievable starting this week — no software required. But here's the honest truth: <strong>each one has to happen for every client, after every appointment, without exception, week after week.</strong> Customer experience isn't a campaign. It's a commitment. The businesses that win at retention aren't doing anything magical — they've just made the follow-up non-negotiable. That's the standard. Keep it in mind as you read.</div>
+    </div>
+
+    <!-- Five actions (connected to bridge above) -->
+    <div class="actions-card" style="border-radius:0 0 var(--rx) var(--rx);margin-top:0">
       <div id="actions-list"></div>
     </div>
 
-    <!-- Glowe CTA -->
-    <div class="glowe-cta">
-      <h3>These five actions work. The hard part is doing them consistently.</h3>
-      <p>Every action above can be automated — running for every client, every day, without you lifting a finger. That's what Glowe does. Take two minutes to see if your business qualifies.</p>
-      <a id="founding-cta-btn" href="https://waitlist.helloglowe.com" class="btn btn-lg">See If Your Business Qualifies for Glowe →</a>
+    <!-- Glowe plan recommendation section -->
+    <div class="plan-rec-section" id="plan-rec-section">
+
+      <div class="plan-rec-intro">
+        <div class="plan-rec-eyebrow">Based on your assessment</div>
+        <div class="plan-rec-headline" id="plan-rec-headline">You qualify for Glowe.</div>
+        <div class="plan-rec-sub" id="plan-rec-sub"></div>
+      </div>
+
+      <div class="plan-cards-wrap" id="plan-cards-wrap">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+
+    <!-- Not-ready path -->
+    <div class="not-ready-section" id="not-ready-section">
+      <div class="not-ready-eyebrow">You're closer than you think</div>
+      <div class="not-ready-headline">Glowe is exactly what you're building toward. Here's how to get there.</div>
+      <div class="not-ready-sub">
+        The businesses Glowe is built for look just like yours — you just have a few things to put in place first. <strong>This isn't a rejection. It's a runway.</strong> Complete the steps below and you'll be ready to enroll when Glowe opens.
+      </div>
+      <div class="gap-steps" id="gap-steps-list">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="not-ready-reserve">
+        <p>Once you've got these in place, <strong>your spot is waiting.</strong> Reserve it now and we'll reach out personally when Glowe opens for enrollment.</p>
+      </div>
+    </div>
+
+    <!-- Reserve your spot form (shown for both qualified + not-ready) -->
+    <div class="reserve-section" id="reserve-section">
+      <div class="reserve-eyebrow">Summer Growth Initiative — Founding Client Cohort</div>
+      <div class="reserve-headline" id="reserve-headline">Reserve your spot. We'll reach out when Glowe opens.</div>
+      <div class="reserve-sub">
+        <strong>No payment today.</strong> You're simply being added to the founding client list. When Glowe opens for onboarding, you'll hear from us personally — and your <strong>setup fee is fully waived</strong> as a Summer Growth Initiative enrollee. Subscription billing doesn't begin until Month 3, after your system is live and confirmed working.
+      </div>
+      <div class="reserve-form">
+        <input type="tel" class="reserve-input" id="reserve-phone" placeholder="Best number to reach you (cell preferred)" autocomplete="tel"/>
+        <button class="btn-reserve" onclick="submitReservation()">Reserve My Spot →</button>
+      </div>
+      <p style="font-size:12px;color:rgba(38,38,38,.6);margin:6px 0 10px;line-height:1.6">We use this to reach out personally when Glowe opens for enrollment — not for marketing, not for spam. Just us, when it's time.</p>
+      <div class="reserve-err" id="reserve-err">Please enter a valid phone number.</div>
+      <div class="reserve-disclaimers">
+        <div class="reserve-disc-item">No payment today</div>
+        <div class="reserve-disc-item">Setup fee waived with SGI</div>
+        <div class="reserve-disc-item">Billing starts Month 3</div>
+        <div class="reserve-disc-item">We'll reach out personally</div>
+      </div>
+    </div>
+
+    <!-- Confirmation (shown after reservation) -->
+    <div class="confirmation-section" id="confirmation-section">
+      <div class="conf-icon">✅</div>
+      <div class="conf-headline" id="conf-headline">You're on the list.</div>
+      <div class="conf-sub" id="conf-sub">
+        Glowe is targeting an <strong>early fall 2026</strong> launch. When enrollment opens, we'll reach out via <strong>text and email</strong> — no pressure, no commitment. You haven't signed up for anything yet. You're just on the list, and your spot is held.
+        <br><br>
+        When the time comes and you're ready to move forward, your setup fee is fully waived under the Summer Growth Initiative. Subscription billing doesn't start until Month 3 — after your system is live, tested, and confirmed working.
+      </div>
+      <div class="conf-referral">
+        <strong>Know another salon, spa, studio, or wellness business owner?</strong>
+        Send them this assessment. Most businesses discover at least one revenue leak they did not know existed — and the ones that find it early are the ones that fix it. Forward the link. It takes 2 minutes and it shows them something real about their business.
+        <br><br>
+        <a href="https://retention.helloglowe.com" style="color:var(--green-d);font-weight:700;font-size:13px">retention.helloglowe.com →</a>
+      </div>
+
+      <!-- Prep guide — shown in confirmation -->
+      <div class="prep-guide" id="prep-guide">
+        <div class="prep-guide-eyebrow">Get a head start</div>
+        <div class="prep-guide-title">Here's what to have ready for onboarding.</div>
+        <div class="prep-guide-sub">Glowe onboarding takes about 15–20 minutes when you have these items ready. Start gathering them now so you can hit the ground running the moment enrollment opens.</div>
+        <div class="prep-cats" id="prep-cats-list">
+          <!-- Rendered by JS -->
+        </div>
+        <button class="btn-download-prep" onclick="downloadPrepGuide()">⬇ Download Your Prep Guide</button>
+      </div>
     </div>
 
     <!-- Feedback prompt -->
-    <div style="
-      background:#F9F8F5;
-      border:1px solid #DDDBD4;
-      border-radius:14px;
-      padding:24px 28px;
-      margin-top:20px;
-      text-align:center;
-    ">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#009f5a;margin-bottom:10px">
-        One quick thing
-      </div>
-      <p style="font-size:15px;font-weight:700;color:#262626;line-height:1.4;margin-bottom:8px">
-        Did this tool give you something useful?
-      </p>
-      <p style="font-size:13.5px;color:#6b6a66;line-height:1.75;margin-bottom:16px;max-width:420px;margin-left:auto;margin-right:auto">
-        I built it to help — but I'm genuinely curious whether it landed the way I intended. Did it show you something you hadn't thought about? Leave you with a question it didn't answer? Feel free to reply to whatever email brought you here and tell me honestly. I read everything.
-      </p>
-      <a href="mailto:hello@helloglowe.com?subject=Assessment feedback" style="
-        display:inline-block;
-        background:#262626;
-        color:#F9F8F5;
-        font-family:'Poppins',sans-serif;
-        font-size:13px;
-        font-weight:700;
-        padding:11px 28px;
-        border-radius:100px;
-        text-decoration:none;
-        letter-spacing:.02em;
-      ">Reply with your thoughts →</a>
-      <p style="font-size:11px;color:#9e9b96;margin-top:10px">
-        hello@helloglowe.com &nbsp;·&nbsp; We read every reply
-      </p>
+    <div style="background:#F9F8F5;border:1px solid #DDDBD4;border-radius:14px;padding:24px 28px;margin-top:20px;text-align:center;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#009f5a;margin-bottom:10px">One quick thing</div>
+      <p style="font-size:15px;font-weight:700;color:#262626;line-height:1.4;margin-bottom:8px">Did this tool give you something useful?</p>
+      <p style="font-size:13.5px;color:#6b6a66;line-height:1.75;margin-bottom:16px;max-width:420px;margin-left:auto;margin-right:auto">Have feedback about this tool? Was it useful? Give us a shout.</p>
+      <a href="mailto:hello@helloglowe.com?subject=Assessment feedback" style="display:inline-block;background:#262626;color:#F9F8F5;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;padding:11px 28px;border-radius:100px;text-decoration:none;letter-spacing:.02em;">Reply with your thoughts →</a>
+      <p style="font-size:11px;color:#9e9b96;margin-top:10px">hello@helloglowe.com &nbsp;·&nbsp; We read every reply</p>
     </div>
 
-    <!-- Footer note -->
-    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.65">
+    <p class="report-footer-note" style="text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.65">
       Glowe Revenue Assessment · helloglowe.com/assessment · Results are directional and based on your self-reported inputs.<br>
       Individual results vary. This assessment is not a guarantee of outcomes.
     </p>
@@ -752,16 +1167,16 @@ function getTopGap(cats) {
 ══════════════════════════════════════════════════ */
 const GAP_INSIGHTS = {
   review: {
-    title: 'Review Generation — Your reputation isn\'t reflecting your work',
+    title: 'Review Generation — Your reputation is not reflecting your work',
     body: (r) => {
       const reviewCount = resp[6] || 0;
       const method = resp[8]?.value;
       let s = '';
-      if (reviewCount < 20) s += '<strong>Your business has ' + reviewCount + ' Google reviews.</strong> For a local service business, this is a significant gap. Most customers check Google reviews before booking — a low count creates hesitation before they\'ve even walked in the door. ';
-      else s += '<strong>Your business has ' + reviewCount + ' Google reviews</strong>, which is a solid starting point. But the consistency of how you\'re generating them matters as much as the volume. ';
-      if (method === 'never') s += 'You indicated you don\'t currently ask for reviews. This is the most common and most correctable review gap. Reviews don\'t accumulate on their own — they require a consistent ask at the right moment.';
-      else if (method === 'sometimes') s += 'You ask for reviews sometimes, but not consistently. Inconsistent asking means inconsistent results. The businesses with the strongest local reputation systems have made review requests automatic, not optional.';
-      else s += 'You have a process, but there\'s room to make it more consistent and systematic.';
+      if (reviewCount < 20) s += '<strong>' + reviewCount + ' Google reviews.</strong> For a business completing appointments at your volume, that profile is not keeping pace with your actual work. Most clients check Google before booking anyone new — a thin review count creates doubt before they have ever walked in your door. ';
+      else s += '<strong>' + reviewCount + ' Google reviews</strong> — a solid starting point. But at your appointment volume, that number should be climbing every week. The gap is not awareness. It is consistency. ';
+      if (method === 'never') s += 'Satisfied clients are leaving your business without ever being asked to share their experience publicly. That is not a client problem. It is a systems problem — and it is exactly the kind of thing that compounds quietly over time.';
+      else if (method === 'sometimes') s += 'Review requests are happening, but not after every appointment. That means some of your happiest clients — the ones who would have written something glowing — never received an ask. Inconsistent outreach produces inconsistent results.';
+      else s += 'A process exists, but the data suggests it is not firing after every visit. The businesses with the strongest local reputations have made the review request non-negotiable — not occasional.';
       return s;
     }
   },
@@ -769,10 +1184,13 @@ const GAP_INSIGHTS = {
     title: 'Missed Call Recovery — Every unanswered call is a customer who just called your competitor',
     body: () => {
       const method = resp[9]?.value;
+      const appts = resp[4]?.value || 'under20';
+      const apptMid = { under20:10, '20to49':35, '50to149':100, '150plus':200 }[appts] || 35;
+      const estMissed = Math.max(1, Math.round(apptMid * 0.08));
       let s = '';
-      if (method === 'nothing') s = '<strong>When you miss a call, nothing happens.</strong> That caller either waits to hear back — or books with someone else. Research on lead response consistently shows that businesses responding within 5 minutes convert at dramatically higher rates than those responding in an hour or more. A missed call without a text-back is an unforced error.';
-      else if (method === 'sometimes') s = '<strong>You try to call back, but it doesn\'t always happen.</strong> This is the most common scenario — and the most frustrating. The intention is there, but the execution is inconsistent. Inconsistency is where revenue leaks.';
-      else s = '<strong>You call back when available</strong> — which means the window of highest engagement has often already closed. The best time to respond to a missed call is within the first few minutes, not the next available moment.';
+      if (method === 'nothing') s = '<strong>When a call goes unanswered at your business, nothing is sent back.</strong> That caller waits — or moves on. At your appointment volume, that is likely ' + estMissed + ' or more missed calls per month where the caller received no response at all. Each one is a booking that went somewhere else without you knowing it.';
+      else if (method === 'sometimes') s = '<strong>Follow-up on missed calls is happening — but not every time.</strong> The calls that slip through are not random. They tend to be the ones that came in during your busiest moments — exactly when a new client was most motivated to book. Inconsistent follow-up means inconsistent conversion.';
+      else s = '<strong>Missed calls are being returned when time allows</strong> — which means the response often arrives after the window of peak interest has already closed. Lead response research is consistent: the businesses that respond within minutes convert at significantly higher rates than those that respond hours later.';
       return s;
     }
   },
@@ -781,29 +1199,33 @@ const GAP_INSIGHTS = {
     body: () => {
       const followup = resp[10]?.value;
       const reactivate = resp[11]?.value;
+      const clients = resp[2]?.value || 'under50';
+      const clientMid = { under50:25, '50to149':90, '150to499':300, '500plus':600 }[clients] || 90;
+      const lapsedEst = Math.round(clientMid * 0.25);
       let s = '';
       if (followup === 'never' && reactivate === 'never') {
-        s = '<strong>Your data tells a clear story: clients visit, and then hear nothing.</strong> No follow-up after their appointment. No outreach if they go 60 days without returning. In a service business where repeat visits are the revenue model, this gap compounds quietly — and by the time you notice, the client has moved on.';
+        s = '<strong>Based on your answers, clients who stop booking are disappearing quietly — without receiving any follow-up from your business.</strong> No message after their appointment. No outreach at 60 days. No win-back attempt. With approximately ' + lapsedEst + ' clients likely lapsed right now, that is a recoverable revenue opportunity that is currently going untouched.';
       } else if (reactivate === 'never') {
-        s = '<strong>You follow up after appointments, but lapsed clients go uncontacted.</strong> This is a significant missed opportunity. A customer who visited regularly and stopped coming didn\'t necessarily leave because of something you did wrong. They may just need to be reminded that you exist.';
+        s = '<strong>Post-appointment follow-up is happening, but clients who lapse are going uncontacted.</strong> A client who visited four times and then went quiet did not necessarily leave because of something you did wrong. Most lapsed clients just need to be reached at the right moment. Right now, that moment is never arriving for them.';
       } else {
-        s = '<strong>Your retention systems are inconsistent.</strong> Manual outreach is better than nothing, but it can\'t scale. The businesses that maintain the highest repeat visit rates have systems that contact every lapsed client, on schedule, in their voice — without depending on someone remembering to do it.';
+        s = '<strong>Retention outreach is happening, but inconsistently.</strong> Manual follow-up is better than nothing — but at your client volume, consistency is the gap. The clients you are not reaching on any given week are not being reached at all. A system closes that gap permanently.';
       }
       return s;
     }
   },
   nurture: {
-    title: 'New Customer Nurture — First-time clients aren\'t becoming returning clients',
+    title: 'New Customer Nurture — First-time clients are not becoming returning clients',
     body: () => {
       const firstVisit = resp[12]?.value;
       const rebook = resp[13]?.value;
+      const bizType = resp[1]?.value || 'local service business';
       let s = '';
       if (firstVisit === 'nothing') {
-        s = '<strong>Nothing happens after a first visit.</strong> The window immediately after a first appointment is the highest-leverage moment in the client relationship. The experience is fresh. The intent to return is highest. This is exactly when a follow-up, a thank-you, and a gentle rebook reminder make the most impact. That window is currently empty.';
+        s = '<strong>After a first visit to your ' + bizType.toLowerCase() + ', new clients hear nothing.</strong> No thank-you. No care tip. No rebook invitation. The window immediately after a first appointment is the highest-leverage moment in the entire client relationship — the experience is fresh, the intent to return is highest, and a single well-timed message can determine whether they become a regular or a one-time visitor. That window is currently empty.';
       } else {
-        s = '<strong>Your first-visit follow-up has gaps.</strong> ';
-        if (rebook === 'hope' || rebook === 'nothing') s += 'Specifically: you don\'t have a consistent process to bring first-time clients back for a second visit. In service businesses, the second visit is where loyalty starts. Without a system to encourage it, you\'re relying on the client to remember — and most won\'t.';
-        else s += 'The systems around the first visit could be more consistent and automated. Every new client represents a relationship that\'s still being formed — how you treat the first 30 days after their visit largely determines whether they become a loyal regular.';
+        s = '<strong>A first-visit process exists, but the rebook follow-up is not consistent.</strong> ';
+        if (rebook === 'hope' || rebook === 'nothing') s += 'New clients are completing their first appointment without receiving a structured invitation to return. In service businesses, the second visit is where loyalty begins. Without a reliable process to encourage it, you are depending on the client to remember — and most do not.';
+        else s += 'The first visit is being acknowledged, but the follow-up cadence that turns new clients into regulars is not fully in place. Every new client represents a relationship still being formed. The first 30 days after their visit largely determine whether they come back.';
       }
       return s;
     }
@@ -815,11 +1237,13 @@ const GAP_INSIGHTS = {
       const capture = resp[15]?.value;
       let s = '';
       if (speed === 'inconsistent' || speed === 'day_or_more') {
-        s = '<strong>Your lead response time is a conversion problem.</strong> When someone reaches out to book and doesn\'t hear back quickly, they move on — not because they didn\'t want your service, but because another business was faster. Speed of response is one of the most reliable predictors of booking conversion.';
+        s = '<strong>Inquiries are coming in — but the response is not arriving fast enough to convert them.</strong> When someone reaches out to book and does not hear back within minutes, most of them move on. Not because they chose someone else deliberately, but because another business responded first. At your appointment volume, even a modest improvement in response speed would produce measurable booking gains.';
+      } else if (speed === 'same_day') {
+        s = '<strong>Response is happening same-day, but leads who inquire in the morning may not hear back until afternoon — or later.</strong> The research on lead conversion is consistent: response within the first hour converts at dramatically higher rates than response later that day. The gap between "same-day" and "within the hour" is where bookings are being lost.';
       } else {
-        s = '<strong>Your response time is reasonable, but lead capture has gaps.</strong> ';
+        s = '<strong>Response time is strong — the gap is in what happens next.</strong> ';
       }
-      if (capture === 'no') s += ' Additionally, you have no system to follow up with leads who reach out but don\'t book immediately. Every inquiry that goes cold is a potential client you paid attention to acquire and then let walk away.';
+      if (capture === 'no') s += ' Leads who reach out and do not book immediately are receiving no follow-up. That is a prospect who showed interest, made contact, and then heard nothing. A single follow-up message sent 24 hours later recovers a meaningful percentage of those inquiries. Right now, none of them are being sent.';
       return s;
     }
   }
@@ -827,19 +1251,19 @@ const GAP_INSIGHTS = {
 
 const ACTIONS = {
   review: [
-    { title: 'Create your Google review link', body: 'Go to your Google Business Profile and copy your direct review URL. You\'ll use this link in every review request message. If you don\'t have a GBP yet, setting one up is the first priority — it\'s free and takes 30 minutes.' },
-    { title: 'Text your last 10 clients personally this week', body: 'Don\'t wait for a system. Right now, this week, send a personal message to the last 10 clients you served. "Hi [name] — I wanted to check in after your recent visit and ask if you\'d be willing to leave us a quick Google review. Here\'s the link: [link]." Track how many respond.' },
+    { title: 'Send a review request to every client. Every single one. Starting today.', body: 'Write the message now: "Hi [name] — thank you so much for your visit! If you have 60 seconds, a Google review means everything to us: [link]." Send it manually to every client this week. Then send it again next week. And the week after. This is not a one-time campaign. It is a permanent operational habit that never stops. The businesses with 200 reviews didn\'t get lucky — they asked, every time, without exception.' },
+    { title: 'Copy your Google review link and put it somewhere you can\'t lose it', body: 'Go to your Google Business Profile → Get more reviews → copy the link. Save it in your phone notes, your email signature, and your booking confirmation message. You will use this link thousands of times. Start treating it like your most important business asset — because for local visibility, it is.' },
   ],
   missed: [
-    { title: 'Set up a missed call text-back response today', body: 'Write the message your business sends when a call goes unanswered: "Hi, this is [Business Name] — sorry we missed your call! We\'d love to help. Reply here or book at [booking link]." Set this up manually through your phone system or messaging app. Every missed call without a response is a conversion waiting to happen.' },
+    { title: 'Respond to every missed call within 5 minutes. Not eventually. Within 5 minutes.', body: 'Every minute that passes after a missed call reduces the chance that caller books with you. After an hour, most of them have moved on. Set a phone alert for missed calls. Write your response now: "Hi, this is [Business Name] — sorry we missed you! We\'d love to help. Reply here or book at [link]." Send it manually until you have a system. Do it today. Do it tomorrow. Do it every day, without exception, or the revenue will keep leaking.' },
   ],
   retention: [
-    { title: 'Pull your lapsed client list this week', body: 'Export your client list and identify everyone who hasn\'t visited in 60 or more days. Send them a personal text — not a promotion, just a check-in: "Hi [name], it\'s been a while and we\'ve been thinking about you. Hope everything\'s great — we\'d love to see you back." Track responses.' },
-    { title: 'Set a personal rule: every client gets a follow-up within 48 hours', body: 'After every appointment, send a quick thank-you message within 48 hours. It doesn\'t have to be long. "Hi [name], thank you so much for coming in — we loved having you. See you next time!" This single habit improves second-visit rates measurably.' },
+    { title: 'Pull your lapsed client list today and send one personal message to every name on it', body: 'Export your clients. Filter to anyone who hasn\'t visited in 60+ days. That list is revenue that\'s already walked out your door. Text each one personally — not a promotion, a genuine check-in: "Hi [name], it\'s been a while and I\'ve been thinking about you. Hope everything\'s great — we\'d love to have you back." Do not batch it. Do not automate it yet. Send each one yourself so it lands like it means something. Then do this again in 30 days for whoever\'s lapsed by then. Every 30 days. Without fail.' },
+    { title: 'Follow up with every single client within 48 hours of their appointment — no exceptions', body: 'After every appointment, a message goes out within 48 hours. "Hi [name], thank you so much for coming in — it was great to have you. See you next time!" That\'s it. It doesn\'t have to be long. But it has to happen every time. Not most times. Not when you remember. Every time. This is the habit that separates businesses with loyal regulars from businesses that are always hunting for new clients.' },
   ],
   nurture: [
-    { title: 'Create a first-visit follow-up message and send it to every new client', body: 'Write one message you\'ll send to every client after their first visit: a genuine thank-you, one care tip for their service, and a soft rebook invitation. Send it within 24 hours of their appointment. Do this manually for 30 days, then evaluate whether to automate it.' },
-    { title: 'Create a 3-week rebook reminder', body: 'Three weeks after a first visit, send a simple reminder: "Hi [name], it\'s almost time for your next [service]! Here\'s your booking link: [link]." One message, one link. This alone meaningfully improves second-visit rates.' },
+    { title: 'Send a first-visit follow-up to every new client within 24 hours. Every one. No exceptions.', body: 'Write this message today: "Hi [name] — it was so great to have you in! Here\'s a quick care tip for your [service]: [tip]. When you\'re ready to rebook, here\'s your link: [link]." This goes out within 24 hours of every first visit. Not most first visits. Every first visit. The window immediately after a new client\'s appointment is the highest-leverage moment in the entire relationship. If you miss it — even once — you\'ve reduced the likelihood of a second visit. The second visit is where loyalty starts. Protect that window.' },
+    { title: 'Three weeks after every first visit, send a rebook reminder. Set the reminder now.', body: '"Hi [name], it\'s almost time for your next [service]! Here\'s your booking link: [link]." One message. Three weeks out. For every new client. Forever. Go into your phone right now and set a recurring reminder: "Send 3-week rebook to new clients." This is the step most businesses never take — and it\'s the reason their first-time clients become someone else\'s regulars.' },
   ],
   lead: [
     { title: 'Set a personal response time commitment', body: 'Every inquiry gets a response within one hour during business hours. Set a phone alarm if needed. This isn\'t about being pushy — it\'s about being present when interest is highest. Leads contacted within an hour are dramatically more likely to book than those contacted a day later.' },
@@ -894,7 +1318,7 @@ function getBizContext() {
     body: `Your ${bizType.toLowerCase()} completes approximately <strong>${cnt} appointments per month</strong> at an average value of around <strong>$${val}</strong>. That puts your estimated monthly revenue at approximately <strong>$${monthlyRev.toLocaleString()}</strong>.<br><br>
     Based on industry patterns for businesses your size:<br><br>
     <strong>Missed call opportunity:</strong> An estimated ${missedCallsEst} missed calls per month could represent roughly <strong>$${missedCallRev.toLocaleString()}/month</strong> in recoverable revenue — assuming a 30% text-back conversion rate.<br><br>
-    <strong>Lapsed client opportunity:</strong> With approximately ${lapsedEst} clients who haven't visited in 60+ days, a 15% reactivation rate represents roughly <strong>$${lapsedRev.toLocaleString()}/month</strong> in potential returning revenue.<br><br>
+    <strong>Lapsed client opportunity:</strong> With approximately ${lapsedEst} clients who haven\'t visited in 60+ days, a 15% reactivation rate represents roughly <strong>$${lapsedRev.toLocaleString()}/month</strong> in potential returning revenue.<br><br>
     <strong>Combined monthly opportunity: ~$${totalOpp.toLocaleString()}</strong><br><br>
     These are directional estimates based on your inputs — not guarantees. But they represent the order of magnitude of what systematic follow-up can recover for a business like yours.`
   };
@@ -903,6 +1327,451 @@ function getBizContext() {
 /* ══════════════════════════════════════════════════
    SHOW RESULTS
 ══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   ASPIRATION CONTENT — gap × business type
+══════════════════════════════════════════════════ */
+function getBizLabel() {
+  const bizMap = {
+    'lash_studio':   'lash studio',
+    'brow_bar':      'brow bar',
+    'salon':         'salon',
+    'barbershop':    'barbershop',
+    'medspa':        'medspa',
+    'esthetics':     'esthetics studio',
+    'pilates':       'pilates studio',
+    'fitness':       'fitness studio',
+    'massage':       'massage practice',
+    'wellness':      'wellness practice',
+    'other':         'business'
+  };
+  return bizMap[resp[1]?.value] || 'business';
+}
+
+const ASPIRATIONS = {
+  review: (biz) => {
+    const moments = {
+      lash_studio: 'Imagine finishing your Wednesday and seeing two new 5-star Google reviews come through — both from clients you saw that morning. You did not ask. The system did. That is what happens when every appointment automatically triggers a review request at exactly the right moment. Your reputation builds quietly, steadily, without you lifting a finger.',
+      brow_bar: 'Imagine watching your Google review count climb every week — not because you remembered to ask, but because every client who walked out of your brow bar that day received a review request automatically, timed perfectly, while the experience was still fresh. That is what a system does. It asks for every one.',
+      salon: 'Imagine a Saturday where you do eight clients and get four new Google reviews — without asking a single person. That is what happens when the follow-up is automatic. Every client, every appointment, every time. Your online reputation starts to reflect what your clients already know about you.',
+      medspa: 'Imagine your medspa profile growing by 10, 20, 30 reviews over the next few months — not from a campaign, just from consistent automatic follow-up after every appointment. New clients searching in your area see that profile and choose you before they\'ve even visited. That is compounding reputation.',
+      default: 'Imagine your Google review count growing every week — not because you remembered to ask, but because every client automatically received a review request at exactly the right moment. Your reputation starts reflecting what your clients already know. That is what a system does. It shows up every time, even when you are busy.'
+    };
+    return moments[biz] || moments.default;
+  },
+  missed: (biz) => {
+    const moments = {
+      lash_studio: 'Imagine a client calling while you are mid-set — no answer. Sixty seconds later, she gets a text from your studio: "Hey, sorry we missed you! We\'d love to help — here\'s your booking link." She books that afternoon. You never even knew the call came in. That is a client who would have called someone else. Now she is on your books.',
+      salon: 'Imagine every missed call — the ones that come in during color appointments, during consultations, during the moments you physically cannot pick up — automatically getting a personal text back within a minute. Most of them reply. Some of them book. None of them feel ignored.',
+      pilates: 'Imagine a new prospect calling your studio to ask about class schedules. No one picks up. Sixty seconds later she gets a text: "Hi! Thanks for reaching out — here\'s our schedule and a link to book your first class." She books. That is the conversion that was happening before, just silently disappearing. Now it does not.',
+      medspa: 'Imagine every inquiry that comes in after hours receiving an immediate response — your business name, a warm acknowledgment, a booking link. Not tomorrow morning. Within 60 seconds, every time. The leads that used to go cold because no one got back to them in time now convert.',
+      default: 'Imagine every missed call generating an automatic text-back within 60 seconds — before that person has time to call someone else. Most of them reply. Some of them book. None of them feel ignored. That is a conversion that was silently disappearing before. Now it does not.'
+    };
+    return moments[biz] || moments.default;
+  },
+  retention: (biz) => {
+    const moments = {
+      lash_studio: 'Imagine a lash client you have not seen in eight weeks receiving a message that feels like it came from you personally — her name, a reference to her last fill, a gentle invitation back. She replies. She books. She did not leave because she found someone else. She just drifted. The right message at the right time brought her back. Your system sent it while you were doing someone else\'s lashes.',
+      pilates: 'Imagine a member who stopped showing up two months ago receiving a message: "We\'ve missed you at the studio. Life gets busy — we get it. Your spot is always here when you\'re ready." She comes back. Not because of a promotion. Because someone reached out at the right moment. Except it was not someone. It was your system, running while you were teaching class.',
+      salon: 'Imagine your salon client list sorted by last visit — and every person past their return window automatically receiving a personal-feeling check-in. Some of them book that week. Others reply and you learn something. None of them feel forgotten. That is client retention at scale, without you managing a single message.',
+      barbershop: 'Imagine every regular who has gone quiet getting a message that sounds like it came from the chair itself: "Hey, it has been a while — we miss you." Some of them laugh. Most of them book. Because the truth is they did not leave. They just needed someone to reach out first. Your system does that automatically.',
+      default: 'Imagine every lapsed client — every person who visited and drifted — receiving a message that feels personal and timely. Some of them come back. Some of them were just waiting to be asked. Your system identifies them, reaches out, and recovers that revenue quietly, in the background, while you focus on the clients already in your chair.'
+    };
+    return moments[biz] || moments.default;
+  },
+  nurture: (biz) => {
+    const moments = {
+      lash_studio: 'Imagine every first-time lash client getting a thank-you message within 24 hours — care tips for their new set, a soft rebook invitation — and then a reminder at three weeks: "It\'s almost time for your fill! Here\'s your booking link." Automatically. For every new client. Even on your busiest weeks. The clients who would have gone quiet after visit one become your most reliable regulars.',
+      brow_bar: 'Imagine every first-time brow client receiving a personalized follow-up the next day and a rebook nudge right when their brows are starting to grow out. They do not have to remember to book. You reminded them at the exact right moment. That is how one-time clients become people who never go anywhere else.',
+      medspa: 'Imagine every new medspa patient getting a genuine thank-you within 24 hours, aftercare tips specific to their treatment, and a check-in right when they would be thinking about their next appointment. The second visit — where loyalty actually begins — happens because your system made it feel effortless for them to come back.',
+      pilates: 'Imagine every person who tries your studio for the first time getting a follow-up that day and a nudge right at the moment they are most likely to want to return. The people who tried one class and did not come back — some of them just needed a reminder that you were there. Your system sends it every single time, for every single person, without you tracking anything.',
+      default: 'Imagine every first-time client getting a thank-you within 24 hours and a rebook reminder at exactly the right moment for their service. Automatically. For every new client. Even during your busiest weeks. The window after a first appointment is the highest-leverage moment in the entire client relationship. A system makes sure you never miss it.'
+    };
+    return moments[biz] || moments.default;
+  },
+  lead: (biz) => {
+    const moments = {
+      medspa: 'Imagine every inquiry that comes in — Instagram DM, contact form, missed call reply — getting a response within five minutes, every time, including evenings and weekends. The prospects who used to go quiet because no one got back to them fast enough now convert. Speed of response is the single biggest factor in whether an inquiry becomes a booking, and your system is always fast.',
+      lash_studio: 'Imagine every person who messages your studio asking about availability getting an immediate, professional response with your booking link — even at 10pm on a Sunday. The ones who do not book right away get a follow-up 24 hours later. You recover leads you would have lost without knowing it.',
+      salon: 'Imagine a new client messaging your salon on a Saturday afternoon while you are back-to-back with clients. She gets an automatic response within minutes: her question answered, your booking link included. She books that day. Without a system, she would have waited, gotten distracted, and booked somewhere else. With one, she is on your books before you even see the message.',
+      default: 'Imagine every inquiry — regardless of when it comes in or how busy you are — getting an immediate, professional response with a path to book. The leads who used to go cold because no one got back to them fast enough now convert. Speed of response is one of the most reliable predictors of whether an inquiry becomes a client. A system is always fast.'
+    };
+    return moments[biz] || moments.default;
+  }
+};
+
+function getAspiration(gapKey) {
+  const biz = resp[1]?.value || 'other';
+  const fn = ASPIRATIONS[gapKey];
+  if (!fn) return '';
+  return fn(biz);
+}
+
+/* ══════════════════════════════════════════════════
+   PLAN RECOMMENDATION LOGIC
+══════════════════════════════════════════════════ */
+function getPlanRecommendation() {
+  const clients = resp[2]?.value || 'under50';
+  const visits  = resp[4]?.value || 'under20';
+  const bizType = resp[1]?.value || 'local service business';
+
+  // Appointment volume wins if it signals a higher tier
+  const isPro       = clients === '500plus'   || visits === '150plus';
+  const isGrowth    = clients === '150to499'  || clients === '50to149' || visits === '50to149' || visits === '20to49';
+  const isEssentials = clients === 'under50'  && (visits === 'under20' || visits === '20to49');
+
+  let recommended, rationale;
+
+  if (isPro) {
+    recommended = 'pro';
+    rationale = 'Your volume tells us you\'re running a high-output operation. Glowe Pro is built for businesses at your scale — multi-location support, advanced segmentation, and expanded workflow capacity to match your complexity.';
+  } else if (isGrowth || (!isPro && !isEssentials)) {
+    recommended = 'growth';
+    if (visits === '50to149' && clients === 'under50') {
+      rationale = 'Your appointment volume shows an active, growing business — even if your contact list is still building. Glowe Growth gives you the reactivation and retention tools to convert those appointments into a loyal returning client base.';
+    } else {
+      rationale = 'With ' + (clients === '50to149' ? '50–149' : '150–499') + ' active clients, you have the foundation for real retention impact. Glowe Growth is built for businesses like yours — focused on keeping clients coming back, not just finding new ones.';
+    }
+  } else {
+    recommended = 'essentials';
+    rationale = 'Glowe Essentials is the right starting point. You\'ll get the foundational systems — missed call text-back, review requests, and appointment reminders — that create consistent client communication from day one.';
+  }
+
+  return { recommended, rationale };
+}
+
+function renderPlanCards(recommended, rationale) {
+  const plans = [
+    {
+      key: 'essentials',
+      name: 'Glowe Essentials',
+      price: '$149',
+      per: '/month',
+      setup: '$99 setup',
+      badge_rec: 'Starting Point',
+      badge_other: 'Available',
+      rationale_other: 'Best for solo operators and businesses building their contact base.',
+      features: [
+        'Missed call text-back',
+        'Review request automation',
+        'Appointment reminders',
+        'Monthly performance report',
+        'Help Center access'
+      ]
+    },
+    {
+      key: 'growth',
+      name: 'Glowe Growth',
+      price: '$397',
+      per: '/month',
+      setup: '$299 setup',
+      badge_rec: 'Recommended for You',
+      badge_other: 'Most Popular',
+      rationale_other: 'For established businesses with 150+ clients focused on retention.',
+      features: [
+        'Everything in Essentials',
+        'Customer reactivation campaigns',
+        'Retention journeys & win-back workflows',
+        'Review generation campaigns',
+        'Advanced reporting dashboard'
+      ]
+    },
+    {
+      key: 'pro',
+      name: 'Glowe Pro',
+      price: '$697',
+      per: '/month',
+      setup: '$599 setup',
+      badge_rec: 'Recommended for You',
+      badge_other: 'When You Scale',
+      rationale_other: 'For high-volume or multi-location operators.',
+      features: [
+        'Everything in Growth',
+        'Multi-location support',
+        'Advanced segmentation',
+        'Expanded workflow library',
+        'Quarterly optimization review'
+      ]
+    }
+  ];
+
+  const wrap = document.getElementById('plan-cards-wrap');
+  wrap.innerHTML = plans.map(p => {
+    const isRec = p.key === recommended;
+    const badge = isRec ? p.badge_rec : p.badge_other;
+    const rat   = isRec ? rationale : p.rationale_other;
+    return `<div class="plan-card ${isRec ? 'recommended' : ''}">
+      <div class="plan-card-badge">${badge}</div>
+      <div class="plan-card-name">${p.name}</div>
+      <div class="plan-card-price">${p.price}<span style="font-size:14px;font-weight:400;opacity:.6">${p.per}</span></div>
+      <div class="plan-card-per">Setup fee: ${p.setup} &middot; <span style="color:${isRec?'#00CA72':'inherit'};font-weight:${isRec?'700':'400'}">Waived with SGI</span></div>
+      <div class="plan-card-rationale">${rat}</div>
+      ${isRec ? `<div class="plan-card-features">${p.features.map(f=>`<div class="plan-feat">${f}</div>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   NOT READY LOGIC
+══════════════════════════════════════════════════ */
+function isQualified() {
+  const gbp     = resp[5]?.value; // booking platform used as proxy; check has_gbp via q logic
+  const clients = resp[2]?.value;
+  const biz     = resp[1]?.value;
+  // Everyone qualifies for the reservation — "not ready" just gets extra prep steps
+  return true;
+}
+
+function getNotReadySteps() {
+  const steps = [];
+  const clients = resp[2]?.value;
+  const bizType = resp[1]?.value || 'your business';
+  const platform = resp[5]?.value;
+
+  // Low contacts
+  if (clients === 'under50') {
+    steps.push({
+      title: 'Build your contact base to 50+ clients',
+      body: 'Glowe works best with an established client list. Here\'s how to grow yours faster: add a sign-in form or digital intake at every appointment, use a text-to-join option promoted in your space, and export contacts from your booking platform if you haven\'t already. You may have more contacts than you think — they just need to be captured. <a href="https://helloglowe.com/resources/build-your-list" target="_blank">See our guide →</a>'
+    });
+  }
+
+  // No booking platform
+  if (!platform || platform === 'none' || platform === 'other') {
+    steps.push({
+      title: 'Set up a supported booking platform',
+      body: 'Glowe connects to your booking system to trigger follow-ups, reminders, and reactivation at exactly the right moment. For ' + bizType + ' businesses, we recommend <strong>Vagaro</strong> (salon/lash/brow) or <strong>Mindbody</strong> (fitness/wellness). Both have free trials and can be set up in an afternoon. <a href="https://www.vagaro.com" target="_blank">Vagaro →</a> &nbsp; <a href="https://www.mindbodyonline.com" target="_blank">Mindbody →</a>'
+    });
+  }
+
+  // Gather promos
+  steps.push({
+    title: 'Document your active promotions and service menu',
+    body: 'Glowe personalizes reactivation and win-back messages around your current offers. Before onboarding, write down: your services by name, recommended return interval for each (e.g. "lash fill every 3 weeks"), and any active promos or seasonal offers. This takes 20 minutes and makes your setup significantly more personalized from day one.'
+  });
+
+  // Always add GBP
+  steps.push({
+    title: 'Confirm your Google Business Profile is claimed and active',
+    body: 'Your Google review link is the single most important piece of information in your Glowe account. If you don\'t have a GBP yet, <a href="https://business.google.com" target="_blank">claim yours at business.google.com</a> — it\'s free and takes about 15 minutes. If you have one, verify your review link works by clicking it yourself.'
+  });
+
+  return steps;
+}
+
+/* ══════════════════════════════════════════════════
+   PREP GUIDE CONTENT
+══════════════════════════════════════════════════ */
+function renderPrepGuide() {
+  const bizType = resp[1]?.value || 'your business';
+  const cats = [
+    {
+      title: 'Business essentials',
+      items: [
+        '<strong>Business legal name</strong> and display name (as clients see it in messages)',
+        '<strong>Business phone number</strong> — the number Glowe monitors for missed calls',
+        '<strong>Business email address</strong> and <strong>website URL</strong>',
+        '<strong>Business address</strong>',
+      ]
+    },
+    {
+      title: 'Google presence',
+      items: [
+        '<strong>Google Business Profile URL</strong>',
+        '<strong>Your direct Google review link</strong> — find it in GBP under "Ask for reviews"',
+        '<strong>Current review count and star rating</strong> (for your baseline report)',
+      ]
+    },
+    {
+      title: 'Your service menu',
+      items: [
+        '<strong>Each service name</strong> exactly as you call it',
+        '<strong>Recommended return interval</strong> per service (e.g. "lash fill every 21 days")',
+        'Whether each service is one-time or recurring',
+        '<strong>Active promotions</strong> and any seasonal offers',
+      ]
+    },
+    {
+      title: 'Your client data',
+      items: [
+        '<strong>Client contact list as a CSV file</strong> — export from your booking platform',
+        '<strong>Average visit value</strong> in dollars',
+        '<strong>Booking platform login and public booking link</strong>',
+      ]
+    }
+  ];
+
+  const list = document.getElementById('prep-cats-list');
+  list.innerHTML = cats.map(cat => `
+    <div>
+      <div class="prep-cat-title">${cat.title}</div>
+      <ul class="prep-items">
+        ${cat.items.map(item => `<li class="prep-item">${item}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  document.getElementById('prep-guide').style.display = 'block';
+}
+
+/* ══════════════════════════════════════════════════
+   RESERVATION SUBMIT
+══════════════════════════════════════════════════ */
+function submitReservation() {
+  const phone = document.getElementById('reserve-phone').value.trim();
+  const err   = document.getElementById('reserve-err');
+  const digits = phone.replace(/\D/g, '');
+  if (digits.length < 10) { err.classList.add('show'); return; }
+  err.classList.remove('show');
+
+  // Hide reserve section
+  document.getElementById('reserve-section').style.display = 'none';
+
+  // Show confirmation
+  const conf = document.getElementById('confirmation-section');
+  conf.style.display = 'block';
+
+  // Render prep guide inside confirmation
+  renderPrepGuide();
+
+  // Send phone to Apps Script
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
+  const payload = buildPayload();
+  payload.cell_phone = phone;
+  payload.reservation = true;
+  payload.reservation_timestamp = new Date().toISOString();
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).catch(function() {});
+
+  // Also send to Kit with phone tag
+  const KIT_FORM_ID = '9558027';
+  const KIT_API_KEY = 'j6QpLj6Dkg4oNRD-JTvHdg';
+  if (payload.email) {
+    fetch('https://api.convertkit.com/v3/forms/' + KIT_FORM_ID + '/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        api_key: KIT_API_KEY,
+        email: payload.email,
+        tags: ['glowe-reserved', 'sgi-founding-cohort'],
+        fields: { cell_phone: phone, source: 'assessment-reservation' }
+      })
+    }).catch(function() {});
+  }
+
+  window.scrollTo({ top: document.getElementById('confirmation-section').offsetTop - 20, behavior: 'smooth' });
+}
+
+/* ══════════════════════════════════════════════════
+   DOWNLOAD FUNCTIONS
+══════════════════════════════════════════════════ */
+function downloadReport() {
+  // Hide non-print elements, print, restore
+  document.title = 'Glowe Revenue Assessment — My Report';
+  window.print();
+}
+
+function downloadPrepGuide() {
+  const { recommended } = getPlanRecommendation();
+  const planNames = { essentials: 'Glowe Essentials ($149/mo)', growth: 'Glowe Growth ($397/mo)', pro: 'Glowe Pro ($697/mo)' };
+  const planName = planNames[recommended] || 'Glowe';
+  const bizType = (resp[1]?.value || 'your business').toLowerCase();
+
+  // Build prep guide categories
+  const cats = [
+    {
+      title: 'Business essentials',
+      items: [
+        'Business legal name and display name (as clients see it in messages)',
+        'Business phone number — the number Glowe monitors for missed calls',
+        'Business email address and website URL',
+        'Business address'
+      ]
+    },
+    {
+      title: 'Google presence',
+      items: [
+        'Google Business Profile URL',
+        'Your direct Google review link — find it in GBP under "Ask for reviews"',
+        'Current review count and star rating (for your baseline report)'
+      ]
+    },
+    {
+      title: 'Your service menu',
+      items: [
+        'Each service name exactly as you call it',
+        'Recommended return interval per service (e.g. "lash fill every 21 days")',
+        'Whether each service is one-time or recurring',
+        'Active promotions and any seasonal offers'
+      ]
+    },
+    {
+      title: 'Your client data',
+      items: [
+        'Client contact list as a CSV file — export from your booking platform',
+        'Average visit value in dollars',
+        'Booking platform login and public booking link'
+      ]
+    }
+  ];
+
+  const catsHTML = cats.map(cat => `
+    <div style="margin-bottom:24px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#009f5a;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #00CA72">${cat.title}</div>
+      <ul style="list-style:none;padding:0;margin:0">
+        ${cat.items.map(item => `<li style="font-size:13.5px;color:#4a4a44;padding:7px 0 7px 20px;border-bottom:1px solid #f0efeb;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#00CA72;font-weight:700">→</span>${item}</li>`).join('')}
+      </ul>
+    </div>`).join('');
+
+  const win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Glowe Onboarding Prep Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;background:#fff;color:#262626;padding:48px;max-width:720px;margin:0 auto}
+  @media print{body{padding:32px}@page{margin:0.75in}}
+</style>
+</head>
+<body>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:16px;border-bottom:3px solid #00CA72">
+    <div style="font-size:22px;font-weight:800;letter-spacing:.05em;color:#262626">g<span style="color:#00CA72">LOWE</span></div>
+    <div style="font-size:11px;color:#6b6a66;text-align:right;line-height:1.5">Onboarding Prep Guide<br>helloglowe.com</div>
+  </div>
+
+  <div style="background:#262626;border-radius:12px;padding:24px 28px;margin-bottom:28px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#00CA72;margin-bottom:8px">Your recommended plan</div>
+    <div style="font-size:20px;font-weight:700;color:#F9F8F5;margin-bottom:4px">${planName}</div>
+    <div style="font-size:13px;color:rgba(249,248,245,.5);line-height:1.6">Setup fee waived · Summer Growth Initiative · Billing begins Month 3</div>
+  </div>
+
+  <div style="margin-bottom:24px">
+    <div style="font-size:18px;font-weight:700;color:#262626;margin-bottom:6px">Get a head start on onboarding.</div>
+    <div style="font-size:13.5px;color:#6b6a66;line-height:1.7">Glowe onboarding takes about 15–20 minutes when you have these items ready. Start gathering them now so you can hit the ground running the moment enrollment opens. The form saves your progress, so you can return to it anytime.</div>
+  </div>
+
+  ${catsHTML}
+
+  <div style="margin-top:32px;padding:16px 20px;background:#f0efeb;border-radius:10px;font-size:13px;color:#6b6a66;line-height:1.65">
+    Questions before enrollment opens? Email us at <strong style="color:#009f5a">hello@helloglowe.com</strong> — we read everything.
+  </div>
+
+  <div style="margin-top:24px;text-align:center;font-size:11px;color:#9e9b96;line-height:1.7">
+    Glowe LLC · helloglowe.com · hello@helloglowe.com<br>
+    Results are directional. Individual results vary. This is not a guarantee of outcomes.
+  </div>
+</body>
+</html>`);
+  win.document.close();
+  setTimeout(() => { win.print(); }, 500);
+}
+
 function showResults() {
   document.getElementById('results').style.display = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -960,11 +1829,25 @@ function showResults() {
     });
   }, 100);
 
-  // Top gap
+  // Top gap + aspiration
   const gapInsight = GAP_INSIGHTS[topGap.key];
   document.getElementById('top-gap-title').textContent = gapInsight.title;
-  document.getElementById('top-gap-body').innerHTML =
-    typeof gapInsight.body === 'function' ? gapInsight.body() : gapInsight.body;
+  const gapBody = typeof gapInsight.body === 'function' ? gapInsight.body() : gapInsight.body;
+  const aspiration = getAspiration(topGap.key);
+  const aspirationHTML = aspiration
+    ? `<div style="
+        margin-top:18px;
+        padding:18px 20px;
+        background:rgba(0,202,114,.07);
+        border-left:4px solid #00CA72;
+        border-radius:0 10px 10px 0;
+        font-size:14px;
+        color:#262626;
+        line-height:1.8;
+        font-style:italic;
+      ">${aspiration}</div>`
+    : '';
+  document.getElementById('top-gap-body').innerHTML = gapBody + aspirationHTML;
 
   // Business context
   document.getElementById('biz-title').textContent = bizCtx.title;
@@ -980,6 +1863,72 @@ function showResults() {
         ${a.body}
       </div>
     </div>`).join('');
+
+  // ── PLAN RECOMMENDATION ──────────────────────────────────
+  const { recommended, rationale } = getPlanRecommendation();
+  const clients = resp[2]?.value;
+  const visits  = resp[4]?.value;
+
+  // Determine if fully ready or needs prep
+  const needsPrep = (clients === 'under50' && visits === 'under20');
+
+  if (needsPrep) {
+    // Show not-ready section with personalized steps
+    document.getElementById('not-ready-section').style.display = 'block';
+    document.getElementById('plan-rec-section').style.display = 'none';
+    const stepsList = document.getElementById('gap-steps-list');
+    const steps = getNotReadySteps();
+    stepsList.innerHTML = steps.map(s => `
+      <div class="gap-step">
+        <div class="gap-step-title">${s.title}</div>
+        <div class="gap-step-body">${s.body}</div>
+      </div>`).join('');
+    // Update reserve headline for not-ready
+    document.getElementById('reserve-headline').textContent = 'Get on the list. We\'ll be ready for you when you are.';
+    document.getElementById('conf-headline').textContent = 'You\'re on the founding client list.';
+    document.getElementById('conf-sub').innerHTML = 'Glowe is targeting an <strong>early fall 2026</strong> launch. When enrollment opens, we\'ll reach out via <strong>text and email</strong> — no pressure, no commitment. You haven\'t signed up for anything yet. You\'re just on the list, and your spot is held.<br><br>When you\'re ready to move forward, your setup fee is fully waived as a Summer Growth Initiative enrollee. Subscription billing doesn\'t begin until Month 3 — after your system is live, tested, and confirmed working.';
+  } else {
+    // Show plan recommendation
+    document.getElementById('plan-rec-section').style.display = 'block';
+    document.getElementById('not-ready-section').style.display = 'none';
+
+    const bizType = resp[1]?.value || 'your business';
+    const planDisplayNames = { essentials: 'Glowe Essentials', growth: 'Glowe Growth', pro: 'Glowe Pro' };
+    document.getElementById('plan-rec-headline').textContent = 'Congratulations — you qualify for Glowe.';
+
+    // Build aspiration for plan rec — specific to biz type
+    const biz = resp[1]?.value || 'other';
+    const planAspirations = {
+      essentials: {
+        lash_studio: 'Six months from now, your lash studio has a review profile that reflects your actual work. Missed calls get texted back automatically. New clients get a follow-up the next day. The systems that used to fall through the cracks are running quietly in the background — while you focus on the work you love.',
+        salon: 'Six months from now, your salon\'s Google rating has climbed. Lapsed clients have been hearing from you regularly. Every new client gets a follow-up they did not expect. You are not doing any of it manually. You built a foundation that works for you.',
+        default: 'Six months from now, the foundational systems that most businesses never build are running in the background of yours. Review requests go out automatically. Missed calls get responded to. New clients get follow-up. The leaks are closed — and you did not have to manage any of it.'
+      },
+      growth: {
+        lash_studio: 'Six months from now, your lash studio has a waitlist of returning clients. The ones who went quiet are coming back — because they heard from you at exactly the right moment. Your review profile is growing every week. Your monthly report shows numbers you\'d be proud to share. None of it required you to remember to do anything.',
+        pilates: 'Six months from now, your studio\'s membership retention is measurably better. Members who might have drifted got the right message at the right time and came back. New clients became regulars because the follow-up was there every time. Your system is doing the customer success work of a much larger operation.',
+        salon: 'Six months from now, your salon has a retention rate that reflects how good your work actually is. Lapsed clients are coming back. Regulars are rebooking consistently. Your Google profile is growing. You are running a business that communicates like it has a customer success team — because it does.',
+        medspa: 'Six months from now, your medspa\'s patient retention is the thing you are most proud of. The systems behind it are invisible to your patients — they just feel taken care of. Inquiries convert faster. Reviews accumulate steadily. Lapsed patients return. The infrastructure is there, running quietly, while you focus on care.',
+        default: 'Six months from now, the retention systems that separate growing businesses from stagnant ones are running quietly in yours. Clients come back more consistently. Reviews grow steadily. Lapsed clients return because the follow-up found them. You are not managing any of it — Glowe is.'
+      },
+      pro: {
+        default: 'Six months from now, your operation runs with the customer success infrastructure of a company ten times your size. Multiple locations, advanced segmentation, quarterly optimization — every system working in concert to keep clients engaged, returning, and referring others. The complexity you are managing gets easier every month. The results compound.'
+      }
+    };
+        const planAspMap = planAspirations[recommended] || planAspirations.growth;
+    const planAspText = planAspMap[biz] || planAspMap.default;
+
+    const verdictPrefix = {
+      essentials: 'After reviewing your business profile, <strong>Glowe Essentials is the right starting point.</strong> ',
+      growth:     'After reviewing your business profile, <strong>Glowe Growth is the right plan for your business.</strong> ',
+      pro:        'After reviewing your business profile, <strong>Glowe Pro is the right fit for your operation.</strong> '
+    };
+    document.getElementById('plan-rec-sub').innerHTML =
+      (verdictPrefix[recommended] || '') + rationale +
+      '<div style="margin-top:16px;padding:16px 18px;background:rgba(0,202,114,.08);border-left:4px solid #00CA72;border-radius:0 10px 10px 0;font-size:13.5px;color:#262626;line-height:1.8;font-style:italic">' + planAspText + '</div>';
+
+    renderPlanCards(recommended, rationale);
+  }
 }
 
 /* ══════════════════════════════════════════════════
@@ -1011,6 +1960,7 @@ function buildPayload() {
     top_gap: topGap.key,
     top_gap_label: topGap.label,
     cat_scores: cats.reduce((o, c) => { o[c.key] = c.score; return o; }, {}),
+    cell_phone: resp.cell_phone || '',
     source: 'helloglowe.com / Revenue Assessment'
   };
 }
