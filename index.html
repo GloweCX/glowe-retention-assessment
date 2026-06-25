@@ -845,11 +845,11 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
     <!-- Q11 -->
     <div class="q-card" id="q11" style="display:none">
       <div class="q-num">Question 11 of 15 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
-      <div class="q-text">Do you contact clients who haven't visited in 60 or more days?</div>
+      <div class="q-text">When a client hasn't come back in a while, how does your business respond?</div>
       <div class="choices" id="c11">
-        <button class="cbtn" data-v="always_auto" data-score="25"><span class="cradio"></span>Yes — we have an automated reactivation system</button>
-        <button class="cbtn" data-v="sometimes_manual" data-score="10"><span class="cradio"></span>Occasionally — we reach out manually when we think of it</button>
-        <button class="cbtn" data-v="rarely" data-score="4"><span class="cradio"></span>Rarely — it doesn't happen consistently</button>
+        <button class="cbtn" data-v="always_auto" data-score="25"><span class="cradio"></span>Automatically — each client gets a message based on their specific service and how long they've been away</button>
+        <button class="cbtn" data-v="blast_campaign" data-score="12"><span class="cradio"></span>We send a general "we miss you" campaign to lapsed clients periodically</button>
+        <button class="cbtn" data-v="sometimes_manual" data-score="6"><span class="cradio"></span>Occasionally — we reach out manually when we think of it</button>
         <button class="cbtn" data-v="never" data-score="0"><span class="cradio"></span>We don't reach out to lapsed clients</button>
       </div>
       <div class="q-err" id="e11">Please select an option to continue.</div>
@@ -1014,23 +1014,23 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 
     <!-- Reserve section — redesigned in v2 -->
     <div class="reserve-section" id="reserve-section">
-      <div class="reserve-eyebrow">Enrollment Open Through September 30, 2026</div>
+      <div class="reserve-eyebrow">Founding Partner Enrollment — Open Through September 30, 2026</div>
       <div class="reserve-headline" id="reserve-headline">Ready to stop losing the revenue you've already earned?</div>
-      <div class="reserve-sub" id="reserve-sub">Your activation fee is waived — enroll before September 30, 2026. No commitment required to reserve.</div>
+      <div class="reserve-sub" id="reserve-sub">You're securing your founding partner spot. We'll welcome you by email and reach out again when Glowe is ready to activate. Your activation fee waiver is locked from the moment you enroll.</div>
 
       <div class="reserve-steps">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(38,38,38,.5);margin-bottom:4px;">What happens after you reserve</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(38,38,38,.5);margin-bottom:4px;">What founding partners receive</div>
         <div class="reserve-step">
           <div class="reserve-step-num">1</div>
-          <div class="reserve-step-text"><strong>Within one business day</strong> A Glowe advisor will reach out by text to confirm your spot and answer any questions.</div>
+          <div class="reserve-step-text"><strong>Welcome email</strong> You'll receive a welcome email from Glowe shortly after enrolling with everything you need to know.</div>
         </div>
         <div class="reserve-step">
           <div class="reserve-step-num">2</div>
-          <div class="reserve-step-text"><strong>When you're ready to activate</strong> You'll complete a short setup form and your account goes live — typically within 3 weeks.</div>
+          <div class="reserve-step-text"><strong>At launch</strong> You'll hear from us by email and text. We'll walk you through a short setup form and get your system live.</div>
         </div>
         <div class="reserve-step">
           <div class="reserve-step-num">3</div>
-          <div class="reserve-step-text"><strong>Your activation fee is waived</strong> Enroll before September 30, 2026 and setup is included at no charge.</div>
+          <div class="reserve-step-text"><strong>Your activation fee waiver is permanent</strong> Founding partners who enroll before September 30 keep this benefit regardless of when they activate.</div>
         </div>
       </div>
 
@@ -1040,7 +1040,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="reserve-form">
         <input type="tel" class="reserve-input" id="reserve-phone" placeholder="Your mobile number" autocomplete="tel"/>
-        <button class="btn-reserve" onclick="submitReservation()">Reserve My Spot →</button>
+        <button class="btn-reserve" onclick="submitReservation()">Claim My Founding Partner Spot →</button>
       </div>
       <div class="reserve-err" id="reserve-err">Please enter a valid 10-digit US phone number.</div>
       <div class="reserve-privacy">By reserving your spot, you agree to receive a text confirmation. No spam, no robocalls. You can opt out anytime.</div>
@@ -1050,24 +1050,20 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
     <div class="confirmation-section" id="confirmation-section">
       <div class="conf-icon">✅</div>
       <div class="conf-headline" id="conf-headline">Your spot is reserved.</div>
-      <div class="conf-sub" id="conf-sub">You'll receive a text from a Glowe advisor within one business day to confirm your spot and answer any questions before you decide to activate.</div>
+      <div class="conf-sub" id="conf-sub">You'll receive a welcome email shortly with everything you need to know about what's coming.</div>
       <div class="conf-timeline">
         <div class="conf-timeline-title">What happens next</div>
         <div class="conf-tl-item">
-          <div class="conf-tl-when">Within 24 hrs</div>
-          <div class="conf-tl-what"><strong>Text from your Glowe advisor</strong> — they'll introduce themselves and confirm your plan.</div>
+          <div class="conf-tl-when">Shortly</div>
+          <div class="conf-tl-what"><strong>Welcome email from Glowe</strong> — everything you need to know about what's coming and what we're building for you.</div>
         </div>
         <div class="conf-tl-item">
-          <div class="conf-tl-when">When ready</div>
-          <div class="conf-tl-what"><strong>Short setup form</strong> — takes about 15 minutes. Populates your entire system.</div>
+          <div class="conf-tl-when">At launch</div>
+          <div class="conf-tl-what"><strong>Email and text from your Glowe advisor</strong> — we'll walk you through setup and get your system live.</div>
         </div>
         <div class="conf-tl-item">
-          <div class="conf-tl-when">~3 weeks</div>
-          <div class="conf-tl-what"><strong>Your system goes live</strong> — missed call text-back, review requests, and reactivation running automatically.</div>
-        </div>
-        <div class="conf-tl-item">
-          <div class="conf-tl-when">Month 1</div>
-          <div class="conf-tl-what"><strong>First performance report</strong> — you'll see exactly what Glowe recovered for your business.</div>
+          <div class="conf-tl-when">Locked in</div>
+          <div class="conf-tl-what"><strong>Your activation fee waiver is permanent</strong> — founding partners keep this regardless of when they activate.</div>
         </div>
       </div>
     </div>
@@ -1222,8 +1218,9 @@ function getBizLabelPlural() {
 }
 
 function getBizClientWord() {
-  // "clients" vs "patients" for med spa context
-  return resp[1]?.value === 'medspa' ? 'patients' : 'clients';
+  // Returns SINGULAR so ${clientWord}s = 'clients', ${clientWord} = 'client'
+  // Med spa uses 'patient' / 'patients'
+  return resp[1]?.value === 'medspa' ? 'patient' : 'client';
 }
 
 /* ════════════════════════════════════════════════
@@ -1350,7 +1347,11 @@ function getPlanRecommendation() {
   const bizType = resp[1]?.value || 'other';
 
   // PRO: large client base OR very high volume
-  const isPro = clients === '500plus' || visits === '150plus';
+  // FIX 6: under50 clients cannot be Pro regardless of appointment volume
+  // 150+ appts with <50 clients implies very high visit frequency per client (nails, quick services)
+  // but $697/month against a <50 client base is commercially inappropriate
+  const isPro = (clients === '500plus') ||
+                (visits === '150plus' && clients !== 'under50');
 
   // GROWTH: established client base (150+) OR meaningful volume (50+/month)
   // FIXED: requires BOTH a minimum client count AND minimum visit volume
@@ -1436,7 +1437,19 @@ const GAP_INSIGHTS = {
         })()}`;
       }
 
-      // Default: some asks but not consistent
+      // Default: catches remaining combinations
+      // BUG 1 FIX: method='never' with 20-49 reviews was falling here and reading "A process exists" — wrong
+      if (method === 'never') {
+        // never-ask with 20-49 reviews (20-29 or 30-49 that didn't hit branch2/3 thresholds)
+        return `<strong>${reviewCount} Google reviews, and no consistent process for requesting more.</strong> At your appointment volume, that count should be climbing. Most ${clientWord}s who leave satisfied don't review unprompted — the moment passes and it doesn't happen. Without a reliable ask, the profile grows only when ${clientWord}s take the initiative themselves — which is a smaller group than the full picture of happy ${clientWord}s walking out your door.`;
+      }
+
+      // BUG 6 FIX: method='automated' with low review count was falling to "A process exists, but results suggest
+      // it isn't reaching every client" — contradicts the strength note which says the process is consistent
+      if (method === 'automated') {
+        return `<strong>${reviewCount} Google reviews with an automated ask already in place.</strong> The process is working — the count just hasn't caught up yet. At your appointment volume, consistent automated requests should be adding reviews steadily each month. The question worth checking: is the request going to every ${clientWord} after every appointment, or are some slipping through? And is the timing right — requests sent 1-2 hours after an appointment convert better than those sent the next day.`;
+      }
+
       let s = reviewCount < 20
         ? `<strong>${reviewCount} Google reviews.</strong> For a ${biz} completing appointments at your volume, that profile isn't keeping pace with your actual work. `
         : `<strong>${reviewCount} Google reviews</strong> — a real foundation. But at your appointment volume, that number should be growing steadily. `;
@@ -1493,6 +1506,11 @@ const GAP_INSIGHTS = {
         return `<strong>Returning calls when available is the right intention — the challenge is the gap between missed call and returned call.</strong> Someone who calls to ask about booking is typically in a short window of active intent. By the time you're between appointments and able to call back, they may have found another option, gotten distracted, or simply moved on. The callback arrives into a different moment than the one that generated the call.`;
       }
 
+      // BUG 2 FIX: automated_text was falling to default "not consistently" — contradicts strength note
+      if (method === 'automated_text') {
+        return `<strong>Every missed call at your ${biz} already gets an automatic text response.</strong> That's the gap most businesses never close. The refinement from here is in what that message says and where it sends the caller — a warm acknowledgment with a direct booking link converts better than a generic reply.`;
+      }
+
       return `<strong>Follow-up on missed calls is happening — but not consistently.</strong> The calls that slip through tend to be the ones that came in during your busiest moments. Some callers hear back; others don't. The ones who don't aren't likely to try twice.`;
     },
     swk: (biz) => {
@@ -1530,9 +1548,14 @@ ${(()=>{
       const clientWord = getBizClientWord();
       const valMid = { under75:50, '75to149':110, '150to299':220, '300plus':400 }[visitVal] || 120;
 
-      // Tension: follows up post-appointment but not lapsed — half the picture
+      // Tension: follows up post-appointment but not reactivating — half the picture
       if ((followup === 'always_auto' || followup === 'always_manual') && reactivate === 'never') {
         return `<strong>You follow up after appointments — but you're not reaching ${clientWord}s once they've lapsed.</strong> This is a specific pattern: good at keeping active ${clientWord}s engaged, absent when someone breaks their rhythm. The ${clientWord}s who stop booking aren't getting any outreach at all. At roughly ${lapsedEst} ${clientWord}s likely past their natural return window, that's a group you've already built a relationship with — and then quietly stopped talking to.`;
+      }
+
+      // Blast campaign exists but isn't cadence-based — partial credit, specific observation
+      if (reactivate === 'blast_campaign') {
+        return `<strong>A general re-engagement campaign is going out — but it's reaching every lapsed ${clientWord} on the same schedule regardless of their service.</strong> A lash ${clientWord} overdue by two weeks and a color ${clientWord} overdue by three months are in very different places. A message that works for one arrives at the wrong moment for the other. The campaign is better than silence. The next step is making it specific to each ${clientWord}'s actual rhythm rather than a shared calendar interval.`;
       }
 
       // High visit value + no follow-up at all = each lost client is expensive
@@ -1556,13 +1579,15 @@ ${(()=>{
       const clientWord = getBizClientWord();
       return `<p><strong>Most lapsed ${clientWord}s didn't leave because something went wrong.</strong> Observations from service businesses consistently suggest that the majority of ${clientWord}s who stop booking had no negative experience — they simply drifted. No one reached out. Time passed. The relationship ended without either party deciding to end it. This matters because it changes what the fix looks like: most of the people on a lapsed ${clientWord} list aren't gone — they're just uncontacted.</p>
 <p><strong>You've already paid the acquisition cost for every ${clientWord} on that list.</strong> Whether it was a referral, a first-appointment offer, or simply the time spent earning their trust — that investment is already made. A ${clientWord} who comes back doesn't require new acquisition spend. They require a message, sent at the right moment. That's the most efficient revenue available to an established service business.</p>
-<p><strong>Earlier outreach works better than later outreach.</strong> Reaching out to someone who's been gone 50 days feels very different to them than reaching out at four months. Earlier feels like care. Later can feel like an attempt to recover something the ${clientWord} has already moved past. The businesses that recover the most act before the ${clientWord} has mentally filed themselves as a former one.</p>`;
+<p><strong>Earlier outreach works better than later outreach.</strong> Reaching out to someone who's been gone 50 days feels very different to them than reaching out at four months. Earlier feels like care. Later can feel like an attempt to recover something the ${clientWord} has already moved past. The businesses that recover the most act before the ${clientWord} has mentally filed themselves as a former one.</p>
+<p><strong>Most reactivation tools send messages based on time elapsed — not based on each client's actual service cadence.</strong> A lash fill client who comes every three weeks and hasn't been in for five weeks needs a message now. A color client who comes every ten weeks and hasn't been in for twelve weeks needs a message now. Sending both the same "60-day" message means one arrives too late and one arrives too early. The difference between a blast campaign and genuine retention is whether the outreach reflects that client's specific rhythm — or just a generic calendar interval.</p>`;
     },
     strength: (biz) => {
       const followup = resp[10]?.value;
       const reactivate = resp[11]?.value;
       const clientWord = getBizClientWord();
-      if (followup === 'always_auto' && reactivate === 'always_auto') return `Both post-appointment follow-up and lapsed ${clientWord} outreach are already systematic — that combination is uncommon among independent ${getBizLabelPlural()}. The refinement is in the timing and specificity of those touchpoints as your ${clientWord} base grows.`;
+      if (followup === 'always_auto' && reactivate === 'always_auto') return `Both post-appointment follow-up and lapsed ${clientWord} outreach are already systematic — that combination is uncommon among independent ${getBizLabelPlural()}. The refinement is in whether the reactivation timing reflects each ${clientWord}'s specific service cadence or a shared time interval.`;
+      if (reactivate === 'blast_campaign') return `A lapsed ${clientWord} campaign is already running — that's a real foundation. The next evolution is making the timing specific to each ${clientWord}'s service rather than a shared interval. A ${clientWord} who comes every three weeks needs a different outreach window than one who comes every eight weeks.`;
       if (followup === 'always_auto') return `Consistent post-appointment follow-up is a real advantage. Every ${clientWord} who leaves knowing you'll be in touch is more likely to return — and more likely to think of your ${biz} first.`;
       if (followup === 'always_manual') return `Following up personally after appointments shows genuine care — ${clientWord}s notice. The opportunity is in reaching every ${clientWord} every time, not most ${clientWord}s most of the time.`;
       return null;
@@ -1595,6 +1620,16 @@ ${(()=>{
       // Has a full sequence but rebook still inconsistent — unusual
       if (firstVisit === 'full_sequence' && (rebook === 'hope' || rebook === 'nothing')) {
         return `<strong>You have an automated follow-up sequence for new ${clientWord}s — but the rebook prompt isn't part of it, or isn't landing consistently.</strong> The sequence is doing the relational work; the missing piece is the specific invitation to return at the right moment for the service. That one message — sent when the ${clientWord} is naturally thinking about their next appointment — is often what turns a sequence-recipient into a regular.`;
+      }
+
+      // BUG 3 FIX: full_sequence + automated_rebook and just_review + automated_rebook
+      // were falling here and being told their rebook "isn't consistent" — wrong
+      if (rebook === 'automated_rebook' && firstVisit === 'full_sequence') {
+        return `<strong>Both the first-visit follow-up and the rebook reminder are running automatically.</strong> That's a complete new-${clientWord} sequence — most independent ${getBizLabelPlural()} don't have this in place. The refinement at this stage is in timing and specificity: is the rebook prompt arriving at the right interval for each service? Does the message feel personal or generic? Small adjustments here move the needle.`;
+      }
+
+      if (rebook === 'automated_rebook') {
+        return `<strong>Automated rebook reminders are going out — that's the piece most businesses skip entirely.</strong> The gap is in the first-visit follow-up: right now, new ${clientWord}s aren't hearing from your ${biz} in the 24 hours after their first appointment. That window — before the experience has faded — is the highest-leverage moment in the entire ${clientWord} relationship. A rebook reminder at three weeks works better when it follows a genuine thank-you at 24 hours.`;
       }
 
       return `<strong>A first-visit process exists, but the rebook follow-up isn't consistent.</strong> The first few weeks after a ${clientWord}'s visit largely shape whether they come back. Without a reliable prompt at the right moment, you're depending on the ${clientWord} to remember — and most don't.`;
@@ -1649,11 +1684,17 @@ ${(()=>{
         return `<strong>Response time is strong and you have a follow-up process — that's a meaningful combination.</strong> The refinement at this stage is in the quality and specificity of both touchpoints: does the first message give the person a clear, frictionless path to book? Does the follow-up arrive at the right moment, or feel like a generic nudge?`;
       }
 
+      // SOFT CONCERN FIX: same_day + has_capture was landing in default which ignores the follow-up process
+      if (speed === 'same_day' && capture !== 'no') {
+        return `<strong>You have a follow-up process for leads who don't book immediately — that's the piece most businesses skip.</strong> The gap is in response speed: same-day response means some leads wait hours before hearing back. Someone who reached out in the morning and hears back in the afternoon has had time to find another option. The follow-up is doing its job; the first response needs to arrive faster.`;
+      }
+
       return `<strong>Inquiries are coming in — but the response isn't arriving fast enough.</strong> When someone reaches out to book and doesn't hear back within a reasonable window, most don't wait. Not because they chose someone else deliberately, but because another business responded while they were still in the moment of looking.`;
     },
     swk: (biz) => {
       const clientWord = getBizClientWord();
-      return `<p><strong>People searching for a ${biz} often contact more than one option at the same time.</strong> This isn't disloyalty — it's just how people search, especially for services they haven't tried before. The business that responds first with a clear path forward tends to get the appointment. The others receive a polite "I already found someone." From your side, you see a lead that didn't convert. You rarely find out the actual reason.</p>
+      // BUG 5 FIX: opening paragraph was identical to Missed Call SWK — every user read the same sentence twice
+      return `<p><strong>The moment someone reaches out to inquire is the moment their intent is highest.</strong> That window — from inquiry to first response — is where most of the conversion loss happens. Not because the business did something wrong, but because another business responded faster. The inquiry didn't disappear. It just went somewhere else.</p>
 <p><strong>The response time problem is hardest when you're busiest.</strong> The leads that come in while you're back-to-back are exactly the leads you most want — and the least able to respond to in the moment. This is why businesses that consistently capture more inquiries aren't necessarily more available people. They have something that responds when they can't.</p>
 <p><strong>Leads who don't book immediately aren't necessarily lost.</strong> Some people reach out to gather information before they're ready to commit. A follow-up message the next day — something brief that acknowledges their inquiry and offers a next step — converts a portion of those contacts. Most businesses never send it. Most of those leads become someone else's clients.</p>`;
     },
@@ -1687,6 +1728,10 @@ const ACTIONS = {
     {
       title: 'Respond to every missed call within 5 minutes.',
       body: 'Set a phone alert for missed calls. Write your response now and save it: "Hi, this is [Business Name] — sorry we missed you! We\'d love to help. Reply here or book at [link]." Send it manually until you have a system. Every call. Do it today, and every day after. The difference between a booking and a lost lead is usually how fast you respond.'
+    },
+    {
+      title: 'Save your booking link somewhere you can paste it in under 10 seconds.',
+      body: 'Your booking link should be in your phone notes, your clipboard, and your email signature — ready to drop into any response instantly. When someone calls and you can\'t pick up, the message that goes back needs a direct path to book, not instructions to visit your website. Find your link, save it right now, and confirm it works. A missed-call follow-up with a booking link converts at a meaningfully higher rate than one without.'
     }
   ],
   retention: [
@@ -1787,7 +1832,9 @@ function getBizContext() {
   const hasOpportunity = showMissed || showLapsed;
 
   return {
-    title: `What the gaps may be costing this ${bizType}`,
+    title: hasOpportunity
+      ? `What the gaps may be costing this ${bizType}`
+      : `What this means for your ${bizType}`,
     body: `Your ${bizType} completes approximately <strong>${cnt} appointments per month</strong> at an average visit value of around <strong>$${val}</strong>. That's an estimated monthly revenue base of approximately <strong>$${monthlyRev.toLocaleString()}</strong>.<br><br>
 ${hasOpportunity ? 'The areas where revenue is most likely slipping:<br><br>' : ''}${missedCallNote}${lapsedNote}${hasOpportunity
   ? `These are directional observations, not projections. The actual numbers depend on your follow-up consistency, your ${clientWord}s' responsiveness, and how well the message fits the moment. What they represent is the category of revenue that's available to recover with better process — without acquiring a single new ${clientWord}.`
@@ -1827,7 +1874,7 @@ function showResults() {
   document.getElementById('trust-bar-top').style.display = 'none';
 
   const { cats, total } = calcScores();
-  const biz = resp[1]?.value || 'other';
+  const biz = getBizLabel(); // FIXED: was resp[1]?.value which output raw keys like 'brow_bar'
 
   // Score ring animation — v3: also sets score-context
   const { label, sub, color, context } = getScoreLabel(total);
@@ -1918,9 +1965,7 @@ function showResults() {
         <div class="action-text"><strong>${a.title}</strong>${a.body}</div>
       </div>
     `).join('')}
-    <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(249,248,245,.45);line-height:1.6;">
-      <strong style="color:rgba(249,248,245,.7);">Where to start:</strong> Of these five, action 1 will compound the fastest for your business. Do it every day for two weeks before adding the next one.
-    </div>
+    ${actions.length >= 5 ? `<div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(249,248,245,.45);line-height:1.6;"><strong style="color:rgba(249,248,245,.7);">Where to start:</strong> Of these five, action 1 will compound the fastest for your business. Do it every day for two weeks before adding the next one.</div>` : actions.length > 1 ? `<div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(249,248,245,.45);line-height:1.6;"><strong style="color:rgba(249,248,245,.7);">Where to start:</strong> Action 1 will compound the fastest. Start there.</div>` : ''}
   `;
 
   // Transition bridge + plan recommendation
@@ -1946,7 +1991,7 @@ function showResults() {
   const planSavings = { essentials:'$99', growth:'$299', pro:'$599' };
   const saving = planSavings[recommended] || '$599';
   document.getElementById('reserve-sub').textContent =
-    `Your ${saving} activation fee is waived — enroll before September 30, 2026. No commitment required to reserve.`;
+    `You're securing your founding partner spot. We'll welcome you by email and reach out again when Glowe is ready to activate. Your ${saving} activation fee waiver is locked from the moment you enroll.`;
 
   // Closing observation — one sentence, by top gap, worth carrying
   const closingObs = {
