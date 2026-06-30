@@ -18,7 +18,6 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--g1);color:var(--ink);
   -webkit-font-smoothing:antialiased;min-height:100vh}
-
 /* NAV */
 .a-nav{display:flex;align-items:center;justify-content:space-between;
   padding:18px 32px;background:var(--white);border-bottom:1px solid var(--border);
@@ -26,7 +25,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .a-logo{font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
 .a-logo span{color:var(--green-d)}
 .a-tagline{font-size:12px;color:var(--muted)}
-
 /* HERO */
 .a-hero{background:var(--ink);padding:80px 28px 72px;text-align:center}
 .a-hero .eyebrow{display:inline-block;font-size:11px;font-weight:700;
@@ -40,7 +38,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .a-meta{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
 .a-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(249,248,245,.45)}
 .a-meta-item svg{opacity:.6}
-
 /* TRUST BAR — new in v2 */
 .trust-bar{background:var(--white);border-bottom:1px solid var(--border);
   padding:14px 32px;display:flex;align-items:center;justify-content:center;
@@ -48,10 +45,8 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .trust-item{display:flex;align-items:center;gap:8px;
   font-size:12px;font-weight:500;color:var(--muted)}
 .trust-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
-
 /* ASSESSMENT SHELL */
 .a-shell{max-width:760px;margin:0 auto;padding:48px 28px 80px}
-
 /* PROGRESS */
 .prog-wrap{background:var(--white);border:1px solid var(--border);
   border-radius:var(--rx);padding:20px 24px;margin-bottom:28px}
@@ -62,7 +57,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   transition:width .4s ease;width:0%}
 .prog-section{font-size:11px;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:var(--green-d);margin-top:8px}
-
 /* QUESTION CARD */
 .q-card{background:var(--white);border:1px solid var(--border);
   border-radius:var(--rx);padding:36px 40px;margin-bottom:16px}
@@ -71,7 +65,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .q-text{font-size:20px;font-weight:700;color:var(--ink);
   line-height:1.4;margin-bottom:8px}
 .q-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px}
-
 /* CHOICES */
 .choices{display:flex;flex-direction:column;gap:10px}
 .cbtn{display:flex;align-items:center;gap:14px;padding:14px 18px;
@@ -87,14 +80,12 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .cbtn.selected .cradio::after{content:'';width:6px;height:6px;
   border-radius:50%;background:#fff}
 .cbtn:hover .cradio{border-color:var(--green)}
-
 /* TEXT INPUT */
 .q-input{width:100%;padding:13px 16px;border:1.5px solid var(--border);
   border-radius:var(--r);font-family:var(--font);font-size:15px;color:var(--ink);
   background:var(--g1);outline:none;transition:border-color .18s}
 .q-input:focus{border-color:var(--green);background:var(--white)}
 .q-input-note{font-size:12px;color:var(--muted);margin-top:6px}
-
 /* NAV BUTTONS */
 .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -109,7 +100,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .btn-full{width:100%}
 .q-err{font-size:13px;color:var(--orange);margin-top:8px;display:none}
 .q-err.show{display:block}
-
 /* EMAIL GATE */
 .gate-card{background:var(--white);border:1px solid var(--border);
   border-radius:var(--rx);padding:48px 40px;text-align:center}
@@ -125,7 +115,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .gate-err{font-size:13px;color:var(--orange);text-align:center;margin-top:6px;display:none}
 .gate-err.show{display:block}
 .gate-privacy{font-size:12px;color:var(--muted);margin-top:10px}
-
 /* SCORE RING */
 .score-wrap{text-align:center;padding:48px 40px 36px;background:var(--white);
   border:1px solid var(--border);border-radius:var(--rx);margin-bottom:20px}
@@ -141,7 +130,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .score-label{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .score-sublabel{font-size:14px;color:var(--muted);line-height:1.6;
   max-width:440px;margin:0 auto}
-
 /* SCORE CATEGORIES */
 .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .cat-card{background:var(--white);border:1px solid var(--border);
@@ -153,7 +141,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .cat-max{font-size:12px;color:var(--muted)}
 .cat-bar-wrap{flex:1;background:var(--g2);border-radius:100px;height:6px;overflow:hidden}
 .cat-bar{height:100%;border-radius:100px;transition:width 1s ease}
-
 /* REPORT SECTIONS */
 .report-section{background:var(--white);border:1px solid var(--border);
   border-radius:var(--rx);padding:32px 36px;margin-bottom:16px}
@@ -164,7 +151,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .rs-title{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:10px}
 .rs-body{font-size:14.5px;color:var(--muted);line-height:1.75}
 .rs-body strong{color:var(--ink)}
-
 /* ACTIONS LIST */
 .actions-card{background:var(--ink);border-radius:var(--rx);padding:36px 40px;margin-bottom:16px}
 .actions-title{font-size:11px;font-weight:700;letter-spacing:.1em;
@@ -177,7 +163,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   justify-content:center;font-size:12px;font-weight:700;color:var(--green);flex-shrink:0}
 .action-text{font-size:14px;color:rgba(249,248,245,.75);line-height:1.65}
 .action-text strong{color:var(--cream);display:block;margin-bottom:4px;font-size:14.5px}
-
 /* GLOWE CTA */
 .glowe-cta{background:var(--green);border-radius:var(--rx);padding:40px;
   text-align:center;margin-bottom:16px}
@@ -186,7 +171,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
 .glowe-cta .btn{background:var(--ink);color:var(--cream)}
 .glowe-cta .btn:hover{background:#1a1a1a}
-
 /* ACTIONS BRIDGE */
 .actions-bridge {
   background: var(--ink);
@@ -209,7 +193,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 14px; color: rgba(249,248,245,.55); line-height: 1.75;
 }
 .actions-bridge-body strong { color: rgba(249,248,245,.85); }
-
 /* DOWNLOAD REPORT BUTTON */
 .download-bar {
   background: rgba(0,202,114,.08);
@@ -236,7 +219,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   text-decoration: none; flex-shrink: 0;
 }
 .btn-download:hover { background: #1a1a1a; }
-
 /* PLAN RECOMMENDATION SECTION */
 .plan-rec-section { margin-bottom: 16px; }
 .plan-rec-intro {
@@ -260,7 +242,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 14px; color: var(--muted); line-height: 1.75;
 }
 .plan-rec-sub strong { color: var(--ink); }
-
 /* PLAN CARDS */
 .plan-cards-wrap {
   display: grid;
@@ -318,7 +299,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   padding: 3px 0; display: flex; gap: 7px; align-items: flex-start;
 }
 .plan-feat::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-
 /* TRANSITION BRIDGE — new in v2: connects report to recommendation */
 .transition-bridge {
   background: var(--white);
@@ -339,7 +319,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 14px; color: var(--muted); line-height: 1.75;
 }
 .transition-bridge .tb-body strong { color: var(--ink); }
-
 /* RESERVE SECTION — redesigned in v2 */
 .reserve-section {
   background: linear-gradient(135deg, #00CA72 0%, #009f5a 100%);
@@ -417,7 +396,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .reserve-privacy {
   font-size: 12px; color: rgba(38,38,38,.5); margin-top: 12px;
 }
-
 /* CONFIRMATION SECTION — redesigned in v2 */
 .confirmation-section {
   background: var(--ink); border-radius: var(--rx);
@@ -454,7 +432,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 13px; color: rgba(249,248,245,.65); line-height: 1.5;
 }
 .conf-tl-what strong { color: var(--cream); }
-
 /* PREP GUIDE */
 .prep-guide {
   background: var(--white); border: 1px solid var(--border);
@@ -489,7 +466,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   color: var(--green); font-weight: 700; font-size: 12px; top: 1px;
 }
 .prep-item strong { color: var(--ink); }
-
 /* NOT READY STEPS */
 .not-ready-steps {
   display: flex; flex-direction: column; gap: 16px;
@@ -506,7 +482,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 13.5px; color: var(--muted); line-height: 1.65;
 }
 .not-ready-step-body a { color: var(--green-d); }
-
 /* SOMETHING WORTH KNOWING blocks — new in v3 */
 .swk-block {
   margin-top: 20px;
@@ -532,7 +507,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .swk-body strong { color: var(--ink); }
 .swk-body p { margin-bottom: 10px; }
 .swk-body p:last-child { margin-bottom: 0; }
-
 /* STRENGTH NOTE — positive observation per report — new in v3 */
 .strength-note {
   margin-top: 16px; padding: 14px 18px;
@@ -542,7 +516,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 13.5px; color: var(--ink); line-height: 1.65;
 }
 .strength-note strong { color: var(--green-d); }
-
 /* SCORE CONTEXT — new in v3 */
 .score-context {
   margin-top: 14px; padding: 12px 20px;
@@ -551,7 +524,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   max-width: 420px; margin-left: auto; margin-right: auto;
 }
 .score-context strong { color: var(--ink); }
-
 /* MEASURE WHY section — replaces proof-strip — new in v3 */
 .measure-why {
   background: var(--white); border: 1px solid var(--border);
@@ -590,7 +562,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   .mw-cat { grid-template-columns: 1fr; gap: 6px; }
   .measure-why { padding: 24px 20px; }
 }
-
 /* ONE QUICK THING */
 .oqt-card {
   background: var(--white); border: 1px solid var(--border);
@@ -607,7 +578,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .oqt-body { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
 .oqt-link { color: var(--green-d); font-weight: 600; font-size: 14px; text-decoration: none; }
 .oqt-link:hover { text-decoration: underline; }
-
 /* MOBILE */
 @media(max-width:640px){
   .a-hero{padding:56px 20px 52px}
@@ -633,7 +603,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   .trust-bar{gap:16px;padding:12px 20px}
   .transition-bridge{padding:24px 22px}
 }
-
 /* PRINT */
 @media print {
   .a-nav,.a-hero,.trust-bar,.prog-wrap,#assessment-questions,#email-gate,
@@ -653,13 +622,11 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav class="a-nav">
   <div class="a-logo">g<span>LOWE</span></div>
   <div class="a-tagline">Free Revenue Assessment</div>
 </nav>
-
 <!-- TRUST BAR — new in v2 -->
 <div class="trust-bar" id="trust-bar-top">
   <div class="trust-item"><span class="trust-dot"></span>Built for beauty &amp; wellness businesses</div>
@@ -667,7 +634,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   <div class="trust-item"><span class="trust-dot"></span>No account required</div>
   <div class="trust-item"><span class="trust-dot"></span>Free to complete</div>
 </div>
-
 <!-- HERO -->
 <div class="a-hero">
   <div class="eyebrow">Free Diagnostic Tool</div>
@@ -688,10 +654,8 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
     </div>
   </div>
 </div>
-
 <!-- ASSESSMENT SHELL -->
 <div class="a-shell">
-
   <!-- PROGRESS -->
   <div class="prog-wrap" id="prog-wrap">
     <div class="prog-label">
@@ -701,10 +665,8 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
     <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
     <div class="prog-section" id="prog-section">Section: Your Business</div>
   </div>
-
   <!-- QUESTIONS -->
   <div id="assessment-questions">
-
     <!-- Q1 -->
     <div class="q-card" id="q1">
       <div class="q-num">Question 1 of 15 &nbsp;·&nbsp; Your Business</div>
@@ -721,7 +683,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e1">Please select an option to continue.</div>
     </div>
-
     <!-- Q2 -->
     <div class="q-card" id="q2" style="display:none">
       <div class="q-num">Question 2 of 15 &nbsp;·&nbsp; Your Business</div>
@@ -735,7 +696,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e2">Please select an option to continue.</div>
     </div>
-
     <!-- Q3 -->
     <div class="q-card" id="q3" style="display:none">
       <div class="q-num">Question 3 of 15 &nbsp;·&nbsp; Your Business</div>
@@ -748,7 +708,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e3">Please select an option to continue.</div>
     </div>
-
     <!-- Q4 -->
     <div class="q-card" id="q4" style="display:none">
       <div class="q-num">Question 4 of 15 &nbsp;·&nbsp; Your Business</div>
@@ -761,7 +720,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e4">Please select an option to continue.</div>
     </div>
-
     <!-- Q5 -->
     <div class="q-card" id="q5" style="display:none">
       <div class="q-num">Question 5 of 15 &nbsp;·&nbsp; Your Business</div>
@@ -778,7 +736,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e5">Please select an option to continue.</div>
     </div>
-
     <!-- Q6 -->
     <div class="q-card" id="q6" style="display:none">
       <div class="q-num">Question 6 of 15 &nbsp;·&nbsp; Review Health</div>
@@ -788,7 +745,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <p class="q-input-note">Enter 0 if you don't have a Google Business Profile yet.</p>
       <div class="q-err" id="e6">Please enter a number (0 or higher) to continue.</div>
     </div>
-
     <!-- Q7 -->
     <div class="q-card" id="q7" style="display:none">
       <div class="q-num">Question 7 of 15 &nbsp;·&nbsp; Review Health</div>
@@ -802,7 +758,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e7">Please select an option to continue.</div>
     </div>
-
     <!-- Q8 -->
     <div class="q-card" id="q8" style="display:none">
       <div class="q-num">Question 8 of 15 &nbsp;·&nbsp; Review Health</div>
@@ -815,7 +770,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e8">Please select an option to continue.</div>
     </div>
-
     <!-- Q9 -->
     <div class="q-card" id="q9" style="display:none">
       <div class="q-num">Question 9 of 15 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
@@ -828,7 +782,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e9">Please select an option to continue.</div>
     </div>
-
     <!-- Q10 -->
     <div class="q-card" id="q10" style="display:none">
       <div class="q-num">Question 10 of 15 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
@@ -841,7 +794,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e10">Please select an option to continue.</div>
     </div>
-
     <!-- Q11 -->
     <div class="q-card" id="q11" style="display:none">
       <div class="q-num">Question 11 of 15 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
@@ -854,7 +806,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e11">Please select an option to continue.</div>
     </div>
-
     <!-- Q12 -->
     <div class="q-card" id="q12" style="display:none">
       <div class="q-num">Question 12 of 15 &nbsp;·&nbsp; New Customer Nurture</div>
@@ -867,7 +818,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e12">Please select an option to continue.</div>
     </div>
-
     <!-- Q13 -->
     <div class="q-card" id="q13" style="display:none">
       <div class="q-num">Question 13 of 15 &nbsp;·&nbsp; New Customer Nurture</div>
@@ -880,7 +830,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e13">Please select an option to continue.</div>
     </div>
-
     <!-- Q14 -->
     <div class="q-card" id="q14" style="display:none">
       <div class="q-num">Question 14 of 15 &nbsp;·&nbsp; Lead Capture Speed</div>
@@ -893,7 +842,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e14">Please select an option to continue.</div>
     </div>
-
     <!-- Q15 -->
     <div class="q-card" id="q15" style="display:none">
       <div class="q-num">Question 15 of 15 &nbsp;·&nbsp; Lead Capture Speed</div>
@@ -905,21 +853,19 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e15">Please select an option to continue.</div>
     </div>
-
     <!-- NAV BUTTONS -->
     <div class="q-nav" id="q-nav">
       <button class="btn btn-g" id="btn-back" onclick="goBack()" style="display:none">← Back</button>
       <button class="btn btn-p btn-lg" id="btn-next" onclick="goNext()" style="margin-left:auto">Continue →</button>
     </div>
-
   </div><!-- /assessment-questions -->
-
   <!-- EMAIL GATE -->
   <div id="email-gate" style="display:none">
     <div class="gate-card">
       <div class="gate-icon">📊</div>
       <h2>Your results are ready.</h2>
       <p>Enter your email below and we'll show your personalized score, a category-by-category breakdown, your biggest revenue gap, and five concrete next actions — written specifically for your business type.</p>
+      <input type="text" class="gate-input" id="gate-name" placeholder="Your first name" autocomplete="given-name" style="max-width:440px;margin:0 auto 10px;display:block;"/>
       <div class="gate-form">
         <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com" autocomplete="email"/>
         <button class="btn btn-p" onclick="submitGate()">See My Results</button>
@@ -928,12 +874,9 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <p class="gate-privacy">No spam. Unsubscribe anytime. We take your privacy seriously.</p>
     </div>
   </div>
-
   <!-- RESULTS -->
   <div id="results" style="display:none">
-
     <div class="results-print-header">Glowe Revenue Assessment · helloglowe.com/assessment · Confidential</div>
-
     <!-- Score ring -->
     <div class="score-wrap">
       <div class="ring-container">
@@ -950,10 +893,8 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="score-sublabel" id="score-sublabel"></div>
       <div class="score-context" id="score-context"></div>
     </div>
-
     <!-- Category grid -->
     <div class="cat-grid" id="cat-grid"></div>
-
     <!-- Download bar -->
     <div class="download-bar">
       <div class="download-bar-text">
@@ -965,34 +906,28 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         Save Report
       </button>
     </div>
-
     <!-- Gap sections -->
     <div id="gap-sections"></div>
-
     <!-- Revenue opportunity -->
     <div class="report-section" id="revenue-section">
       <div class="rs-label">What This Means for Your Business</div>
       <div class="rs-title" id="rev-title"></div>
       <div class="rs-body" id="rev-body"></div>
     </div>
-
     <!-- Actions bridge -->
     <div class="actions-bridge">
       <div class="actions-bridge-label">Your Five Next Actions</div>
       <div class="actions-bridge-title" id="actions-bridge-title">Five actions. No software required.</div>
       <div class="actions-bridge-body">These address the gaps identified above. Each one is implementable this week without any new tools. The difference between businesses that close these gaps and those that don't is rarely knowledge — it's whether the action becomes a permanent operating habit or stays a good intention.</div>
     </div>
-
     <!-- Actions card -->
     <div class="actions-card" id="actions-card"></div>
-
     <!-- TRANSITION BRIDGE — new in v2 -->
     <div class="transition-bridge" id="transition-bridge" style="display:none">
       <div class="tb-eyebrow">Where This Points</div>
       <div class="tb-headline" id="tb-headline"></div>
       <div class="tb-body" id="tb-body"></div>
     </div>
-
     <!-- Plan recommendation -->
     <div class="plan-rec-section">
       <div class="plan-rec-intro">
@@ -1003,7 +938,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="plan-cards-wrap" id="plan-cards-wrap"></div>
     </div>
-
     <!-- WHAT THIS MEASURES AND WHY — replaces placeholder testimonials — new in v3 -->
     <div class="measure-why" id="measure-why">
       <div class="measure-why-eyebrow">About This Assessment</div>
@@ -1011,13 +945,11 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="measure-why-intro">This diagnostic covers the five areas where independent beauty and wellness businesses most consistently lose revenue they've already earned. These five were selected because they're the most recoverable — fixable with process changes and consistent follow-through, not bigger marketing budgets. A business that closes all five gaps will outperform a business spending more on acquisition.</div>
       <div class="mw-cats" id="mw-cats"></div>
     </div>
-
     <!-- Reserve section — redesigned in v2 -->
     <div class="reserve-section" id="reserve-section">
       <div class="reserve-eyebrow">Founding Partner Enrollment — Open Through September 30, 2026</div>
       <div class="reserve-headline" id="reserve-headline">Ready to stop losing the revenue you've already earned?</div>
       <div class="reserve-sub" id="reserve-sub">You're securing your founding partner spot. We'll welcome you by email and reach out again when Glowe is ready to activate. Your activation fee waiver is locked from the moment you enroll.</div>
-
       <div class="reserve-steps">
         <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(38,38,38,.5);margin-bottom:4px;">What founding partners receive</div>
         <div class="reserve-step">
@@ -1033,7 +965,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
           <div class="reserve-step-text"><strong>Your activation fee waiver is permanent</strong> Founding partners who enroll before September 30 keep this benefit regardless of when they activate.</div>
         </div>
       </div>
-
       <div class="reserve-phone-why">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a5.5 5.5 0 100 11A5.5 5.5 0 006.5 1zM6.5 6v3M6.5 4h.01" stroke="rgba(38,38,38,.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
         Why your phone number? Our advisor will text — not call without notice. No robocalls.
@@ -1045,7 +976,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="reserve-err" id="reserve-err">Please enter a valid 10-digit US phone number.</div>
       <div class="reserve-privacy">By reserving your spot, you agree to receive a text confirmation. No spam, no robocalls. You can opt out anytime.</div>
     </div>
-
     <!-- Confirmation — redesigned in v2 -->
     <div class="confirmation-section" id="confirmation-section">
       <div class="conf-icon">✅</div>
@@ -1067,7 +997,6 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         </div>
       </div>
     </div>
-
     <!-- Prep guide -->
     <div class="prep-guide" id="prep-guide">
       <div class="prep-eyebrow">Your Onboarding Prep Guide</div>
@@ -1075,12 +1004,10 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="prep-sub">The setup process takes about 15 minutes. Having these items ready before you begin means less back-and-forth and a more specific result from day one.</div>
       <div class="prep-cats-list" id="prep-cats-list"></div>
     </div>
-
     <!-- Closing observation -->
     <div id="closing-observation" style="text-align:center;padding:28px 32px 0;max-width:560px;margin:0 auto 8px;">
       <p id="closing-obs-text" style="font-size:15px;color:var(--muted);line-height:1.8;font-style:italic;"></p>
     </div>
-
     <!-- One quick thing -->
     <div class="oqt-card">
       <div class="oqt-label">One Quick Thing</div>
@@ -1088,25 +1015,26 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="oqt-body">If it surfaced something worth thinking about — or missed something obvious about your business — we'd genuinely like to know. Feedback from business owners is how this diagnostic gets better.</div>
       <a href="mailto:hello@helloglowe.com?subject=Assessment Feedback" class="oqt-link">Reply with your thoughts → hello@helloglowe.com</a>
     </div>
-
   </div><!-- /results -->
-
 </div><!-- /a-shell -->
-
 <script>
 /* ═══════════════════════════════════════════════════
    GLOWE REVENUE ASSESSMENT — v5
    Final editorial pass: no self-reference, no founder voice,
    no assessment meta-language. Direct business observations throughout.
    The report stands alone as a business diagnostic.
-═══════════════════════════════════════════════════ */
 
+   v6 CHANGES (Kit consolidation):
+   - Added optional first-name capture on the results gate.
+   - buildPayload() now includes first_name.
+   - Removed the page's direct ConvertKit v3 calls (Kit is now handled
+     entirely by the Apps Script — cleaner and no exposed API key).
+═══════════════════════════════════════════════════ */
 /* ── STATE ── */
 let currentQ = 1;
 const TOTAL_Q = 15;
-const resp = {}; // keyed by question number; also resp.email, resp.cell_phone
+const resp = {}; // keyed by question number; also resp.email, resp.first_name, resp.cell_phone
 let assessmentSubmittedToSheet = false; // prevent duplicate gate submissions
-
 /* ── SECTION MAP ── */
 const SECTIONS = {
   1:'Your Business',2:'Your Business',3:'Your Business',4:'Your Business',5:'Your Business',
@@ -1115,7 +1043,6 @@ const SECTIONS = {
   12:'New Customer Nurture',13:'New Customer Nurture',
   14:'Lead Capture Speed',15:'Lead Capture Speed'
 };
-
 /* ════════════════════════════════════════════════
    NAVIGATION
 ════════════════════════════════════════════════ */
@@ -1133,7 +1060,6 @@ function showQ(n) {
   const nextBtn = document.getElementById('btn-next');
   nextBtn.textContent = (n === TOTAL_Q) ? 'See My Results →' : 'Continue →';
 }
-
 function goNext() {
   if (!validateQ(currentQ)) return;
   if (currentQ === TOTAL_Q) {
@@ -1144,11 +1070,9 @@ function goNext() {
   showQ(currentQ);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 function goBack() {
   if (currentQ > 1) { currentQ--; showQ(currentQ); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 }
-
 function validateQ(n) {
   const err = document.getElementById('e' + n);
   if (n === 6) {
@@ -1167,7 +1091,6 @@ function validateQ(n) {
   if (err) err.classList.remove('show');
   return true;
 }
-
 /* choice selection */
 document.querySelectorAll('.cbtn').forEach(btn => {
   btn.addEventListener('click', function() {
@@ -1186,7 +1109,6 @@ document.querySelectorAll('.cbtn').forEach(btn => {
     }
   });
 });
-
 /* ════════════════════════════════════════════════
    BIZ LABEL — FIXED v2
    Keys now match Q1 data-v values exactly
@@ -1203,7 +1125,6 @@ function getBizLabel() {
   };
   return bizMap[resp[1]?.value] || 'business';
 }
-
 function getBizLabelPlural() {
   const bizMap = {
     'lash_studio':  'lash studios',
@@ -1216,13 +1137,11 @@ function getBizLabelPlural() {
   };
   return bizMap[resp[1]?.value] || 'businesses';
 }
-
 function getBizClientWord() {
   // Returns SINGULAR so ${clientWord}s = 'clients', ${clientWord} = 'client'
   // Med spa uses 'patient' / 'patients'
   return resp[1]?.value === 'medspa' ? 'patient' : 'client';
 }
-
 /* ════════════════════════════════════════════════
    GATE
 ════════════════════════════════════════════════ */
@@ -1233,7 +1152,6 @@ function showGate() {
   document.getElementById('email-gate').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 function submitGate() {
   const email = document.getElementById('gate-email').value.trim();
   const err   = document.getElementById('gate-err');
@@ -1242,24 +1160,13 @@ function submitGate() {
   if (!emailRe.test(email)) { err.classList.add('show'); return; }
   err.classList.remove('show');
   resp.email = email;
-
+  // NEW: capture first name (optional)
+  const nameEl = document.getElementById('gate-name');
+  resp.first_name = nameEl ? nameEl.value.trim() : '';
   document.getElementById('email-gate').style.display = 'none';
   showResults();
-
-  // Kit async — silent fail
-  const KIT_FORM_ID = '9558027';
-  const KIT_API_KEY = 'j6QpLj6Dkg4oNRD-JTvHdg';
-  fetch('https://api.convertkit.com/v3/forms/' + KIT_FORM_ID + '/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: KIT_API_KEY,
-      email: email,
-      tags: ['revenue-assessment', 'glowe-waitlist'],
-      fields: { source: 'revenue-assessment', biz_type: resp[1]?.value || '' }
-    })
-  }).catch(function(){});
-
+  // REMOVED: the direct ConvertKit v3 fetch block used to live here.
+  // Kit is now handled entirely by the Apps Script (cleaner + hides the API key).
   // Google Apps Script — gate submission (assessment data only, no phone)
   if (!assessmentSubmittedToSheet) {
     assessmentSubmittedToSheet = true;
@@ -1268,31 +1175,21 @@ function submitGate() {
     payload.record_type = 'assessment'; // distinguish from reservation rows
     sendToAppsScript(payload);
   }
-
-  // GHL webhook — wire after build
-  // sendToGHL(buildPayload());
-
-  console.log('[Glowe v2] Assessment submitted:', buildPayload());
+  console.log('[Glowe v6] Assessment submitted:', buildPayload());
 }
-
 /* ════════════════════════════════════════════════
    SCORING
 ════════════════════════════════════════════════ */
 function calcScores() {
   // Review: 40% rating, 60% process
   const reviewScore = (resp[7]?.score || 0) * 0.4 + (resp[8]?.score || 0) * 0.6;
-
   const missedCallScore = resp[9]?.score || 0;
-
   // Retention: 50% post-appt followup, 50% reactivation
   const retentionScore = (resp[10]?.score || 0) * 0.5 + (resp[11]?.score || 0) * 0.5;
-
   // Nurture: 50% first visit, 50% rebook
   const nurtureScore = (resp[12]?.score || 0) * 0.5 + (resp[13]?.score || 0) * 0.5;
-
   // Lead: 50% speed, 50% capture
   const leadScore = (resp[14]?.score || 0) * 0.5 + (resp[15]?.score || 0) * 0.5;
-
   const cats = [
     { key:'review',    label:'Review Generation',    score: Math.round(reviewScore),    max:25, color:'#00CA72' },
     { key:'missed',    label:'Missed Call Recovery',  score: missedCallScore,            max:20, color:'#9226A7' },
@@ -1300,11 +1197,9 @@ function calcScores() {
     { key:'nurture',   label:'New Customer Nurture',  score: Math.round(nurtureScore),   max:15, color:'#1B2A4A' },
     { key:'lead',      label:'Lead Capture Speed',    score: Math.round(leadScore),      max:15, color:'#6b6a66' },
   ];
-
   const total = cats.reduce((s, c) => s + c.score, 0);
   return { cats, total };
 }
-
 function getScoreLabel(total) {
   if (total >= 80) return {
     label: 'Strong Foundation',
@@ -1331,43 +1226,25 @@ function getScoreLabel(total) {
     context: 'Scores below 40 are typical for businesses in their early stages or those that haven\'t yet put follow-up systems in place — which describes most independent beauty businesses. This is a starting point, not a verdict.'
   };
 }
-
 function getTopGap(cats) {
   return cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max))[0];
 }
-
 /* ════════════════════════════════════════════════
    PLAN RECOMMENDATION — IMPROVED v2
-   Fixed overbroad Growth routing for small/new operators.
-   Added minimum thresholds. Added context-aware rationale.
 ════════════════════════════════════════════════ */
 function getPlanRecommendation() {
   const clients = resp[2]?.value || 'under50';
   const visits  = resp[4]?.value || 'under20';
   const bizType = resp[1]?.value || 'other';
-
-  // PRO: large client base OR very high volume
-  // FIX 6: under50 clients cannot be Pro regardless of appointment volume
-  // 150+ appts with <50 clients implies very high visit frequency per client (nails, quick services)
-  // but $697/month against a <50 client base is commercially inappropriate
   const isPro = (clients === '500plus') ||
                 (visits === '150plus' && clients !== 'under50');
-
-  // GROWTH: established client base (150+) OR meaningful volume (50+/month)
-  // FIXED: requires BOTH a minimum client count AND minimum visit volume
-  // Small operators with 50-149 clients doing 50+ appointments/month qualify
-  // New operators (under50 clients) stay on Essentials regardless of appointments
   const isGrowth = !isPro && (
     clients === '150to499' ||
     (clients === '50to149' && (visits === '50to149' || visits === '150plus'))
   );
-
-  // ESSENTIALS: everyone else — new operators, solo artists, small client bases
   const isEssentials = !isPro && !isGrowth;
-
   let recommended, rationale;
   const biz = getBizLabel();
-
   if (isPro) {
     recommended = 'pro';
     if (clients === '500plus') {
@@ -1392,14 +1269,10 @@ function getPlanRecommendation() {
       rationale = `Glowe Essentials gives you the core systems that create consistent client communication: missed call recovery, review requests, and appointment follow-up. The goal at this stage is reliability — every client, every time, without it depending on you remembering to do it on a busy day.`;
     }
   }
-
   return { recommended, rationale };
 }
-
 /* ════════════════════════════════════════════════
    GAP INSIGHTS — v3
-   Education-first. Outcome language throughout.
-   Each entry: title(), body(), swk(), strength()
 ════════════════════════════════════════════════ */
 const GAP_INSIGHTS = {
   review: {
@@ -1410,23 +1283,15 @@ const GAP_INSIGHTS = {
       const rating = resp[7]?.value;
       const appts = resp[4]?.value || 'under20';
       const clientWord = getBizClientWord();
-
-      // Cross-answer tension: high rating + low count = good work, invisible profile
       if (reviewCount < 20 && (rating === '5.0' || rating === '4.5to4.9')) {
         return `<strong>A ${rating === '5.0' ? '5.0' : '4.5+'} star rating and only ${reviewCount} reviews.</strong> The clients who have reviewed your ${biz} are saying the right things. The profile doesn't yet reflect the volume of work behind those ratings. A handful of five-star reviews signals quality to people who look closely — but most people searching locally don't look closely. They scan review count first. The gap isn't the quality of the work. It's that not enough of it is documented publicly.`;
       }
-
-      // High review count + no consistent process = coasting
       if (reviewCount >= 50 && method === 'never') {
         return `<strong>${reviewCount} Google reviews, accumulated without a consistent ask.</strong> The clients who reviewed your ${biz} did so on their own initiative — that speaks to the quality of the experience. It also means the review profile reflects a self-selecting group: the clients motivated enough to act unprompted. The clients who were equally satisfied but didn't take the extra step are the ones not represented. Over time, that gap widens as competitors who ask consistently begin to outpace a profile that grows only when clients decide to act on their own.`;
       }
-
-      // High review count + inconsistent ask = momentum gap
       if (reviewCount >= 30 && method === 'sometimes') {
         return `<strong>${reviewCount} reviews, with an inconsistent ask.</strong> A review profile built on an occasional process reflects the clients who happened to be asked — not all the clients who had a good experience. The result is a count that grows in bursts and plateaus, while competitors who ask after every appointment accumulate reviews at a steadier pace. The clients who weren't asked aren't less satisfied. They simply weren't prompted.`;
       }
-
-      // Low count, no ask
       if (reviewCount < 20 && method === 'never') {
         return `<strong>${reviewCount} Google reviews, and no current process for requesting them.</strong> For a ${biz} completing appointments at this volume, those two facts are directly connected. ${clientWord.charAt(0).toUpperCase() + clientWord.slice(1)}s who leave satisfied generally don't review unprompted — they intend to, the moment passes, and it doesn't happen. The clients most motivated to review without being asked tend to be those who had a negative experience. Without a consistent ask, the profile skews toward the outliers rather than the average.${(()=>{
           const p = resp[5]?.value;
@@ -1436,24 +1301,15 @@ const GAP_INSIGHTS = {
           return '';
         })()}`;
       }
-
-      // Default: catches remaining combinations
-      // BUG 1 FIX: method='never' with 20-49 reviews was falling here and reading "A process exists" — wrong
       if (method === 'never') {
-        // never-ask with 20-49 reviews (20-29 or 30-49 that didn't hit branch2/3 thresholds)
         return `<strong>${reviewCount} Google reviews, and no consistent process for requesting more.</strong> At your appointment volume, that count should be climbing. Most ${clientWord}s who leave satisfied don't review unprompted — the moment passes and it doesn't happen. Without a reliable ask, the profile grows only when ${clientWord}s take the initiative themselves — which is a smaller group than the full picture of happy ${clientWord}s walking out your door.`;
       }
-
-      // BUG 6 FIX: method='automated' with low review count was falling to "A process exists, but results suggest
-      // it isn't reaching every client" — contradicts the strength note which says the process is consistent
       if (method === 'automated') {
         return `<strong>${reviewCount} Google reviews with an automated ask already in place.</strong> The process is working — the count just hasn't caught up yet. At your appointment volume, consistent automated requests should be adding reviews steadily each month. The question worth checking: is the request going to every ${clientWord} after every appointment, or are some slipping through? And is the timing right — requests sent 1-2 hours after an appointment convert better than those sent the next day.`;
       }
-
       let s = reviewCount < 20
         ? `<strong>${reviewCount} Google reviews.</strong> For a ${biz} completing appointments at your volume, that profile isn't keeping pace with your actual work. `
         : `<strong>${reviewCount} Google reviews</strong> — a real foundation. But at your appointment volume, that number should be growing steadily. `;
-
       if (method === 'sometimes') {
         s += `An inconsistent process produces an inconsistent result: a review count that climbs slowly and unevenly, shaped by which appointments happened to get an ask rather than the full picture of client experience.`;
       } else {
@@ -1475,7 +1331,6 @@ const GAP_INSIGHTS = {
       return null;
     }
   },
-
   missed: {
     title: (biz) => `Missed Call Recovery — Unanswered calls go to whoever picks up next`,
     body: (biz) => {
@@ -1485,32 +1340,21 @@ const GAP_INSIGHTS = {
       const apptMid = { under20:10, '20to49':35, '50to149':100, '150plus':200 }[appts] || 35;
       const estMissed = Math.max(1, Math.round(apptMid * 0.08));
       const clientWord = getBizClientWord();
-
-      // Tension: fast DM response + nothing on calls = selective responsiveness
       if (method === 'nothing' && leadSpeed === 'under5min') {
         return `<strong>Online inquiries receive a response within 5 minutes. Missed calls receive nothing.</strong> The responsiveness is there for people who reach out through social or a contact form. For ${clientWord}s who prefer to call — often the ones most ready to book immediately — there's no equivalent coverage. A caller who goes unanswered gets silence; a DM to the same business gets a near-instant reply. That gap is invisible from the inside and visible to every ${clientWord} who experiences it.`;
       }
-
-      // Tension: calls back sometimes + high appointment volume = the busiest moments are the worst
       if (method === 'sometimes' && (appts === '50to149' || appts === '150plus')) {
         return `<strong>Missed calls are returned when time allows — which means the calls that slip through are the ones that came in during the busiest hours.</strong> At ${apptMid} appointments per month, there are predictable windows where callback isn't possible. Those windows tend to coincide with peak booking momentum — the hours when new ${clientWord}s are most actively searching. The missed calls aren't randomly distributed. They concentrate in exactly the moments when a response would have the most impact.`;
       }
-
-      // Nothing goes back
       if (method === 'nothing') {
         return `<strong>When a call goes unanswered at your ${biz}, nothing goes back.</strong> That person waits and tries again — or moves on to the next option. At roughly ${estMissed} missed calls per month at your volume, that's a group of potential ${clientWord}s who contacted you, received no response, and made a decision without you knowing they'd called. Most of those calls came in while you were with someone. The problem isn't that you missed them. It's that nothing responded on your behalf.`;
       }
-
-      // Calls back when available
       if (method === 'call_back') {
         return `<strong>Returning calls when available is the right intention — the challenge is the gap between missed call and returned call.</strong> Someone who calls to ask about booking is typically in a short window of active intent. By the time you're between appointments and able to call back, they may have found another option, gotten distracted, or simply moved on. The callback arrives into a different moment than the one that generated the call.`;
       }
-
-      // BUG 2 FIX: automated_text was falling to default "not consistently" — contradicts strength note
       if (method === 'automated_text') {
         return `<strong>Every missed call at your ${biz} already gets an automatic text response.</strong> That's the gap most businesses never close. The refinement from here is in what that message says and where it sends the caller — a warm acknowledgment with a direct booking link converts better than a generic reply.`;
       }
-
       return `<strong>Follow-up on missed calls is happening — but not consistently.</strong> The calls that slip through tend to be the ones that came in during your busiest moments. Some callers hear back; others don't. The ones who don't aren't likely to try twice.`;
     },
     swk: (biz) => {
@@ -1535,7 +1379,6 @@ ${(()=>{
       return null;
     }
   },
-
   retention: {
     title: (biz) => `Client Retention — ${getBizClientWord().charAt(0).toUpperCase() + getBizClientWord().slice(1)}s are drifting, and most don't announce it`,
     body: (biz) => {
@@ -1547,32 +1390,21 @@ ${(()=>{
       const lapsedEst = Math.round(clientMid * 0.25);
       const clientWord = getBizClientWord();
       const valMid = { under75:50, '75to149':110, '150to299':220, '300plus':400 }[visitVal] || 120;
-
-      // Tension: follows up post-appointment but not reactivating — half the picture
       if ((followup === 'always_auto' || followup === 'always_manual') && reactivate === 'never') {
         return `<strong>You follow up after appointments — but you're not reaching ${clientWord}s once they've lapsed.</strong> This is a specific pattern: good at keeping active ${clientWord}s engaged, absent when someone breaks their rhythm. The ${clientWord}s who stop booking aren't getting any outreach at all. At roughly ${lapsedEst} ${clientWord}s likely past their natural return window, that's a group you've already built a relationship with — and then quietly stopped talking to.`;
       }
-
-      // Blast campaign exists but isn't cadence-based — partial credit, specific observation
       if (reactivate === 'blast_campaign') {
         return `<strong>A general re-engagement campaign is going out — but it's reaching every lapsed ${clientWord} on the same schedule regardless of their service.</strong> A lash ${clientWord} overdue by two weeks and a color ${clientWord} overdue by three months are in very different places. A message that works for one arrives at the wrong moment for the other. The campaign is better than silence. The next step is making it specific to each ${clientWord}'s actual rhythm rather than a shared calendar interval.`;
       }
-
-      // High visit value + no follow-up at all = each lost client is expensive
       if (followup === 'never' && reactivate === 'never' && (visitVal === '150to299' || visitVal === '300plus')) {
         return `<strong>At an average visit value of around $${valMid}, every ${clientWord} who drifts represents a meaningful amount of lost revenue.</strong> With no post-appointment follow-up and no lapsed ${clientWord} outreach, there's currently no mechanism in place to catch anyone before they go quiet. At roughly ${lapsedEst} ${clientWord}s likely past their return window, the gap isn't small — and at your visit value, each one matters more than at lower price points.`;
       }
-
-      // Large client base + manual = outgrown the process
       if ((clients === '150to499' || clients === '500plus') && (followup === 'always_manual' || followup === 'sometimes')) {
         return `<strong>With ${clients === '500plus' ? '500+' : '150–499'} active ${clientWord}s, you've outgrown what manual follow-up can reliably cover.</strong> The ${clientWord}s you reach personally are well-served. The ones who fall through a busy week simply don't get reached at that point. At this scale, consistency stops being a matter of intention and starts being a matter of infrastructure. Manual is a fine starting point — it doesn't scale cleanly past a certain volume.`;
       }
-
-      // No follow-up at all
       if (followup === 'never' && reactivate === 'never') {
         return `<strong>${clientWord.charAt(0).toUpperCase() + clientWord.slice(1)}s who stop booking leave without hearing from the ${biz}.</strong> No message after their appointment. No outreach as weeks pass. With approximately ${lapsedEst} ${clientWord}s likely past their natural return window right now, that's a recoverable group that's currently going unaddressed.`;
       }
-
       return `<strong>Retention outreach is happening, but not consistently.</strong> Manual follow-up is genuinely better than nothing — but the ${clientWord}s you don't reach on any given week simply don't get reached. Consistency is the gap, and it tends to be a systems problem rather than a motivation problem.`;
     },
     swk: (biz) => {
@@ -1593,7 +1425,6 @@ ${(()=>{
       return null;
     }
   },
-
   nurture: {
     title: (biz) => `New ${getBizClientWord().charAt(0).toUpperCase() + getBizClientWord().slice(1)} Experience — First visits aren't reliably becoming second visits`,
     body: (biz) => {
@@ -1601,37 +1432,24 @@ ${(()=>{
       const rebook = resp[13]?.value;
       const platform = resp[5]?.value;
       const clientWord = getBizClientWord();
-
-      // Tension: asks at checkout + nothing after = one shot, in the wrong moment
       if (rebook === 'manual_ask' && firstVisit !== 'full_sequence') {
         return `<strong>You ask new ${clientWord}s to rebook at checkout — which is better than not asking, and worse than the alternative.</strong> Checkout is a transitional moment: the ${clientWord} is paying, gathering their things, moving from your space back to their day. It's not the moment they're most ready to commit to a date. The moment they're most open to rebooking is typically 12–24 hours later — when they've been complimented, the experience is still fresh, and they're already thinking about coming back. That window is currently going unused.`;
       }
-
-      // Tension: thank you sent + no rebook process = warmth without follow-through
       if (firstVisit === 'thank_you' && (rebook === 'hope' || rebook === 'nothing')) {
         return `<strong>You send a thank-you after a first visit — and then nothing structured follows.</strong> That thank-you is doing real work: it signals that the relationship matters. But it's arriving at the start of a window, not filling the full window. The ${clientWord} who receives a warm thank-you and then hears nothing for three weeks is making a passive decision every day about whether to rebook. Most don't — not because they didn't want to, but because nothing prompted them at the moment they would have said yes.`;
       }
-
-      // Nothing at all after first visit
       if (firstVisit === 'nothing') {
         return `<strong>After a first visit to your ${biz}, new ${clientWord}s hear nothing.</strong> No thank-you. No care tip. No invitation to return. The window right after a first appointment is the highest-leverage moment in the entire ${clientWord} relationship — the experience is fresh, intent to return is high, and a single well-timed message is often the difference between a one-time visitor and a regular. That window is currently empty.`;
       }
-
-      // Has a full sequence but rebook still inconsistent — unusual
       if (firstVisit === 'full_sequence' && (rebook === 'hope' || rebook === 'nothing')) {
         return `<strong>You have an automated follow-up sequence for new ${clientWord}s — but the rebook prompt isn't part of it, or isn't landing consistently.</strong> The sequence is doing the relational work; the missing piece is the specific invitation to return at the right moment for the service. That one message — sent when the ${clientWord} is naturally thinking about their next appointment — is often what turns a sequence-recipient into a regular.`;
       }
-
-      // BUG 3 FIX: full_sequence + automated_rebook and just_review + automated_rebook
-      // were falling here and being told their rebook "isn't consistent" — wrong
       if (rebook === 'automated_rebook' && firstVisit === 'full_sequence') {
         return `<strong>Both the first-visit follow-up and the rebook reminder are running automatically.</strong> That's a complete new-${clientWord} sequence — most independent ${getBizLabelPlural()} don't have this in place. The refinement at this stage is in timing and specificity: is the rebook prompt arriving at the right interval for each service? Does the message feel personal or generic? Small adjustments here move the needle.`;
       }
-
       if (rebook === 'automated_rebook') {
         return `<strong>Automated rebook reminders are going out — that's the piece most businesses skip entirely.</strong> The gap is in the first-visit follow-up: right now, new ${clientWord}s aren't hearing from your ${biz} in the 24 hours after their first appointment. That window — before the experience has faded — is the highest-leverage moment in the entire ${clientWord} relationship. A rebook reminder at three weeks works better when it follows a genuine thank-you at 24 hours.`;
       }
-
       return `<strong>A first-visit process exists, but the rebook follow-up isn't consistent.</strong> The first few weeks after a ${clientWord}'s visit largely shape whether they come back. Without a reliable prompt at the right moment, you're depending on the ${clientWord} to remember — and most don't.`;
     },
     swk: (biz) => {
@@ -1650,7 +1468,6 @@ ${(()=>{
       return null;
     }
   },
-
   lead: {
     title: (biz) => `Lead Response — Slow responses are costing you bookings you'll never know about`,
     body: (biz) => {
@@ -1658,42 +1475,28 @@ ${(()=>{
       const capture = resp[15]?.value;
       const missedCall = resp[9]?.value;
       const clientWord = getBizClientWord();
-
-      // Tension: fast DM response + no capture system = responsive but not systematic
       if (speed === 'under5min' && capture === 'no') {
         return `<strong>You respond to inquiries within 5 minutes — and you have no follow-up process for leads who don't book in that first conversation.</strong> The ones who respond and book quickly are well-served. The ones who ask a question, go quiet, and then rebook a week later — or don't — are getting nothing after that first exchange. A single follow-up message the next day would recover a portion of those contacts. None are currently being sent.`;
       }
-
-      // Tension: same day response + no capture = decent first touch, leaky after
       if (speed === 'same_day' && capture === 'no') {
         return `<strong>Same-day response and no follow-up for leads who don't book immediately.</strong> The inquiry gets a response — sometimes hours later — and if they don't convert in that conversation, they're gone. Two gaps are compounding: the window between inquiry and response is long enough for some leads to move on, and the leads who don't convert in the first exchange receive no follow-up. Closing either one improves conversion. Closing both makes the difference.`;
       }
-
-      // Worst case: slow + no capture
       if ((speed === 'day_or_more' || speed === 'inconsistent') && capture === 'no') {
         return `<strong>Inquiries are coming in and not being responded to quickly — and leads who don't convert immediately receive no follow-up.</strong> Every inquiry currently has two chances to go nowhere: the window between contact and response, and the silence after the first exchange. Together, those two gaps mean the conversion rate on inbound leads is substantially lower than it needs to be.`;
       }
-
-      // Slow but has capture
       if ((speed === 'day_or_more' || speed === 'inconsistent') && capture !== 'no') {
         return `<strong>Response time is the gap.</strong> You have a follow-up process for leads who don't book immediately — that's the harder thing to have. The delay before the first response is working against it. By the time the initial reply goes out, some leads have already moved on or resolved their question elsewhere. The follow-up is doing its job; the first touch needs to be faster.`;
       }
-
-      // Fast response + has capture = strong but note the gap
       if (speed === 'under5min' && capture !== 'no') {
         return `<strong>Response time is strong and you have a follow-up process — that's a meaningful combination.</strong> The refinement at this stage is in the quality and specificity of both touchpoints: does the first message give the person a clear, frictionless path to book? Does the follow-up arrive at the right moment, or feel like a generic nudge?`;
       }
-
-      // SOFT CONCERN FIX: same_day + has_capture was landing in default which ignores the follow-up process
       if (speed === 'same_day' && capture !== 'no') {
         return `<strong>You have a follow-up process for leads who don't book immediately — that's the piece most businesses skip.</strong> The gap is in response speed: same-day response means some leads wait hours before hearing back. Someone who reached out in the morning and hears back in the afternoon has had time to find another option. The follow-up is doing its job; the first response needs to arrive faster.`;
       }
-
       return `<strong>Inquiries are coming in — but the response isn't arriving fast enough.</strong> When someone reaches out to book and doesn't hear back within a reasonable window, most don't wait. Not because they chose someone else deliberately, but because another business responded while they were still in the moment of looking.`;
     },
     swk: (biz) => {
       const clientWord = getBizClientWord();
-      // BUG 5 FIX: opening paragraph was identical to Missed Call SWK — every user read the same sentence twice
       return `<p><strong>The moment someone reaches out to inquire is the moment their intent is highest.</strong> That window — from inquiry to first response — is where most of the conversion loss happens. Not because the business did something wrong, but because another business responded faster. The inquiry didn't disappear. It just went somewhere else.</p>
 <p><strong>The response time problem is hardest when you're busiest.</strong> The leads that come in while you're back-to-back are exactly the leads you most want — and the least able to respond to in the moment. This is why businesses that consistently capture more inquiries aren't necessarily more available people. They have something that responds when they can't.</p>
 <p><strong>Leads who don't book immediately aren't necessarily lost.</strong> Some people reach out to gather information before they're ready to commit. A follow-up message the next day — something brief that acknowledges their inquiry and offers a next step — converts a portion of those contacts. Most businesses never send it. Most of those leads become someone else's clients.</p>`;
@@ -1709,9 +1512,8 @@ ${(()=>{
     }
   }
 };
-
 /* ════════════════════════════════════════════════
-   ACTIONS — concise v2 (removed repetitive emphasis)
+   ACTIONS — concise v2
 ════════════════════════════════════════════════ */
 const ACTIONS = {
   review: [
@@ -1765,12 +1567,10 @@ const ACTIONS = {
     }
   ]
 };
-
 const UNIVERSAL_ACTION = {
   title: 'Audit where you\'re losing clients.',
   body: 'Spend 30 minutes this week tracking your client numbers: how many new clients came in last month? How many returned vs. first-time? How many lapsed? Most business owners don\'t know these numbers — and not knowing them is how the leaks stay invisible.'
 };
-
 function generateActions(cats) {
   const sorted = cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max));
   const actions = [];
@@ -1782,18 +1582,16 @@ function generateActions(cats) {
     }
     if (actions.length >= 5) break;
   }
-  // Fill remaining with universal (only once)
   while (actions.length < 5) {
     if (!usedKeys.has('universal')) {
       usedKeys.add('universal');
       actions.push(UNIVERSAL_ACTION);
     } else {
-      break; // prevent infinite loop
+      break;
     }
   }
   return actions.slice(0, 5);
 }
-
 /* ════════════════════════════════════════════════
    BUSINESS CONTEXT / REVENUE ESTIMATE
 ════════════════════════════════════════════════ */
@@ -1805,32 +1603,24 @@ function getBizContext() {
   const missedCallMethod = resp[9]?.value;
   const reactivateMethod = resp[11]?.value;
   const clientWord = getBizClientWord();
-
   const visitValMidpoints = { under75:50, '75to149':110, '150to299':220, '300plus':400 };
   const visitCounts = { under20:10, '20to49':35, '50to149':100, '150plus':200 };
   const val = visitValMidpoints[visitVal] || 120;
   const cnt = visitCounts[visits] || 50;
   const monthlyRev = val * cnt;
-
   const clientCountMid = { under50:25, '50to149':90, '150to499':300, '500plus':600 };
   const clientCount = clientCountMid[clients] || 100;
-
-  // Only show missed call opportunity if they're not already handling it
   const showMissed = missedCallMethod !== 'automated_text';
   const missedCallsEst = Math.max(1, Math.round(cnt * 0.08));
   const missedCallNote = showMissed
     ? `<strong>Missed call opportunity:</strong> At roughly ${missedCallsEst} unanswered calls per month (a conservative estimate at your volume), each one represents a potential booking that received no response. Even recovering a portion of those — through faster follow-up — is meaningful at a $${val} average visit value.<br><br>`
     : '';
-
-  // Only show lapsed opportunity if they're not already handling it
   const showLapsed = reactivateMethod !== 'always_auto';
   const lapsedEst = Math.round(clientCount * 0.25);
   const lapsedNote = showLapsed
     ? `<strong>Lapsed ${clientWord} opportunity:</strong> With approximately ${lapsedEst} ${clientWord}s likely past their natural return window, the question is how many of those are actually gone versus simply uncontacted. For most service businesses, the majority are the latter — which means outreach, sent at the right moment, brings a meaningful portion back.<br><br>`
     : '';
-
   const hasOpportunity = showMissed || showLapsed;
-
   return {
     title: hasOpportunity
       ? `What the gaps may be costing this ${bizType}`
@@ -1842,10 +1632,8 @@ ${hasOpportunity ? 'The areas where revenue is most likely slipping:<br><br>' : 
 }`
   };
 }
-
 /* ════════════════════════════════════════════════
    TRANSITION BRIDGE — new in v2
-   Connects report → plan recommendation with context
 ════════════════════════════════════════════════ */
 function renderTransitionBridge(recommended) {
   const biz = getBizLabel();
@@ -1860,23 +1648,18 @@ function renderTransitionBridge(recommended) {
     growth: `The patterns above are common for ${getBizLabelPlural()} at your stage — busy enough that manual follow-up is breaking down, established enough that fixing it will have immediate impact. The full retention picture includes: post-appointment follow-up for every ${clientWord}, a process for reaching ${clientWord}s before they've fully lapsed, and a new ${clientWord} sequence that reliably produces second visits. This is where retention becomes a system rather than an intention.`,
     pro: `At your volume, inconsistency compounds. Every ${clientWord} who doesn't hear from you after their appointment, every lapsed ${clientWord} who doesn't get a timely message, every inquiry that waits too long — each one is a small leak in a large operation. The infrastructure that matches your scale needs advanced segmentation by service history, coverage across locations, and regular refinement as your business evolves.`
   };
-
   document.getElementById('tb-headline').textContent = headlines[recommended] || headlines.growth;
   document.getElementById('tb-body').textContent = bodies[recommended] || bodies.growth;
   document.getElementById('transition-bridge').style.display = 'block';
 }
-
 /* ════════════════════════════════════════════════
    SHOW RESULTS
 ════════════════════════════════════════════════ */
 function showResults() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('trust-bar-top').style.display = 'none';
-
   const { cats, total } = calcScores();
-  const biz = getBizLabel(); // FIXED: was resp[1]?.value which output raw keys like 'brow_bar'
-
-  // Score ring animation — v3: also sets score-context
+  const biz = getBizLabel();
   const { label, sub, color, context } = getScoreLabel(total);
   const circumference = 440;
   const offset = circumference - (total / 100) * circumference;
@@ -1894,8 +1677,6 @@ function showResults() {
   document.getElementById('score-label').textContent = label;
   document.getElementById('score-sublabel').textContent = sub;
   if (context) { document.getElementById('score-context').textContent = context; }
-
-  // Category grid
   const catGrid = document.getElementById('cat-grid');
   catGrid.innerHTML = cats.map(c => `
     <div class="cat-card">
@@ -1915,30 +1696,22 @@ function showResults() {
       bar.style.width = bar.dataset.pct + '%';
     });
   }, 200);
-
-  // Gap sections — v3: SWK blocks + strength notes, no "Imagine" aspirations
   const sorted = cats.slice().sort((a, b) => (a.score/a.max) - (b.score/b.max));
   const gapContainer = document.getElementById('gap-sections');
   gapContainer.innerHTML = '';
-
   sorted.forEach((cat, idx) => {
     const insight = GAP_INSIGHTS[cat.key];
     if (!insight) return;
     const isPriority = idx === 0;
-
-    // SWK block — always shown
     const swkContent = insight.swk ? insight.swk(biz) : '';
     const swkHtml = swkContent
       ? `<div class="swk-block"><div class="swk-label">Something worth knowing</div><div class="swk-body">${swkContent}</div></div>`
       : '';
-
-    // Strength note — only when score is 70%+ of max
     const isStrong = (cat.score / cat.max) >= 0.7;
     const strengthText = (isStrong && insight.strength) ? insight.strength(biz) : null;
     const strengthHtml = strengthText
       ? `<div class="strength-note"><strong>What's working:</strong> ${strengthText}</div>`
       : '';
-
     const sec = document.createElement('div');
     sec.className = 'report-section' + (isPriority ? ' priority' : '');
     sec.innerHTML = `
@@ -1948,13 +1721,9 @@ function showResults() {
     `;
     gapContainer.appendChild(sec);
   });
-
-  // Revenue section
   const rev = getBizContext();
   document.getElementById('rev-title').textContent = rev.title;
   document.getElementById('rev-body').innerHTML = rev.body;
-
-  // Actions — v3: adds "where to start" closing line
   const actions = generateActions(cats);
   const actionsCard = document.getElementById('actions-card');
   actionsCard.innerHTML = `
@@ -1967,16 +1736,10 @@ function showResults() {
     `).join('')}
     ${actions.length >= 5 ? `<div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(249,248,245,.45);line-height:1.6;"><strong style="color:rgba(249,248,245,.7);">Where to start:</strong> Of these five, action 1 will compound the fastest for your business. Do it every day for two weeks before adding the next one.</div>` : actions.length > 1 ? `<div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(249,248,245,.45);line-height:1.6;"><strong style="color:rgba(249,248,245,.7);">Where to start:</strong> Action 1 will compound the fastest. Start there.</div>` : ''}
   `;
-
-  // Transition bridge + plan recommendation
   const { recommended, rationale } = getPlanRecommendation();
   renderTransitionBridge(recommended);
   renderPlanRec(recommended, rationale);
-
-  // v3: measure-why (replaces placeholder social proof)
   renderMeasureWhy();
-
-  // Reserve section — personalized copy
   const reserveHeadlines = {
     lash_studio: "Ready to stop losing the lash clients you've already earned?",
     brow_bar:    "Ready to stop losing the brow clients you've already earned?",
@@ -1987,13 +1750,10 @@ function showResults() {
     other:       "Ready to stop losing the revenue you've already earned?"
   };
   document.getElementById('reserve-headline').textContent = reserveHeadlines[biz] || reserveHeadlines.other;
-
   const planSavings = { essentials:'$99', growth:'$299', pro:'$599' };
   const saving = planSavings[recommended] || '$599';
   document.getElementById('reserve-sub').textContent =
     `You're securing your founding partner spot. We'll welcome you by email and reach out again when Glowe is ready to activate. Your ${saving} activation fee waiver is locked from the moment you enroll.`;
-
-  // Closing observation — one sentence, by top gap, worth carrying
   const closingObs = {
     review: `The businesses with the strongest local reputations aren't doing better work — they're making sure the work gets documented.`,
     missed: `Every business misses calls. The ones that convert are the ones that respond before the caller decides they already have.`,
@@ -2004,16 +1764,11 @@ function showResults() {
   const topGapKey = sorted[0]?.key;
   const obsEl = document.getElementById('closing-obs-text');
   if (obsEl && topGapKey && closingObs[topGapKey]) {
-    obsEl.textContent = '\u201c' + closingObs[topGapKey] + '\u201d';
+    obsEl.textContent = '“' + closingObs[topGapKey] + '”';
   }
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 function renderMeasureWhy() {
-  /* v3: replaces placeholder testimonials with an honest explanation
-     of what the assessment measures and why. Credible because it's true.
-     Shareable because it's educational. */
   const clientWord = getBizClientWord();
   const biz = getBizLabel();
   const mwCats = [
@@ -2038,7 +1793,6 @@ function renderMeasureWhy() {
       why: `<strong>Because the businesses that consistently capture more inquiries aren't necessarily better at their craft — they're faster.</strong> Response time is one of the most consistent predictors of whether an inquiry becomes a booking, and it's one of the hardest things to do well when you're mid-appointment.`
     }
   ];
-
   const container = document.getElementById('mw-cats');
   if (container) {
     container.innerHTML = mwCats.map(c => `
@@ -2049,16 +1803,13 @@ function renderMeasureWhy() {
     `).join('');
   }
 }
-
 function renderPlanRec(recommended, rationale) {
-  // Plan rec sub
   const verdictPrefix = {
     essentials: '<strong>Glowe Essentials is the right starting point for this business.</strong> ',
     growth:     '<strong>Glowe Growth is the right plan for this business.</strong> ',
     pro:        '<strong>Glowe Pro is the right fit for this operation.</strong> '
   };
   document.getElementById('plan-rec-sub').innerHTML = (verdictPrefix[recommended] || '') + rationale;
-
   const plans = [
     {
       key: 'essentials',
@@ -2112,7 +1863,6 @@ function renderPlanRec(recommended, rationale) {
       ]
     }
   ];
-
   const wrap = document.getElementById('plan-cards-wrap');
   wrap.innerHTML = plans.map(p => {
     const isRec = p.key === recommended;
@@ -2128,7 +1878,6 @@ function renderPlanRec(recommended, rationale) {
     </div>`;
   }).join('');
 }
-
 /* ════════════════════════════════════════════════
    NOT-READY PREP STEPS
 ════════════════════════════════════════════════ */
@@ -2137,7 +1886,6 @@ function getNotReadySteps() {
   const clients  = resp[2]?.value;
   const bizType  = getBizLabel();
   const platform = resp[5]?.value;
-
   if (clients === 'under50') {
     steps.push({
       title: 'Build your contact base to 50+ clients',
@@ -2160,46 +1908,28 @@ function getNotReadySteps() {
   });
   return steps;
 }
-
 /* ════════════════════════════════════════════════
    RESERVATION SUBMIT — FIXED v2
-   - Deduplicates against gate submission
-   - Stricter phone validation
-   - Sends reservation_type flag to distinguish rows
 ════════════════════════════════════════════════ */
 function submitReservation() {
   const rawPhone = document.getElementById('reserve-phone').value.trim();
   const err      = document.getElementById('reserve-err');
-
-  // Strip all non-digits
   const digits = rawPhone.replace(/\D/g, '');
-
-  // US number: 10 digits, or 11 digits starting with 1
   const validUS = digits.length === 10 || (digits.length === 11 && digits[0] === '1');
-  // First digit of 10-digit number must be 2-9
   const tenDigit = digits.length === 10 ? digits : digits.slice(1);
   const validFirstDigit = tenDigit[0] >= '2';
-  // Obviously invalid sequences
   const isSequential = /^(0{10}|1{10}|1234567890)$/.test(tenDigit);
-
   if (!validUS || !validFirstDigit || isSequential) {
     err.classList.add('show');
     return;
   }
   err.classList.remove('show');
-
-  // Format for storage: +1XXXXXXXXXX
   const formattedPhone = '+1' + tenDigit;
   resp.cell_phone = formattedPhone;
-
-  // Show confirmation, hide reserve
   document.getElementById('reserve-section').style.display = 'none';
   const conf = document.getElementById('confirmation-section');
   conf.style.display = 'block';
-
-  // Render prep guide
   renderPrepGuide();
-
   // Send reservation record to Apps Script (SEPARATE from gate submission)
   const payload = buildPayload();
   payload.submitted_at = new Date().toISOString();
@@ -2207,34 +1937,11 @@ function submitReservation() {
   payload.cell_phone   = formattedPhone;
   payload.reservation  = true;
   sendToAppsScript(payload);
-
-  // Kit — update subscriber with phone + reserved tags
-  const KIT_FORM_ID = '9558027';
-  const KIT_API_KEY = 'j6QpLj6Dkg4oNRD-JTvHdg';
-  if (resp.email) {
-    fetch('https://api.convertkit.com/v3/forms/' + KIT_FORM_ID + '/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_key: KIT_API_KEY,
-        email: resp.email,
-        tags: ['glowe-reserved', 'sgi-founding-cohort'],
-        fields: {
-          cell_phone: formattedPhone,
-          source: 'assessment-reservation',
-          biz_type: resp[1]?.value || '',
-          recommended_plan: buildPayload().recommended_plan
-        }
-      })
-    }).catch(function(){});
-  }
-
-  // GHL webhook — wire after build (Ezekiel)
-  // sendToGHL(payload);
-
+  // REMOVED: the direct ConvertKit v3 fetch block used to live here.
+  // The Apps Script (above) handles Kit — and because payload.reservation is true,
+  // it applies the "Reservation" tag that triggers your founding sequence.
   window.scrollTo({ top: document.getElementById('confirmation-section').offsetTop - 20, behavior: 'smooth' });
 }
-
 /* ════════════════════════════════════════════════
    PREP GUIDE RENDER
 ════════════════════════════════════════════════ */
@@ -2243,7 +1950,6 @@ function renderPrepGuide() {
   const biz = getBizLabel();
   const clientWord = getBizClientWord();
   const notReadySteps = getNotReadySteps();
-
   const cats = [
     {
       title: 'Business essentials',
@@ -2280,7 +1986,6 @@ function renderPrepGuide() {
       ]
     }
   ];
-
   const list = document.getElementById('prep-cats-list');
   let html = cats.map(cat => `
     <div>
@@ -2290,7 +1995,6 @@ function renderPrepGuide() {
       </ul>
     </div>
   `).join('');
-
   if (notReadySteps.length > 0) {
     html += `<div><div class="prep-cat-title" style="color:#F16122">Before you activate, complete these steps</div>
       <div class="not-ready-steps">
@@ -2300,14 +2004,11 @@ function renderPrepGuide() {
         </div>`).join('')}
       </div></div>`;
   }
-
   list.innerHTML = html;
   document.getElementById('prep-guide').style.display = 'block';
 }
-
 /* ════════════════════════════════════════════════
-   APPS SCRIPT HELPER — FIXED v2
-   Consistent field names. record_type distinguishes rows.
+   APPS SCRIPT HELPER
 ════════════════════════════════════════════════ */
 function sendToAppsScript(payload) {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
@@ -2318,33 +2019,18 @@ function sendToAppsScript(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-
 /* ════════════════════════════════════════════════
-   GHL WEBHOOK HELPER (stub — Ezekiel wires URL)
-════════════════════════════════════════════════ */
-// function sendToGHL(payload) {
-//   fetch('YOUR_GHL_WEBHOOK_URL_HERE', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(payload)
-//   }).catch(function(){});
-// }
-
-/* ════════════════════════════════════════════════
-   PAYLOAD BUILDER — FIXED v2
-   - Uses submitted_at consistently (not timestamp)
-   - Adds record_type field
-   - Adds recommended_plan
-   - Adds biz_label for downstream use
+   PAYLOAD BUILDER
 ════════════════════════════════════════════════ */
 function buildPayload() {
   const { cats, total } = calcScores();
   const topGap = getTopGap(cats);
   const { recommended } = getPlanRecommendation();
   return {
-    submitted_at:        new Date().toISOString(), // consistent — no more timestamp/submitted_at mismatch
-    record_type:         'assessment',             // overridden to 'reservation' for reservation rows
+    submitted_at:        new Date().toISOString(),
+    record_type:         'assessment',
     email:               resp.email || '',
+    first_name:          resp.first_name || '',   // NEW — populates {{ subscriber.first_name }}
     cell_phone:          resp.cell_phone || '',
     biz_type:            resp[1]?.value || '',
     biz_label:           getBizLabel(),
@@ -2368,10 +2054,9 @@ function buildPayload() {
     top_gap_label:       topGap.label,
     recommended_plan:    recommended,
     cat_scores:          cats.reduce((o, c) => { o[c.key] = c.score; return o; }, {}),
-    source:              'helloglowe.com / Revenue Assessment v2'
+    source:              'helloglowe.com / Revenue Assessment v6'
   };
 }
-
 /* ════════════════════════════════════════════════
    DOWNLOAD (print to PDF)
 ════════════════════════════════════════════════ */
@@ -2379,149 +2064,10 @@ function downloadReport() {
   document.title = 'Glowe Revenue Assessment — My Report';
   window.print();
 }
-
 /* ════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════ */
 showQ(1);
 </script>
 </body>
-
-<!--
-═══════════════════════════════════════════════════════════════
-GOOGLE APPS SCRIPT v2 — UPDATED
-Deploy at: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
-Sheet: Glowe Assessment Results
-
-CHANGES FROM v1:
-- Reads 'submitted_at' (not 'timestamp') — fixes field name mismatch bug
-- Added 'Record Type' column to distinguish assessment vs reservation rows
-- Added 'Recommended Plan', 'Biz Label' columns
-- Deduplication: reservation rows UPDATE existing assessment row by email
-  rather than creating a new row — prevents duplicate lead problem
-- Cell Phone only populated on reservation rows
-═══════════════════════════════════════════════════════════════
-
-function doPost(e) {
-  try {
-    var data = JSON.parse(e.postData.contents);
-    var ss    = SpreadsheetApp.openById('1-NtdnvXZNIX1l0NOSwNmOcF9vTl8fCNSwU2Uwmb0Gg4');
-    var sheet = ss.getActiveSheet();
-
-    var HEADERS = [
-      'Timestamp',         // submitted_at (FIXED — was reading data.timestamp, now data.submitted_at)
-      'Record Type',       // 'assessment' or 'reservation' (NEW)
-      'Email',
-      'Cell Phone',        // only populated on reservation rows
-      'Business Type',     // raw value (e.g. 'lash_studio')
-      'Business Label',    // human label (e.g. 'lash studio') (NEW)
-      'Active Clients',
-      'Average Visit Value',
-      'Monthly Appointments',
-      'Booking Platform',
-      'Google Reviews',
-      'Google Rating',
-      'Review Process',
-      'Missed Call Process',
-      'Follow-Up Process',
-      'Reactivation Process',
-      'First Visit Process',
-      'Rebook Process',
-      'Lead Response Speed',
-      'Lead Capture',
-      'Total Score',
-      'Score Label',
-      'Top Gap',
-      'Top Gap Label',
-      'Recommended Plan',  // NEW
-      'Review Score',
-      'Missed Call Score',
-      'Retention Score',
-      'Nurture Score',
-      'Lead Score',
-      'Source',
-      'Raw Payload'
-    ];
-
-    // Write headers if sheet is empty
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(HEADERS);
-    }
-
-    var cats = data.cat_scores || {};
-    var recordType = data.record_type || 'assessment';
-    var email      = data.email || '';
-
-    // DEDUPLICATION: if this is a reservation row, try to update existing assessment row
-    if (recordType === 'reservation' && email) {
-      var lastRow = sheet.getLastRow();
-      var emailCol = 3; // Column C = Email (1-indexed)
-      for (var r = 2; r <= lastRow; r++) {
-        var rowEmail = sheet.getRange(r, emailCol).getValue();
-        if (rowEmail === email) {
-          // Found existing row — update cell phone, record type, timestamp
-          sheet.getRange(r, 1).setValue(data.submitted_at || new Date().toISOString()); // update timestamp
-          sheet.getRange(r, 2).setValue('reserved');   // update record type
-          sheet.getRange(r, 4).setValue(data.cell_phone || ''); // fill in phone
-          sheet.getRange(r, 25).setValue(data.recommended_plan || ''); // fill recommended plan
-          sheet.getRange(r, 32).setValue(JSON.stringify(data)); // update raw payload
-          return ContentService
-            .createTextOutput(JSON.stringify({ status: 'ok', action: 'updated' }))
-            .setMimeType(ContentService.MimeType.JSON);
-        }
-      }
-      // No existing row found — fall through to append
-    }
-
-    // APPEND new row
-    sheet.appendRow([
-      data.submitted_at          || new Date().toISOString(), // FIXED: was data.timestamp
-      recordType,
-      email,
-      data.cell_phone            || '',
-      data.biz_type              || '',
-      data.biz_label             || '',
-      data.active_clients        || '',
-      data.avg_visit_value       || '',
-      data.monthly_appointments  || '',
-      data.booking_platform      || '',
-      data.google_reviews        || '',
-      data.google_rating         || '',
-      data.review_process        || '',
-      data.missed_call_process   || '',
-      data.followup_process      || '',
-      data.reactivation_process  || '',
-      data.first_visit_process   || '',
-      data.rebook_process        || '',
-      data.lead_response_speed   || '',
-      data.lead_capture          || '',
-      data.total_score           || '',
-      data.score_label           || '',
-      data.top_gap               || '',
-      data.top_gap_label         || '',
-      data.recommended_plan      || '',
-      cats.review                || '',
-      cats.missed                || '',
-      cats.retention             || '',
-      cats.nurture               || '',
-      cats.lead                  || '',
-      data.source                || 'revenue-assessment-v2',
-      JSON.stringify(data)
-    ]);
-
-    return ContentService
-      .createTextOutput(JSON.stringify({ status: 'ok', action: 'appended' }))
-      .setMimeType(ContentService.MimeType.JSON);
-
-  } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ status: 'error', message: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
-
-═══════════════════════════════════════════════════════════════
-END OF GOOGLE APPS SCRIPT v2
-═══════════════════════════════════════════════════════════════
--->
 </html>
