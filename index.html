@@ -745,7 +745,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e3">Please select an option to continue.</div>
     </div>
-    <!-- Q4 -->
+<!-- Q4 -->
     <div class="q-card" id="q4" style="display:none">
       <div class="q-num">Question 5 of 16 &nbsp;·&nbsp; Your Business</div>
       <div class="q-text">How many appointments do you complete in an average month?</div>
@@ -819,7 +819,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e9">Please select an option to continue.</div>
     </div>
-    <!-- Q10 -->
+<!-- Q10 -->
     <div class="q-card" id="q10" style="display:none">
       <div class="q-num">Question 11 of 16 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
       <div class="q-text">Do you follow up with clients after their appointment?</div>
@@ -896,7 +896,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <button class="btn btn-p btn-lg" id="btn-next" onclick="goNext()" style="margin-left:auto">Continue →</button>
     </div>
   </div><!-- /assessment-questions -->
-  <!-- EMAIL GATE -->
+<!-- EMAIL GATE -->
   <div id="email-gate" style="display:none">
     <div class="gate-card">
       <div class="gate-icon">📊</div>
@@ -964,7 +964,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="tb-headline" id="tb-headline"></div>
       <div class="tb-body" id="tb-body"></div>
     </div>
-    <!-- Plan recommendation -->
+<!-- Plan recommendation -->
     <div class="plan-rec-section" id="plan-rec-section">
       <div class="plan-rec-intro">
         <div style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Glowe is a client retention platform built for independent beauty and wellness businesses.</div>
@@ -984,10 +984,10 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="measure-why-intro">This diagnostic covers the five areas where independent beauty and wellness businesses most consistently lose revenue they've already earned. These five were selected because they're the most recoverable — fixable with process changes and consistent follow-through, not bigger marketing budgets. A business that closes all five gaps will outperform a business spending more on acquisition.</div>
       <div class="mw-cats" id="mw-cats"></div>
     </div>
-    <!-- ══════════════════════════════════════════════
+    <!-- ══════════════════════════════════════════════════
          ENTERPRISE SECTION — shown when enterprise flag fires
          Replaces plan cards entirely
-    ══════════════════════════════════════════════ -->
+    ══════════════════════════════════════════════════ -->
     <div id="enterprise-section" style="display:none;max-width:680px;margin:0 auto 32px;padding:0 24px">
       <!-- Header -->
       <div style="background:var(--ink);border-radius:16px;padding:28px 32px;margin-bottom:20px">
@@ -997,6 +997,10 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <!-- Mini questionnaire -->
       <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px">
+        <!-- Interactive note -->
+        <div style="background:var(--green-xl);border:1px solid rgba(0,202,114,.15);border-radius:var(--r);padding:10px 14px;margin-bottom:20px;font-size:12px;color:var(--muted);line-height:1.5">
+          <strong style="color:var(--ink)">Your price updates as you answer.</strong> Click any option to change your selection at any time — your configuration and price will recalculate instantly.
+        </div>
         <!-- EQ1: How many locations -->
         <div class="ent-q" id="eq1-wrap">
           <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-d);margin-bottom:6px">1 of 4</div>
@@ -1010,11 +1014,11 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
           </div>
         </div>
         <div style="height:1px;background:var(--border);margin:20px 0"></div>
-        <!-- EQ2: GMB profiles -->
+<!-- EQ2: GMB profiles -->
         <div class="ent-q" id="eq2-wrap" style="opacity:.35;pointer-events:none">
           <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-d);margin-bottom:6px">2 of 4</div>
           <div style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px">How many Google Business Profiles does your business have?</div>
-          <div style="font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.6">Your Google Business Profile is what clients see when they search for you on Google. Some businesses have one per location, others share one across locations.</div>
+          <div style="font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.6">Your Google Business Profile is what appears when someone searches for your business on Google — it's where your reviews live and where clients get directions or your phone number. Some multi-location businesses have one profile per location. Others operate under one shared profile. This affects how review requests are configured across your locations.</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="eq2-choices">
             <button class="ecbtn" data-eq="2" data-v="same" onclick="selectEQ(this,2)">One per location (same count)</button>
             <button class="ecbtn" data-eq="2" data-v="more" onclick="selectEQ(this,2)">More profiles than locations</button>
@@ -1053,7 +1057,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         <div style="font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto">When independent practitioners each need their own client relationships and automations, the right setup is a little different from a standard multi-location account. Reach out directly and we'll put together the right structure for you.</div>
         <a href="mailto:hello@helloglowe.com?subject=Group Account Inquiry" style="background:var(--ink);color:var(--cream);padding:13px 24px;border-radius:10px;font-size:13.5px;font-weight:700;text-decoration:none;display:inline-block">Contact us at hello@helloglowe.com</a>
       </div>
-      <!-- Enterprise price result — shown after all 4 EQs answered (non-reseller) -->
+<!-- Enterprise price result — shown after all 4 EQs answered (non-reseller) -->
       <div id="ent-price-result" style="display:none;background:var(--ink);border-radius:16px;padding:28px 32px;margin-bottom:16px">
         <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px">Your Enterprise Configuration</div>
         <div style="font-size:32px;font-weight:800;color:var(--cream);line-height:1;margin-bottom:4px" id="ent-monthly-price">—</div>
@@ -1067,8 +1071,13 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         <div id="ent-optional-call-note" style="display:none;background:rgba(249,248,245,.06);border:1px solid rgba(249,248,245,.1);border-radius:10px;padding:12px 16px;font-size:12.5px;color:rgba(249,248,245,.5);margin-bottom:20px;line-height:1.6">
           If you'd like to speak with someone before committing, reach out at hello@helloglowe.com — we're happy to answer questions.
         </div>
+        <!-- Enterprise feature list — populated by calcEnterprisePrice -->
+        <div id="ent-features-list" style="margin-bottom:20px"></div>
         <button onclick="scrollToReserve()" style="background:var(--green);color:var(--ink);border:none;border-radius:10px;padding:14px 28px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;cursor:pointer;width:100%">Reserve My Enterprise Spot →</button>
         <div style="margin-top:12px;font-size:11.5px;color:rgba(249,248,245,.3);text-align:center">No contracts. Cancel anytime. Setup fee charged at payment.</div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:rgba(249,248,245,.4);text-align:center;line-height:1.6">
+          Think a standard plan fits your needs better? You can explore and select our three standard plans at <a href="https://helloglowe.com" target="_blank" style="color:rgba(0,202,114,.7);text-decoration:none">helloglowe.com</a>
+        </div>
       </div>
     </div><!-- /enterprise-section -->
     <!-- Reserve section — redesigned in v2 -->
@@ -1103,7 +1112,46 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="reserve-err" id="reserve-err">Please enter a valid mobile number. Include your country code if outside the US — e.g. +44 7911 123456 or +1 555 000 0000.</div>
       <div class="reserve-privacy">By reserving your spot, you agree to receive a text confirmation. No spam, no robocalls. You can opt out anytime.</div>
     </div>
-    <!-- Confirmation — redesigned in v2 -->
+<!-- Confirmation — redesigned in v2 -->
+    <!-- Enterprise confirmation — shown instead of standard for enterprise prospects -->
+    <div class="confirmation-section" id="enterprise-confirmation-section" style="display:none">
+      <div class="conf-headline">You're reserved.</div>
+      <div class="conf-sub" id="ent-conf-sub">Your enterprise spot is secured. Here's what's next.</div>
+      <!-- Payment link block — populated by Netlify function -->
+      <div id="ent-payment-block" style="display:none;background:var(--green);border-radius:var(--rl);padding:24px;margin:20px 0;text-align:center">
+        <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px">Ready to activate? Complete your payment securely:</div>
+        <div style="font-size:24px;font-weight:800;color:var(--ink);margin-bottom:14px" id="ent-conf-price">—</div>
+        <a id="ent-stripe-link" href="#" target="_blank"
+          style="display:inline-block;background:var(--ink);color:var(--cream);padding:14px 32px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none">
+          Complete Payment →
+        </a>
+        <div style="font-size:11.5px;color:rgba(38,38,38,.6);margin-top:10px">Secure payment via Stripe. No contracts. Cancel anytime.</div>
+      </div>
+      <!-- Loading state while Netlify generates link -->
+      <div id="ent-payment-loading" style="background:var(--g1);border-radius:var(--rl);padding:24px;margin:20px 0;text-align:center">
+        <div style="font-size:13px;color:var(--muted)">Generating your secure payment link...</div>
+      </div>
+      <!-- Payment link fallback if Netlify fails -->
+      <div id="ent-payment-fallback" style="display:none;background:var(--g1);border-radius:var(--rl);padding:20px;margin:20px 0;text-align:center">
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">Your spot is reserved. We'll email your secure payment link within one business day at the address you provided.</div>
+      </div>
+      <div style="background:var(--ink);border-radius:var(--rl);padding:24px;margin-top:16px">
+        <div class="conf-timeline-title">What happens next</div>
+        <div class="conf-tl-item">
+          <div class="conf-tl-when">Shortly</div>
+          <div class="conf-tl-what"><strong>Welcome email from the Glowe team</strong> — includes your configuration summary and payment link.</div>
+        </div>
+        <div class="conf-tl-item">
+          <div class="conf-tl-when">After payment</div>
+          <div class="conf-tl-what"><strong>Onboarding begins</strong> — you'll receive your setup form and we'll configure your account.</div>
+        </div>
+        <div class="conf-tl-item" style="border-bottom:none">
+          <div class="conf-tl-when">Questions?</div>
+          <div class="conf-tl-what"><strong>Reach us at hello@helloglowe.com</strong> — we're here before, during, and after setup.</div>
+        </div>
+      </div>
+    </div>
+    <!-- Standard Tier 1 confirmation -->
     <div class="confirmation-section" id="confirmation-section">
       <div class="conf-icon">✅</div>
       <div class="conf-headline" id="conf-headline">Your spot is reserved.</div>
@@ -1116,7 +1164,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         </div>
         <div class="conf-tl-item">
           <div class="conf-tl-when">At launch</div>
-          <div class="conf-tl-what"><strong>Email and text from your Glowe advisor</strong> — we'll walk you through setup and get your system live.</div>
+          <div class="conf-tl-what"><strong>Email and text from the Glowe team</strong> — we'll walk you through setup and get your system live.</div>
         </div>
         <div class="conf-tl-item">
           <div class="conf-tl-when">Priority</div>
@@ -1145,12 +1193,12 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   </div><!-- /results -->
 </div><!-- /a-shell -->
 <script>
-/* ══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    GLOWE REVENUE ASSESSMENT — v5
    Final editorial pass: no self-reference, no founder voice,
    no assessment meta-language. Direct business observations throughout.
    The report stands alone as a business diagnostic.
-══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 /* ── STATE ── */
 let currentQ = 1;
 const TOTAL_Q = 16; // includes location question (qloc)
@@ -1165,9 +1213,9 @@ const SECTIONS = {
   12:'New Customer Nurture',13:'New Customer Nurture',
   14:'Lead Capture Speed',15:'Lead Capture Speed',16:'Lead Capture Speed'
 };
-/* ══════════════════════════════════════════
+/* ════════════════════════════════════════════════
    NAVIGATION
-═══════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 // Q sequence: 1 → 'loc' → 2 → 3 ... → 15
 // currentQ is numeric for questions 2-15, 'loc' for the location question, 1 for Q1
 const Q_SEQUENCE = [1, 'loc', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -1257,10 +1305,10 @@ document.querySelectorAll('.cbtn').forEach(btn => {
     };
   });
 });
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    BIZ LABEL — FIXED v2
    Keys now match Q1 data-v values exactly
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function getBizLabel() {
   const bizMap = {
     'lash_studio':  'lash studio',
@@ -1290,9 +1338,9 @@ function getBizClientWord() {
   // Med spa uses 'patient' / 'patients'
   return resp[1]?.value === 'medspa' ? 'patient' : 'client';
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    GATE
-═══════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function showGate() {
   document.getElementById('assessment-questions').style.display = 'none';
   document.getElementById('prog-wrap').style.display = 'none';
@@ -1335,9 +1383,9 @@ function submitGate() {
   // sendToGHL(buildPayload());
   console.log('[Glowe v2] Assessment submitted:', buildPayload());
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    SCORING
-═══════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function calcScores() {
   // Review: 40% rating, 60% process
   const reviewScore = (resp[7]?.score || 0) * 0.4 + (resp[8]?.score || 0) * 0.6;
@@ -1387,11 +1435,11 @@ function getScoreLabel(total) {
 function getTopGap(cats) {
   return cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max))[0];
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    PLAN RECOMMENDATION — IMPROVED v2
    Fixed overbroad Growth routing for small/new operators.
    Added minimum thresholds. Added context-aware rationale.
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function getPlanRecommendation() {
   const clients  = resp[2]?.value || 'under50';
   const visits   = resp[4]?.value || 'under20';
@@ -1445,11 +1493,11 @@ function getPlanRecommendation() {
   }
   return { recommended, rationale, isEnterprise };
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    GAP INSIGHTS — v3
    Education-first. Outcome language throughout.
    Each entry: title(), body(), swk(), strength()
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 const GAP_INSIGHTS = {
   review: {
     title: (biz) => `Review Generation — Your ${biz}'s reputation isn't fully reflecting your work`,
@@ -1600,6 +1648,7 @@ ${(()=>{
       if (followup === 'never' && reactivate === 'never') {
         return `<strong>${clientWord.charAt(0).toUpperCase() + clientWord.slice(1)}s who stop booking leave without hearing from the ${biz}.</strong> No message after their appointment. No outreach as weeks pass. With approximately ${lapsedEst} ${clientWord}s likely past their natural return window right now, that's a recoverable group that's currently going unaddressed.`;
       }
+      // Large client base + manual/sometimes handled above; otherwise generic
       return `<strong>Retention outreach is happening, but not consistently.</strong> Manual follow-up is genuinely better than nothing — but the ${clientWord}s you don't reach on any given week simply don't get reached. Consistency is the gap, and it tends to be a systems problem rather than a motivation problem.`;
     },
     swk: (biz) => {
@@ -1720,9 +1769,9 @@ ${(()=>{
     }
   }
 };
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    ACTIONS — concise v2 (removed repetitive emphasis)
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 const ACTIONS = {
   review: [
     {
@@ -1801,9 +1850,9 @@ function generateActions(cats) {
   }
   return actions.slice(0, 5);
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    BUSINESS CONTEXT / REVENUE ESTIMATE
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function getBizContext() {
   const bizType = getBizLabel();
   const clients = resp[2]?.value;
@@ -1843,10 +1892,10 @@ ${hasOpportunity ? 'The areas where revenue is most likely slipping:<br><br>' : 
 }`
   };
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    TRANSITION BRIDGE — new in v2
    Connects report → plan recommendation with context
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function renderTransitionBridge(recommended) {
   const biz = getBizLabel();
   const clientWord = getBizClientWord();
@@ -1864,9 +1913,9 @@ function renderTransitionBridge(recommended) {
   document.getElementById('tb-body').textContent = bodies[recommended] || bodies.growth;
   document.getElementById('transition-bridge').style.display = 'block';
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    SHOW RESULTS
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function showResults() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('trust-bar-top').style.display = 'none';
@@ -2040,25 +2089,28 @@ function renderMeasureWhy() {
     `).join('');
   }
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    ENTERPRISE MINI-QUESTIONNAIRE LOGIC
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 const eqResp = {}; // eq1, eq2, eq3, eq4
+let enterpriseConfig = null; // stores calculated enterprise price config for reservation
 function selectEQ(btn, qNum) {
-  // Deselect siblings
+  // Deselect siblings in this question
   const parent = btn.parentElement;
   parent.querySelectorAll('.ecbtn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
   eqResp[qNum] = btn.dataset.v;
-  // Unlock next question
+  // Unlock next question if not already unlocked
   const nextWrap = document.getElementById('eq' + (qNum + 1) + '-wrap');
-  if (nextWrap) {
+  if (nextWrap && nextWrap.style.opacity !== '1') {
     nextWrap.style.opacity = '1';
     nextWrap.style.pointerEvents = 'auto';
     nextWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
-  // After EQ4, calculate price
-  if (qNum === 4) {
+  // Recalculate price whenever any answer changes (if all 4 answered)
+  if (eqResp[1] && eqResp[2] && eqResp[3] && eqResp[4]) {
+    setTimeout(calcEnterprisePrice, 200);
+  } else if (qNum === 4) {
     setTimeout(calcEnterprisePrice, 300);
   }
 }
@@ -2079,7 +2131,7 @@ function calcEnterprisePrice() {
   const additionalLocs = locMid - 1;
   // Monthly calc
   const BASE = 499;
-  const perLoc = (flowVal === 'same') ? 249 : 399;
+  const perLoc = (flowVal === 'same') ? 300 : 399;
   let monthly = BASE + (additionalLocs * perLoc);
   // Extra GMB
   const extraGmb = (gmbVal === 'more') ? Math.floor(additionalLocs * 0.5) : 0;
@@ -2099,19 +2151,62 @@ function calcEnterprisePrice() {
   // Update price display
   document.getElementById('ent-monthly-price').textContent = '$' + monthly.toLocaleString();
   document.getElementById('ent-setup-fee-display').textContent = diffFlows ? 'Setup included (call)' : ('$' + setupFee);
-  // Breakdown
-  const breakdownLines = [
-    { label: 'Base — 1 location', val: '$499' },
-    { label: `+${additionalLocs} location${additionalLocs!==1?'s':''} (${flowVal==='same'?'same':'different'} flows × $${perLoc})`, val: '$' + (additionalLocs * perLoc) },
-  ];
-  if (extraGmb > 0) breakdownLines.push({ label: `+${extraGmb} additional GMB profile${extraGmb!==1?'s':''}`, val: '$' + (extraGmb * 49) });
-  breakdownLines.push({ label: 'Total monthly', val: '<strong style="color:var(--green)">$' + monthly.toLocaleString() + '</strong>' });
-  document.getElementById('ent-price-breakdown').innerHTML = breakdownLines.map(l =>
-    `<div class="ent-breakdown-line"><span class="ent-breakdown-label">${l.label}</span><span class="ent-breakdown-val">${l.val}</span></div>`
-  ).join('');
+  // Clean summary — no line-by-line math shown to prospect
+  const locLabel = locMid === 1 ? '1 location' : `${locMid} locations`;
+  const flowLabel = flowVal === 'same' ? 'same messaging across all locations' : 'custom setup per location';
+  const gmbLabel = extraGmb > 0 ? `, ${extraGmb} additional GMB profile${extraGmb!==1?'s':''}` : '';
+  document.getElementById('ent-price-breakdown').innerHTML = `
+    <div class="ent-breakdown-line">
+      <span class="ent-breakdown-label">Configuration</span>
+      <span class="ent-breakdown-val" style="font-size:12px;font-weight:500">${locLabel} · ${flowLabel}${gmbLabel}</span>
+    </div>
+    <div class="ent-breakdown-line" style="border-bottom:none">
+      <span class="ent-breakdown-label">Billed monthly</span>
+      <span class="ent-breakdown-val" style="color:var(--green);font-size:16px">$${monthly.toLocaleString()}/mo</span>
+    </div>
+  `;
   // Call notes
   document.getElementById('ent-config-call-note').style.display = diffFlows ? 'block' : 'none';
   document.getElementById('ent-optional-call-note').style.display = (!diffFlows && monthly >= 1500) ? 'block' : 'none';
+  // Build feature list based on configuration
+  const diffFlows2 = (flowVal === 'different' || flowVal === 'mix');
+  const baseFeatures = [
+    '✓ Missed call text-back — every unanswered call gets a response within 60 seconds',
+    '✓ Automated review requests — sent after every appointment at the right moment',
+    '✓ Service-cadence reactivation — outreach timed to each client\'s actual return interval',
+    '✓ New client nurture — follow-up and rebook prompt after every first visit',
+    '✓ Lead capture follow-up — no inquiry goes unanswered',
+    '✓ Monthly performance report per location',
+    '✓ Quarterly business review email — consolidated multi-location insights and recommendations',
+    '✓ Multi-location consolidated reporting — one view across all locations',
+    '✓ Dedicated onboarding and setup support',
+  ];
+  const diffFlowFeatures = diffFlows2 ? [
+    '✓ Custom reactivation sequences per location — distinct messaging per location\'s client experience',
+    '✓ 30-minute configuration call included — confirms every location\'s setup before go-live',
+    '✓ Open invitation to connect after quarterly review — reach out anytime to talk through the results',
+  ] : [
+    '✓ Consistent brand voice and messaging across all locations — configured once, runs everywhere',
+    '✓ Open invitation to connect after quarterly review — reach out anytime to talk through the results',
+  ];
+  const allFeatures = [...baseFeatures, ...diffFlowFeatures];
+  const featuresEl = document.getElementById('ent-features-list');
+  if (featuresEl) {
+    featuresEl.innerHTML = `
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,248,245,.4);margin-bottom:10px">What's included</div>
+      ${allFeatures.map(f => `<div style="font-size:12.5px;color:rgba(249,248,245,.7);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.5">${f}</div>`).join('')}
+    `;
+  }
+  // Store config globally for reservation flow
+  enterpriseConfig = {
+    monthly: monthly,
+    setupFee: setupFee,
+    locationCount: locMid,
+    flowType: flowVal,
+    locLabel: locLabel,
+    flowLabel: flowLabel,
+    diffFlows: diffFlows2
+  };
   // Show result
   document.getElementById('ent-price-result').style.display = 'block';
   setTimeout(() => {
@@ -2122,9 +2217,9 @@ function scrollToReserve() {
   const r = document.getElementById('reserve-section') || document.querySelector('.reserve-section');
   if (r) r.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    PLAN RECOMMENDATION (Tier 1 only)
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function renderPlanRec(recommended, rationale) {
   // Plan rec sub
   const verdictPrefix = {
@@ -2144,11 +2239,12 @@ function renderPlanRec(recommended, rationale) {
       badge_other: 'Available',
       rationale_other: 'For solo operators and businesses building their contact base.',
       features: [
-        'No caller goes unacknowledged — texts back within 60 seconds of a missed call',
-        'Every client gets asked for a review at the right moment after their visit',
-        'New clients hear from you within 24 hours and again when it\'s time to rebook',
-        'Monthly report so you can see what\'s improving',
-        'Email support when you need it'
+        'Missed call text-back — every unanswered call gets a response within 60 seconds',
+        'Automated review requests — sent after every appointment at the right moment',
+        'New client nurture — follow-up within 24 hours and a rebook prompt when it\'s time',
+        'Lead capture follow-up — no inquiry goes unanswered',
+        'Monthly performance report — see what Glowe is doing for your business every month',
+        'Email support'
       ]
     },
     {
@@ -2162,10 +2258,10 @@ function renderPlanRec(recommended, rationale) {
       rationale_other: 'For established businesses with 150+ clients focused on retention.',
       features: [
         'Everything in Essentials',
-        'Lapsed clients hear from you before they\'ve mentally moved on',
-        'Every new client gets a follow-up and rebook prompt at the right moment',
-        'Review requests go to every client after every appointment',
-        'Monthly report showing what\'s working and what to watch'
+        'Service-cadence reactivation — lapsed clients hear from you before they\'ve mentally moved on',
+        'Post-appointment follow-up — every client gets a personal touch after every visit',
+        'Monthly performance report',
+        'Quarterly business review email — deeper insights and tailored recommendations every 90 days'
       ]
     },
     {
@@ -2176,13 +2272,14 @@ function renderPlanRec(recommended, rationale) {
       setup: '$599 setup',
       badge_rec: '✓ Recommended for You',
       badge_other: 'When You Scale',
-      rationale_other: 'For high-volume or multi-location operators.',
+      rationale_other: 'For high-volume independent operators who need the full Glowe system.',
       features: [
         'Everything in Growth',
-        'Multi-location support — same system across all locations',
-        'Follow-up reflects each client\'s actual service history and timing',
-        'More touchpoints for more service types and situations',
-        'Quarterly review with your Glowe advisor to improve what\'s running'
+        'Enhanced quarterly business review email — deeper insights, trend analysis, and prioritized action items',
+        'More touchpoints across more service types and client situations',
+        'Follow-up messaging reflects each client\'s actual service history and cadence',
+        'Priority support',
+        'Quarterly business review email — personalized recommendations every 90 days based on your account activity'
       ]
     }
   ];
@@ -2205,9 +2302,9 @@ function renderPlanRec(recommended, rationale) {
   const noteEl = document.getElementById('plan-flexibility-note');
   if (noteEl) noteEl.style.display = 'block';
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    NOT-READY PREP STEPS
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function getNotReadySteps() {
   const steps = [];
   const clients  = resp[2]?.value;
@@ -2235,12 +2332,12 @@ function getNotReadySteps() {
   });
   return steps;
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    RESERVATION SUBMIT — FIXED v2
    - Deduplicates against gate submission
    - Stricter phone validation
    - Sends reservation_type flag to distinguish rows
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function submitReservation() {
   const rawPhone = document.getElementById('reserve-phone').value.trim();
   const err      = document.getElementById('reserve-err');
@@ -2272,12 +2369,61 @@ function submitReservation() {
     formattedPhone = '+' + digits;
   }
   resp.cell_phone = formattedPhone;
-  // Show confirmation, hide reserve
+  // Detect enterprise vs Tier 1
+  const isEntConf = !!enterpriseConfig;
+  // Hide reserve section
   document.getElementById('reserve-section').style.display = 'none';
-  const conf = document.getElementById('confirmation-section');
-  conf.style.display = 'block';
-  // Render prep guide
-  renderPrepGuide();
+  if (isEntConf) {
+    // ── ENTERPRISE CONFIRMATION ──────────────────────
+    const entConf = document.getElementById('enterprise-confirmation-section');
+    entConf.style.display = 'block';
+    // Set confirmation sub-copy
+    document.getElementById('ent-conf-sub').textContent =
+      `Your enterprise spot is secured — ${enterpriseConfig.locLabel}, ${enterpriseConfig.flowLabel}. Here's what's next.`;
+    document.getElementById('ent-conf-price').textContent =
+      `$${enterpriseConfig.monthly.toLocaleString()}/month`;
+    // Call Netlify to generate Stripe payment link
+    // NETLIFY_FUNCTION_URL — enterprise Stripe payment link generator
+    const NETLIFY_URL = 'https://glowe-stripe.netlify.app/.netlify/functions/create-payment-link';
+    fetch(NETLIFY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        monthly_price:  enterpriseConfig.monthly,
+        setup_fee:      enterpriseConfig.setupFee,
+        location_count: enterpriseConfig.locationCount,
+        flow_type:      enterpriseConfig.flowType,
+        client_email:   resp.email || ''
+      })
+    })
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('ent-payment-loading').style.display = 'none';
+      if (data && data.url) {
+        // Success — show payment button
+        document.getElementById('ent-stripe-link').href = data.url;
+        document.getElementById('ent-conf-price').textContent =
+          `$${enterpriseConfig.monthly.toLocaleString()}/month + $${enterpriseConfig.setupFee} setup`;
+        document.getElementById('ent-payment-block').style.display = 'block';
+        // Store stripe URL for Kit email
+        resp.enterprise_stripe_url = data.url;
+      } else {
+        // Fallback — show manual follow-up message
+        document.getElementById('ent-payment-fallback').style.display = 'block';
+      }
+    })
+    .catch(() => {
+      // Network error — show fallback
+      document.getElementById('ent-payment-loading').style.display = 'none';
+      document.getElementById('ent-payment-fallback').style.display = 'block';
+    });
+  } else {
+    // ── TIER 1 CONFIRMATION ──────────────────────────
+    const conf = document.getElementById('confirmation-section');
+    conf.style.display = 'block';
+    // Render prep guide for Tier 1 only
+    renderPrepGuide();
+  }
   // Send reservation record to Apps Script (SEPARATE from gate submission)
   const payload = buildPayload();
   payload.submitted_at = new Date().toISOString();
@@ -2300,18 +2446,23 @@ function submitReservation() {
           cell_phone: formattedPhone,
           source: 'assessment-reservation',
           biz_type: resp[1]?.value || '',
-          recommended_plan: buildPayload().recommended_plan
+          recommended_plan: buildPayload().recommended_plan,
+          enterprise_stripe_url: resp.enterprise_stripe_url || ''
         }
       })
     }).catch(function(){});
   }
   // Zapier reservation webhook — fires when prospect reserves
   sendToGHL(payload);
-  window.scrollTo({ top: document.getElementById('confirmation-section').offsetTop - 20, behavior: 'smooth' });
+  // Scroll to appropriate confirmation section
+  const confTarget = isEntConf
+    ? document.getElementById('enterprise-confirmation-section')
+    : document.getElementById('confirmation-section');
+  if (confTarget) window.scrollTo({ top: confTarget.offsetTop - 20, behavior: 'smooth' });
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    PREP GUIDE RENDER
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function renderPrepGuide() {
   const { recommended } = getPlanRecommendation();
   const biz = getBizLabel();
@@ -2374,10 +2525,10 @@ function renderPrepGuide() {
   list.innerHTML = html;
   document.getElementById('prep-guide').style.display = 'block';
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    APPS SCRIPT HELPER — FIXED v2
    Consistent field names. record_type distinguishes rows.
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function sendToAppsScript(payload) {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
   fetch(APPS_SCRIPT_URL, {
@@ -2387,11 +2538,11 @@ function sendToAppsScript(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    ZAPIER RESERVATION WEBHOOK
    Fires at reservation — creates/updates GHL contact
    Assessment reservation Zap URL (Zapier)
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function sendToGHL(payload) {
   fetch('https://hooks.zapier.com/hooks/catch/25883126/44q6cal/', {
     method: 'POST',
@@ -2399,13 +2550,13 @@ function sendToGHL(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    PAYLOAD BUILDER — FIXED v2
    - Uses submitted_at consistently (not timestamp)
    - Adds record_type field
    - Adds recommended_plan
    - Adds biz_label for downstream use
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function buildPayload() {
   const { cats, total } = calcScores();
   const topGap = getTopGap(cats);
@@ -2441,21 +2592,21 @@ function buildPayload() {
     source:              'helloglowe.com / Revenue Assessment v2'
   };
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    DOWNLOAD (print to PDF)
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 function downloadReport() {
   document.title = 'Glowe Revenue Assessment — My Report';
   window.print();
 }
-/* ══════════════════════════════════════════════
+/* ════════════════════════════════════════════════
    INIT
-══════════════════════════════════════════════ */
+════════════════════════════════════════════════ */
 showQ(1);
 </script>
 </body>
 <!--
-═══════════════════════════════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
 GOOGLE APPS SCRIPT v2 — UPDATED
 Deploy at: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 Sheet: Glowe Assessment Results
@@ -2466,7 +2617,7 @@ CHANGES FROM v1:
 - Deduplication: reservation rows UPDATE existing assessment row by email
   rather than creating a new row — prevents duplicate lead problem
 - Cell Phone only populated on reservation rows
-═══════════════════════════════════════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
