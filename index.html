@@ -393,9 +393,11 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .btn-reserve {
   background: var(--ink); color: var(--cream);
   font-family: var(--font); font-size: 14px; font-weight: 700;
-  padding: 14px 28px; border-radius: 100px;
+  padding: 16px 28px; border-radius: 100px;
   border: none; cursor: pointer; white-space: nowrap;
   transition: background .18s;
+  width: 100%; min-height: 52px;
+  display: block;
 }
 .btn-reserve:hover { background: #1a1a1a; }
 .reserve-err {
@@ -570,6 +572,27 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   font-size: 13.5px; color: var(--muted); line-height: 1.65;
 }
 .mw-cat-why strong { color: var(--ink); }
+.report-tab-btn{
+  flex-shrink:0;
+  border:1.5px solid var(--border);
+  border-radius:var(--rl);
+  background:var(--white);
+  padding:10px 14px;
+  cursor:pointer;
+  text-align:left;
+  min-width:140px;
+  transition:all .15s;
+  font-family:'Poppins',sans-serif;
+}
+.report-tab-btn:hover{border-color:var(--green);background:var(--green-xl)}
+.report-tab-btn.active{border-color:var(--green);background:var(--green-l)}
+.report-tab-name{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.report-tab-btn.active .report-tab-name{color:var(--green-d)}
+.report-tab-preview{font-size:12px;color:var(--muted);line-height:1.4}
+.report-tab-btn.active .report-tab-preview{color:var(--ink)}
+.report-tab-panel{display:none}
+.report-tab-panel.active{display:block}
+#report-tabs::-webkit-scrollbar{display:none}
 .ecbtn{
   width:100%;padding:13px 16px;
   border:1.5px solid var(--border);border-radius:var(--r);
@@ -745,7 +768,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e3">Please select an option to continue.</div>
     </div>
-<!-- Q4 -->
+    <!-- Q4 -->
     <div class="q-card" id="q4" style="display:none">
       <div class="q-num">Question 5 of 16 &nbsp;·&nbsp; Your Business</div>
       <div class="q-text">How many appointments do you complete in an average month?</div>
@@ -819,7 +842,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       </div>
       <div class="q-err" id="e9">Please select an option to continue.</div>
     </div>
-<!-- Q10 -->
+    <!-- Q10 -->
     <div class="q-card" id="q10" style="display:none">
       <div class="q-num">Question 11 of 16 &nbsp;·&nbsp; Follow-Up &amp; Retention</div>
       <div class="q-text">Do you follow up with clients after their appointment?</div>
@@ -896,7 +919,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <button class="btn btn-p btn-lg" id="btn-next" onclick="goNext()" style="margin-left:auto">Continue →</button>
     </div>
   </div><!-- /assessment-questions -->
-<!-- EMAIL GATE -->
+  <!-- EMAIL GATE -->
   <div id="email-gate" style="display:none">
     <div class="gate-card">
       <div class="gate-icon">📊</div>
@@ -942,29 +965,16 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         Save Report
       </button>
     </div>
-    <!-- Gap sections -->
-    <div id="gap-sections"></div>
-    <!-- Revenue opportunity -->
-    <div class="report-section" id="revenue-section">
-      <div class="rs-label">What This Means for Your Business</div>
-      <div class="rs-title" id="rev-title"></div>
-      <div class="rs-body" id="rev-body"></div>
-    </div>
-    <!-- Actions bridge -->
-    <div class="actions-bridge">
-      <div class="actions-bridge-label">Your Five Next Actions</div>
-      <div class="actions-bridge-title" id="actions-bridge-title">Five actions. No software required.</div>
-      <div class="actions-bridge-body">These address the gaps identified above. Each one is implementable this week without any new tools. The difference between businesses that close these gaps and those that don't is rarely knowledge — it's whether the action becomes a permanent operating habit or stays a good intention.</div>
-    </div>
-    <!-- Actions card -->
-    <div class="actions-card" id="actions-card"></div>
-    <!-- TRANSITION BRIDGE — new in v2 -->
+    <!-- ══ SCORE VERDICT LINE ══ -->
+    <div id="score-verdict" style="display:none;text-align:center;padding:0 24px 20px;font-size:14px;font-weight:600;color:var(--muted);line-height:1.6;max-width:540px;margin:0 auto"></div>
+    <!-- ══ PLAN RECOMMENDATION — appears EARLY ══ -->
+    <!-- TRANSITION BRIDGE -->
     <div class="transition-bridge" id="transition-bridge" style="display:none">
       <div class="tb-eyebrow">Where This Points</div>
       <div class="tb-headline" id="tb-headline"></div>
       <div class="tb-body" id="tb-body"></div>
     </div>
-<!-- Plan recommendation -->
+    <!-- Plan recommendation -->
     <div class="plan-rec-section" id="plan-rec-section">
       <div class="plan-rec-intro">
         <div style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Glowe is a client retention platform built for independent beauty and wellness businesses.</div>
@@ -977,6 +987,47 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         Not sure this is the right fit? You can start on any plan and change at any time. <a href="https://helloglowe.com" target="_blank" style="color:var(--green-d);font-weight:600">See all plans →</a>
       </div>
     </div>
+    <!-- ══ EARLY CTA — appears right after plan recommendation ══ -->
+    <div id="early-cta-block" style="display:none;max-width:680px;margin:0 auto 8px;padding:0 24px">
+      <div style="background:var(--green);border-radius:var(--rl);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--ink)" id="early-cta-plan-name">Ready to close these gaps?</div>
+          <div style="font-size:12.5px;color:rgba(38,38,38,.65);margin-top:2px">Founding partner spot — reserve in 30 seconds</div>
+        </div>
+        <button onclick="scrollToReserve()" style="background:var(--ink);color:var(--cream);border:none;border-radius:10px;padding:12px 22px;font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0">
+          Claim My Spot →
+        </button>
+      </div>
+      <div style="text-align:center;margin-top:10px">
+        <button onclick="scrollToReport()" style="background:none;border:none;color:var(--muted);font-family:'Poppins',sans-serif;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px">
+          See my full report ↓
+        </button>
+      </div>
+    </div>
+    <!-- ══ FULL REPORT — tabbed ══ -->
+    <div id="full-report-section" style="display:none;max-width:680px;margin:0 auto;padding:0 24px">
+      <!-- Tab nav -->
+      <div id="report-tabs" style="display:flex;overflow-x:auto;gap:8px;padding:20px 0 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      </div>
+      <!-- Tab panels -->
+      <div id="report-tab-panels"></div>
+      <!-- Revenue section -->
+      <div class="report-section" id="revenue-section" style="margin-top:8px">
+        <div class="rs-label">What This Means for Your Business</div>
+        <div class="rs-title" id="rev-title"></div>
+        <div class="rs-body" id="rev-body"></div>
+      </div>
+      <!-- Actions bridge -->
+      <div class="actions-bridge">
+        <div class="actions-bridge-label">Your Five Next Actions</div>
+        <div class="actions-bridge-title" id="actions-bridge-title">Five actions. No software required.</div>
+        <div class="actions-bridge-body">These address the gaps identified above. Each one is implementable this week without any new tools. The difference between businesses that close these gaps and those that don't is rarely knowledge — it's whether the action becomes a permanent operating habit or stays a good intention.</div>
+      </div>
+      <!-- Actions card -->
+      <div class="actions-card" id="actions-card"></div>
+    </div><!-- /full-report-section -->
+    <!-- Gap sections — hidden, populated by JS, used for tab rendering -->
+    <div id="gap-sections" style="display:none"></div>
     <!-- WHAT THIS MEASURES AND WHY — replaces placeholder testimonials — new in v3 -->
     <div class="measure-why" id="measure-why">
       <div class="measure-why-eyebrow">About This Assessment</div>
@@ -984,10 +1035,10 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="measure-why-intro">This diagnostic covers the five areas where independent beauty and wellness businesses most consistently lose revenue they've already earned. These five were selected because they're the most recoverable — fixable with process changes and consistent follow-through, not bigger marketing budgets. A business that closes all five gaps will outperform a business spending more on acquisition.</div>
       <div class="mw-cats" id="mw-cats"></div>
     </div>
-    <!-- ══════════════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
          ENTERPRISE SECTION — shown when enterprise flag fires
          Replaces plan cards entirely
-    ══════════════════════════════════════════════════ -->
+    ══════════════════════════════════════════ -->
     <div id="enterprise-section" style="display:none;max-width:680px;margin:0 auto 32px;padding:0 24px">
       <!-- Header -->
       <div style="background:var(--ink);border-radius:16px;padding:28px 32px;margin-bottom:20px">
@@ -1014,7 +1065,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
           </div>
         </div>
         <div style="height:1px;background:var(--border);margin:20px 0"></div>
-<!-- EQ2: GMB profiles -->
+        <!-- EQ2: GMB profiles -->
         <div class="ent-q" id="eq2-wrap" style="opacity:.35;pointer-events:none">
           <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-d);margin-bottom:6px">2 of 4</div>
           <div style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px">How many Google Business Profiles does your business have?</div>
@@ -1057,7 +1108,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
         <div style="font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto">When independent practitioners each need their own client relationships and automations, the right setup is a little different from a standard multi-location account. Reach out directly and we'll put together the right structure for you.</div>
         <a href="mailto:hello@helloglowe.com?subject=Group Account Inquiry" style="background:var(--ink);color:var(--cream);padding:13px 24px;border-radius:10px;font-size:13.5px;font-weight:700;text-decoration:none;display:inline-block">Contact us at hello@helloglowe.com</a>
       </div>
-<!-- Enterprise price result — shown after all 4 EQs answered (non-reseller) -->
+      <!-- Enterprise price result — shown after all 4 EQs answered (non-reseller) -->
       <div id="ent-price-result" style="display:none;background:var(--ink);border-radius:16px;padding:28px 32px;margin-bottom:16px">
         <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px">Your Enterprise Configuration</div>
         <div style="font-size:32px;font-weight:800;color:var(--cream);line-height:1;margin-bottom:4px" id="ent-monthly-price">—</div>
@@ -1085,6 +1136,7 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="reserve-eyebrow">Founding Partner Enrollment — Now Open</div>
       <div class="reserve-headline" id="reserve-headline">Ready to stop losing the revenue you've already earned?</div>
       <div class="reserve-sub" id="reserve-sub">You're securing your founding partner spot. We'll welcome you by email and reach out again when Glowe is ready to activate.</div>
+      <div style="font-size:12px;color:rgba(38,38,38,.5);margin-top:8px;margin-bottom:4px;font-style:italic">We're currently onboarding our founding partner cohort. Spots are limited to ensure every client gets dedicated setup support.</div>
       <div class="reserve-steps">
         <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(38,38,38,.5);margin-bottom:4px;">What founding partners receive</div>
         <div class="reserve-step">
@@ -1100,19 +1152,12 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
           <div class="reserve-step-text"><strong>Priority setup</strong> Founding partners are first in line when Glowe goes live — your account is configured and ready before general enrollment opens.</div>
         </div>
       </div>
-      <div class="reserve-phone-why">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1a5.5 5.5 0 100 11A5.5 5.5 0 006.5 1zM6.5 6v3M6.5 4h.01" stroke="rgba(38,38,38,.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
-        Why your phone number? We'll reach out by text when Glowe is ready to activate your account. International numbers welcome — include your country code.
-      </div>
       <div class="reserve-form">
-        <input type="tel" class="reserve-input" id="reserve-phone" placeholder="+1 555 000 0000" autocomplete="tel"/>
-        <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Include your country code if outside the US — e.g. +44 for UK, +61 for Australia, +1 for US/Canada</div>
         <button class="btn-reserve" onclick="submitReservation()">Claim My Founding Partner Spot →</button>
       </div>
-      <div class="reserve-err" id="reserve-err">Please enter a valid mobile number. Include your country code if outside the US — e.g. +44 7911 123456 or +1 555 000 0000.</div>
-      <div class="reserve-privacy">By reserving your spot, you agree to receive a text confirmation. No spam, no robocalls. You can opt out anytime.</div>
+      <div class="reserve-privacy">By reserving your spot, you agree to receive email updates from Glowe. No spam. Unsubscribe anytime.</div>
     </div>
-<!-- Confirmation — redesigned in v2 -->
+    <!-- Confirmation — redesigned in v2 -->
     <!-- Enterprise confirmation — shown instead of standard for enterprise prospects -->
     <div class="confirmation-section" id="enterprise-confirmation-section" style="display:none">
       <div class="conf-headline">You're reserved.</div>
@@ -1193,12 +1238,12 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   </div><!-- /results -->
 </div><!-- /a-shell -->
 <script>
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
    GLOWE REVENUE ASSESSMENT — v5
    Final editorial pass: no self-reference, no founder voice,
    no assessment meta-language. Direct business observations throughout.
    The report stands alone as a business diagnostic.
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════════════ */
 /* ── STATE ── */
 let currentQ = 1;
 const TOTAL_Q = 16; // includes location question (qloc)
@@ -1213,9 +1258,9 @@ const SECTIONS = {
   12:'New Customer Nurture',13:'New Customer Nurture',
   14:'Lead Capture Speed',15:'Lead Capture Speed',16:'Lead Capture Speed'
 };
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    NAVIGATION
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 // Q sequence: 1 → 'loc' → 2 → 3 ... → 15
 // currentQ is numeric for questions 2-15, 'loc' for the location question, 1 for Q1
 const Q_SEQUENCE = [1, 'loc', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -1305,10 +1350,10 @@ document.querySelectorAll('.cbtn').forEach(btn => {
     };
   });
 });
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    BIZ LABEL — FIXED v2
    Keys now match Q1 data-v values exactly
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function getBizLabel() {
   const bizMap = {
     'lash_studio':  'lash studio',
@@ -1338,9 +1383,9 @@ function getBizClientWord() {
   // Med spa uses 'patient' / 'patients'
   return resp[1]?.value === 'medspa' ? 'patient' : 'client';
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    GATE
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function showGate() {
   document.getElementById('assessment-questions').style.display = 'none';
   document.getElementById('prog-wrap').style.display = 'none';
@@ -1383,9 +1428,9 @@ function submitGate() {
   // sendToGHL(buildPayload());
   console.log('[Glowe v2] Assessment submitted:', buildPayload());
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    SCORING
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function calcScores() {
   // Review: 40% rating, 60% process
   const reviewScore = (resp[7]?.score || 0) * 0.4 + (resp[8]?.score || 0) * 0.6;
@@ -1435,11 +1480,11 @@ function getScoreLabel(total) {
 function getTopGap(cats) {
   return cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max))[0];
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    PLAN RECOMMENDATION — IMPROVED v2
    Fixed overbroad Growth routing for small/new operators.
    Added minimum thresholds. Added context-aware rationale.
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function getPlanRecommendation() {
   const clients  = resp[2]?.value || 'under50';
   const visits   = resp[4]?.value || 'under20';
@@ -1493,11 +1538,11 @@ function getPlanRecommendation() {
   }
   return { recommended, rationale, isEnterprise };
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    GAP INSIGHTS — v3
    Education-first. Outcome language throughout.
    Each entry: title(), body(), swk(), strength()
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 const GAP_INSIGHTS = {
   review: {
     title: (biz) => `Review Generation — Your ${biz}'s reputation isn't fully reflecting your work`,
@@ -1648,7 +1693,6 @@ ${(()=>{
       if (followup === 'never' && reactivate === 'never') {
         return `<strong>${clientWord.charAt(0).toUpperCase() + clientWord.slice(1)}s who stop booking leave without hearing from the ${biz}.</strong> No message after their appointment. No outreach as weeks pass. With approximately ${lapsedEst} ${clientWord}s likely past their natural return window right now, that's a recoverable group that's currently going unaddressed.`;
       }
-      // Large client base + manual/sometimes handled above; otherwise generic
       return `<strong>Retention outreach is happening, but not consistently.</strong> Manual follow-up is genuinely better than nothing — but the ${clientWord}s you don't reach on any given week simply don't get reached. Consistency is the gap, and it tends to be a systems problem rather than a motivation problem.`;
     },
     swk: (biz) => {
@@ -1769,9 +1813,9 @@ ${(()=>{
     }
   }
 };
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    ACTIONS — concise v2 (removed repetitive emphasis)
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 const ACTIONS = {
   review: [
     {
@@ -1850,9 +1894,9 @@ function generateActions(cats) {
   }
   return actions.slice(0, 5);
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    BUSINESS CONTEXT / REVENUE ESTIMATE
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function getBizContext() {
   const bizType = getBizLabel();
   const clients = resp[2]?.value;
@@ -1892,10 +1936,10 @@ ${hasOpportunity ? 'The areas where revenue is most likely slipping:<br><br>' : 
 }`
   };
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    TRANSITION BRIDGE — new in v2
    Connects report → plan recommendation with context
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function renderTransitionBridge(recommended) {
   const biz = getBizLabel();
   const clientWord = getBizClientWord();
@@ -1913,9 +1957,9 @@ function renderTransitionBridge(recommended) {
   document.getElementById('tb-body').textContent = bodies[recommended] || bodies.growth;
   document.getElementById('transition-bridge').style.display = 'block';
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    SHOW RESULTS
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function showResults() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('trust-bar-top').style.display = 'none';
@@ -2020,6 +2064,123 @@ function showResults() {
     if (entSection)  entSection.style.display  = 'none';
     if (planSection) planSection.style.display = 'block';
   }
+  // ── SCORE VERDICT LINE ───────────────────────────────────────────────
+  const scoreVerdict = document.getElementById('score-verdict');
+  if (scoreVerdict) {
+    const verdictMap = {
+      review:    `Your biggest opportunity is your review presence — the clients who love you aren't being asked to say so.`,
+      missed:    `Missed calls are your most urgent gap — every unanswered call is a potential booking that went elsewhere.`,
+      retention: `Client retention is your biggest opportunity — lapsed clients who heard nothing are still reachable.`,
+      nurture:   `Your post-visit follow-up is the gap — the relationship goes quiet exactly when it should be warming up.`,
+      lead:      `Lead response speed is your biggest gap — inquiries are going quiet before anyone follows up.`
+    };
+    const topKey = sorted[0]?.key;
+    scoreVerdict.textContent = verdictMap[topKey] || 'Your report highlights specific gaps worth closing this week.';
+    scoreVerdict.style.display = 'block';
+  }
+  // ── BUILD TABS FROM GAP SECTIONS ────────────────────────
+  const tabNav   = document.getElementById('report-tabs');
+  const tabPanels = document.getElementById('report-tab-panels');
+  const allTabKeys = sorted.map(c => c.key);
+  if (tabNav && tabPanels) {
+    // Tab preview lines — personalized from actual answers
+    const tabPreviews = {
+      review:    (() => {
+        const cnt = parseInt(resp[6]) || 0;  // review count — Q7/resp[6] ✓
+        const rat = resp[7]?.value || '';     // star rating — Q8/resp[7] ✓
+        if (cnt < 10) return `${cnt} reviews — volume is the primary gap`;
+        if (rat === 'below_4') return `${cnt} reviews at below 4.0 — rating needs attention`;
+        return `${cnt} reviews — recency and consistency are the gaps`;
+      })(),
+      missed:    (() => {
+        const vol  = resp[4]?.value  || '';  // monthly visit volume — Q4/resp[4]
+        const mcr  = resp[9]?.value  || '';  // missed call handling — Q9/resp[9] ✓
+        if (mcr === 'automated_text') return 'Missed calls handled — check response quality';
+        if (mcr === 'sometimes') return 'Missed calls sometimes go unanswered with no follow-up';
+        if (vol === '150plus') return '150+ monthly visits — every missed call is a lost booking';
+        if (vol === '50to149') return 'No automatic response — missed calls going unanswered';
+        return 'No automatic response when calls go unanswered';
+      })(),
+      retention: (() => {
+        const clients = resp[2]?.value || '';
+        const reactiv = resp[11]?.value || '';
+        if (reactiv === 'service_cadence') return 'Reactivation is running — refine the timing';
+        const cnt = clients === '500plus' ? '500+' : clients === '150to499' ? '150–499' : clients === '50to149' ? '50–149' : 'under 50';
+        return `${cnt} clients — lapsed outreach gap identified`;
+      })(),
+      nurture:   (() => {
+        const nur = resp[12]?.value || '';
+        if (nur === 'full_sequence') return 'Nurture sequence running — review the cadence';
+        if (nur === 'just_review') return 'Review request only — rebook prompt missing';
+        return 'No post-appointment follow-up in place';
+      })(),
+      lead:      (() => {
+        const spd = resp[14]?.value || '';
+        if (spd === 'same_day') return 'Same-day response — tighten the window';
+        if (spd === 'within_hour') return 'Under 1 hour — strong. Add follow-up for non-converters';
+        return 'Lead response taking 4+ hours — bookings going elsewhere';
+      })()
+    };
+    const categoryNames = {
+      review: 'Reviews', missed: 'Missed Calls',
+      retention: 'Reactivation', nurture: 'Follow-Up', lead: 'Lead Capture'
+    };
+    tabNav.innerHTML = allTabKeys.map((k, i) => `
+      <button class="report-tab-btn ${i === 0 ? 'active' : ''}"
+        id="tab-btn-${k}"
+        onclick="switchTab('${k}', ${JSON.stringify(allTabKeys)})">
+        <div class="report-tab-name">${categoryNames[k] || k}</div>
+        <div class="report-tab-preview">${tabPreviews[k] || ''}</div>
+      </button>
+    `).join('');
+    // Build tab panels from gap section content
+    tabPanels.innerHTML = '';
+    sorted.forEach((cat, idx) => {
+      const insight = GAP_INSIGHTS[cat.key];
+      if (!insight) return;
+      const isPriority = idx === 0;
+      const swkContent = insight.swk ? insight.swk(biz) : '';
+      const swkHtml = swkContent
+        ? `<div class="swk-block"><div class="swk-label">Something worth knowing</div><div class="swk-body">${swkContent}</div></div>`
+        : '';
+      const isStrong = (cat.score / cat.max) >= 0.7;
+      const strengthText = (isStrong && insight.strength) ? insight.strength(biz) : null;
+      const strengthHtml = strengthText
+        ? `<div class="strength-note"><strong>What's working:</strong> ${strengthText}</div>`
+        : '';
+      const panel = document.createElement('div');
+      panel.className = 'report-tab-panel' + (idx === 0 ? ' active' : '');
+      panel.id = 'tab-panel-' + cat.key;
+      panel.innerHTML = `
+        <div class="report-section${isPriority ? ' priority' : ''}" style="margin-top:0;border-radius:0 var(--rl) var(--rl) var(--rl)">
+          <div class="rs-label">${isPriority ? 'Your Biggest Opportunity' : 'Gap Analysis'}</div>
+          <div class="rs-title">${insight.title(biz)}</div>
+          <div class="rs-body">${insight.body(biz)}${strengthHtml}${swkHtml}</div>
+        </div>
+      `;
+      tabPanels.appendChild(panel);
+    });
+  }
+  // full-report-section stays hidden until "See my full report ↓" is clicked
+  // scrollToReport() reveals it on demand
+  // ── EARLY CTA ─────────────────────────────────────────
+  const earlyCtaBlock = document.getElementById('early-cta-block');
+  const earlyCtaPlanName = document.getElementById('early-cta-plan-name');
+  if (earlyCtaBlock) {
+    earlyCtaBlock.style.display = isEnterprise ? 'none' : 'block';
+    if (earlyCtaPlanName && !isEnterprise) {
+      const planNames = { essentials: 'Glowe Essentials', growth: 'Glowe Growth', pro: 'Glowe Pro' };
+      earlyCtaPlanName.textContent = `${planNames[recommended] || 'Glowe'} is your recommended plan — ready to close these gaps?`;
+    }
+  }
+  // ── PERSONAL PLAN RATIONALE ────────────────────────
+  // Already handled by renderPlanRec — enrich with specific numbers
+  const planSubEl = document.getElementById('plan-rec-sub');
+  if (planSubEl && !isEnterprise) {
+    const clientLabel = resp[2]?.display || 'your client base';
+    const topGapName = { review:'review volume', missed:'missed call response', retention:'client reactivation', nurture:'post-visit follow-up', lead:'lead response speed' }[sorted[0]?.key] || 'retention gaps';
+    planSubEl.textContent = `Based on ${clientLabel} and your ${topGapName} gap — this plan closes your highest-impact opportunities immediately.`;
+  }
   // v3: measure-why (replaces placeholder social proof)
   renderMeasureWhy();
   // Reserve section — personalized copy
@@ -2089,9 +2250,9 @@ function renderMeasureWhy() {
     `).join('');
   }
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    ENTERPRISE MINI-QUESTIONNAIRE LOGIC
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 const eqResp = {}; // eq1, eq2, eq3, eq4
 let enterpriseConfig = null; // stores calculated enterprise price config for reservation
 function selectEQ(btn, qNum) {
@@ -2171,23 +2332,25 @@ function calcEnterprisePrice() {
   // Build feature list based on configuration
   const diffFlows2 = (flowVal === 'different' || flowVal === 'mix');
   const baseFeatures = [
-    '✓ Missed call text-back — every unanswered call gets a response within 60 seconds',
-    '✓ Automated review requests — sent after every appointment at the right moment',
-    '✓ Service-cadence reactivation — outreach timed to each client\'s actual return interval',
-    '✓ New client nurture — follow-up and rebook prompt after every first visit',
-    '✓ Lead capture follow-up — no inquiry goes unanswered',
-    '✓ Monthly performance report per location',
-    '✓ Quarterly business review email — consolidated multi-location insights and recommendations',
-    '✓ Multi-location consolidated reporting — one view across all locations',
-    '✓ Dedicated onboarding and setup support',
+    '✓ Missed call text-back — every unanswered call across all your locations gets an automatic response within 60 seconds',
+    '✓ Automated review requests — sent to clients after every appointment, at every location, at the right moment',
+    '✓ Service-cadence reactivation — lapsed clients hear from you before they\'ve mentally moved on, timed to their specific service',
+    '✓ New client nurture — automated follow-up after a first visit to welcome new clients and prompt their second booking',
+    '✓ Post-appointment follow-up for every client — every visit gets a personal touchpoint that keeps the relationship warm',
+    '✓ Lead capture follow-up — no inquiry goes unanswered at any location',
+    '✓ Monthly performance report per location — see what Glowe is doing for each location every month',
+    '✓ Quarterly business review email — consolidated insights across all your locations with tailored recommendations',
+    '✓ Multi-location consolidated reporting — one view across all locations so you\'re never switching between dashboards',
+    '✓ Submit enhancement requests — campaign additions, workflow adjustments — the Glowe team implements approved requests within 5 business days',
+    '✓ Dedicated onboarding and setup — your account is configured by the Glowe team before anything goes live',
   ];
   const diffFlowFeatures = diffFlows2 ? [
-    '✓ Custom reactivation sequences per location — distinct messaging per location\'s client experience',
-    '✓ 30-minute configuration call included — confirms every location\'s setup before go-live',
-    '✓ Open invitation to connect after quarterly review — reach out anytime to talk through the results',
+    '✓ Custom reactivation sequences per location — each location\'s clients get outreach that reflects their specific service experience, not a one-size message',
+    '✓ 30-minute configuration call — before your account goes live, the Glowe team walks through your setup to make sure every location is configured correctly',
+    '✓ Open invitation to connect after your quarterly review — reply to your review email anytime and we\'ll find time to talk through the results',
   ] : [
-    '✓ Consistent brand voice and messaging across all locations — configured once, runs everywhere',
-    '✓ Open invitation to connect after quarterly review — reach out anytime to talk through the results',
+    '✓ Consistent brand voice across all locations — configured once, runs everywhere. Your clients get the same quality of communication whether they visit location 1 or location 5',
+    '✓ Open invitation to connect after your quarterly review — reply to your review email anytime and we\'ll find time to talk through the results',
   ];
   const allFeatures = [...baseFeatures, ...diffFlowFeatures];
   const featuresEl = document.getElementById('ent-features-list');
@@ -2217,9 +2380,24 @@ function scrollToReserve() {
   const r = document.getElementById('reserve-section') || document.querySelector('.reserve-section');
   if (r) r.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-/* ════════════════════════════════════════════════
+function scrollToReport() {
+  const r = document.getElementById('full-report-section');
+  if (r) {
+    r.style.display = 'block';
+    r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function switchTab(tabKey, allKeys) {
+  allKeys.forEach(k => {
+    const btn = document.getElementById('tab-btn-' + k);
+    const panel = document.getElementById('tab-panel-' + k);
+    if (btn) btn.classList.toggle('active', k === tabKey);
+    if (panel) panel.classList.toggle('active', k === tabKey);
+  });
+}
+/* ══════════════════════════════════════════
    PLAN RECOMMENDATION (Tier 1 only)
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function renderPlanRec(recommended, rationale) {
   // Plan rec sub
   const verdictPrefix = {
@@ -2234,14 +2412,14 @@ function renderPlanRec(recommended, rationale) {
       name: 'Glowe Essentials',
       price: '$149',
       per: '/month',
-      setup: '$99 setup',
+      setup: '$99 one-time setup fee',
       badge_rec: '✓ Recommended for You',
       badge_other: 'Available',
       rationale_other: 'For solo operators and businesses building their contact base.',
       features: [
         'Missed call text-back — every unanswered call gets a response within 60 seconds',
         'Automated review requests — sent after every appointment at the right moment',
-        'New client nurture — follow-up within 24 hours and a rebook prompt when it\'s time',
+        'New client nurture — automated follow-up after a first visit to welcome new clients and prompt their second booking',
         'Lead capture follow-up — no inquiry goes unanswered',
         'Monthly performance report — see what Glowe is doing for your business every month',
         'Email support'
@@ -2252,14 +2430,14 @@ function renderPlanRec(recommended, rationale) {
       name: 'Glowe Growth',
       price: '$397',
       per: '/month',
-      setup: '$299 setup',
+      setup: '$299 one-time setup fee',
       badge_rec: '✓ Recommended for You',
       badge_other: 'For growing teams',
       rationale_other: 'For established businesses with 150+ clients focused on retention.',
       features: [
         'Everything in Essentials',
         'Service-cadence reactivation — lapsed clients hear from you before they\'ve mentally moved on',
-        'Post-appointment follow-up — every client gets a personal touch after every visit',
+        'Post-appointment follow-up for every client — not just new ones. Every visit gets a personal touchpoint that keeps the relationship warm',
         'Monthly performance report',
         'Quarterly business review email — deeper insights and tailored recommendations every 90 days'
       ]
@@ -2269,15 +2447,15 @@ function renderPlanRec(recommended, rationale) {
       name: 'Glowe Pro',
       price: '$699',
       per: '/month',
-      setup: '$599 setup',
+      setup: '$599 one-time setup fee',
       badge_rec: '✓ Recommended for You',
       badge_other: 'When You Scale',
       rationale_other: 'For high-volume independent operators who need the full Glowe system.',
       features: [
         'Everything in Growth',
-        'Enhanced quarterly business review email — deeper insights, trend analysis, and prioritized action items',
-        'More touchpoints across more service types and client situations',
-        'Follow-up messaging reflects each client\'s actual service history and cadence',
+        'Submit enhancement requests — add campaigns, adjust workflows, or enhance your setup. Glowe implements approved requests within 5 business days',
+        'Advanced reactivation segmentation by service type — lapsed clients get outreach calibrated to their specific service',
+        'Enhanced quarterly business review email with expanded recommendation options',
         'Priority support',
         'Quarterly business review email — personalized recommendations every 90 days based on your account activity'
       ]
@@ -2302,9 +2480,9 @@ function renderPlanRec(recommended, rationale) {
   const noteEl = document.getElementById('plan-flexibility-note');
   if (noteEl) noteEl.style.display = 'block';
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    NOT-READY PREP STEPS
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function getNotReadySteps() {
   const steps = [];
   const clients  = resp[2]?.value;
@@ -2332,49 +2510,22 @@ function getNotReadySteps() {
   });
   return steps;
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    RESERVATION SUBMIT — FIXED v2
    - Deduplicates against gate submission
    - Stricter phone validation
    - Sends reservation_type flag to distinguish rows
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function submitReservation() {
-  const rawPhone = document.getElementById('reserve-phone').value.trim();
-  const err      = document.getElementById('reserve-err');
-  // Strip all non-digits and leading +
-  const digits = rawPhone.replace(/\D/g, '');
-  // International: accept 7-15 digits (E.164 standard range)
-  // US shorthand: 10 digits → prefix +1
-  // International with country code: 11-15 digits
-  const validLength = digits.length >= 7 && digits.length <= 15;
-  const isSequential = /^(\d)\1{6,}$/.test(digits) || digits === '1234567890';
-  if (!validLength || isSequential) {
-    err.classList.add('show');
-    return;
-  }
-  err.classList.remove('show');
-  // Format for storage — preserve international format
-  let formattedPhone;
-  if (rawPhone.startsWith('+')) {
-    // Already has country code — store as-is, cleaned
-    formattedPhone = '+' + digits;
-  } else if (digits.length === 10) {
-    // US number without country code — assume +1
-    formattedPhone = '+1' + digits;
-  } else if (digits.length === 11 && digits[0] === '1') {
-    // US number with leading 1
-    formattedPhone = '+' + digits;
-  } else {
-    // International without + — store as-is with +
-    formattedPhone = '+' + digits;
-  }
-  resp.cell_phone = formattedPhone;
+  // Phone removed — email already captured at gate
+  const formattedPhone = '';
+  resp.cell_phone = '';
   // Detect enterprise vs Tier 1
   const isEntConf = !!enterpriseConfig;
   // Hide reserve section
   document.getElementById('reserve-section').style.display = 'none';
   if (isEntConf) {
-    // ── ENTERPRISE CONFIRMATION ──────────────────────
+    // ── ENTERPRISE CONFIRMATION ─────────────────────
     const entConf = document.getElementById('enterprise-confirmation-section');
     entConf.style.display = 'block';
     // Set confirmation sub-copy
@@ -2418,7 +2569,7 @@ function submitReservation() {
       document.getElementById('ent-payment-fallback').style.display = 'block';
     });
   } else {
-    // ── TIER 1 CONFIRMATION ──────────────────────────
+    // ── TIER 1 CONFIRMATION ─────────────────────
     const conf = document.getElementById('confirmation-section');
     conf.style.display = 'block';
     // Render prep guide for Tier 1 only
@@ -2460,9 +2611,9 @@ function submitReservation() {
     : document.getElementById('confirmation-section');
   if (confTarget) window.scrollTo({ top: confTarget.offsetTop - 20, behavior: 'smooth' });
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    PREP GUIDE RENDER
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function renderPrepGuide() {
   const { recommended } = getPlanRecommendation();
   const biz = getBizLabel();
@@ -2525,10 +2676,10 @@ function renderPrepGuide() {
   list.innerHTML = html;
   document.getElementById('prep-guide').style.display = 'block';
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    APPS SCRIPT HELPER — FIXED v2
    Consistent field names. record_type distinguishes rows.
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function sendToAppsScript(payload) {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
   fetch(APPS_SCRIPT_URL, {
@@ -2538,11 +2689,11 @@ function sendToAppsScript(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    ZAPIER RESERVATION WEBHOOK
    Fires at reservation — creates/updates GHL contact
    Assessment reservation Zap URL (Zapier)
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function sendToGHL(payload) {
   fetch('https://hooks.zapier.com/hooks/catch/25883126/44q6cal/', {
     method: 'POST',
@@ -2550,13 +2701,13 @@ function sendToGHL(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    PAYLOAD BUILDER — FIXED v2
    - Uses submitted_at consistently (not timestamp)
    - Adds record_type field
    - Adds recommended_plan
    - Adds biz_label for downstream use
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function buildPayload() {
   const { cats, total } = calcScores();
   const topGap = getTopGap(cats);
@@ -2592,21 +2743,21 @@ function buildPayload() {
     source:              'helloglowe.com / Revenue Assessment v2'
   };
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    DOWNLOAD (print to PDF)
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 function downloadReport() {
   document.title = 'Glowe Revenue Assessment — My Report';
   window.print();
 }
-/* ════════════════════════════════════════════════
+/* ══════════════════════════════════════════
    INIT
-════════════════════════════════════════════════ */
+══════════════════════════════════════════ */
 showQ(1);
 </script>
 </body>
 <!--
-═══════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════════════════════════════
 GOOGLE APPS SCRIPT v2 — UPDATED
 Deploy at: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 Sheet: Glowe Assessment Results
@@ -2617,7 +2768,8 @@ CHANGES FROM v1:
 - Deduplication: reservation rows UPDATE existing assessment row by email
   rather than creating a new row — prevents duplicate lead problem
 - Cell Phone only populated on reservation rows
-═══════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════════════════════════════
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
@@ -2714,7 +2866,7 @@ function doPost(e) {
       cats.review                || '',
       cats.missed                || '',
       cats.retention             || '',
-      cats.nurture                || '',
+      cats.nurture               || '',
       cats.lead                  || '',
       data.source                || 'revenue-assessment-v2',
       JSON.stringify(data)
@@ -2728,8 +2880,8 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
-═══════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════════════════════════════
 END OF GOOGLE APPS SCRIPT v2
-═══════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════════════════════════════
 -->
 </html>
