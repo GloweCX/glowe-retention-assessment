@@ -574,25 +574,45 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
 .mw-cat-why strong { color: var(--ink); }
 .report-tab-btn{
   flex-shrink:0;
-  border:1.5px solid var(--border);
-  border-radius:var(--rl);
+  border:2px solid var(--border);
+  border-radius:100px;
   background:var(--white);
-  padding:10px 14px;
+  padding:8px 16px;
   cursor:pointer;
-  text-align:left;
-  min-width:140px;
+  text-align:center;
+  white-space:nowrap;
   transition:all .15s;
   font-family:'Poppins',sans-serif;
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--muted);
+  line-height:1.3;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.report-tab-btn:hover{border-color:var(--green);background:var(--green-xl)}
-.report-tab-btn.active{border-color:var(--green);background:var(--green-l)}
-.report-tab-name{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.report-tab-btn.active .report-tab-name{color:var(--green-d)}
-.report-tab-preview{font-size:12px;color:var(--muted);line-height:1.4}
-.report-tab-btn.active .report-tab-preview{color:var(--ink)}
+.report-tab-btn:hover{border-color:var(--green);color:var(--green-d);background:var(--green-xl)}
+.report-tab-btn.active{
+  border-color:var(--green);
+  background:var(--green);
+  color:var(--ink);
+  font-weight:700;
+}
+.report-tab-name{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.report-tab-preview{display:none}
 .report-tab-panel{display:none}
 .report-tab-panel.active{display:block}
 #report-tabs::-webkit-scrollbar{display:none}
+.report-tabs-wrap{position:relative}
+.report-tabs-wrap::after{
+  content:'';
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:32px;
+  background:linear-gradient(to right, transparent, var(--cream));
+  pointer-events:none;
+}
 .ecbtn{
   width:100%;padding:13px 16px;
   border:1.5px solid var(--border);border-radius:var(--r);
@@ -1006,9 +1026,22 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
     </div>
     <!-- ══ FULL REPORT — tabbed ══ -->
     <div id="full-report-section" style="display:none;max-width:680px;margin:0 auto;padding:0 24px">
-      <!-- Tab nav -->
-      <div id="report-tabs" style="display:flex;overflow-x:auto;gap:8px;padding:20px 0 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      <!-- Section header -->
+      <div style="padding:24px 0 8px;border-top:2px solid var(--border);margin-top:8px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);margin-bottom:6px">Your Full Report</div>
+        <div style="font-size:18px;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:4px">Five gaps. Here's what each one means for your business.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">Tap any category below to read your analysis. Start with your biggest opportunity.</div>
       </div>
+      <!-- Tab nav -->
+      <div style="padding:20px 0 4px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Your gap breakdown — tap to explore</div>
+        <div class="report-tabs-wrap">
+          <div id="report-tabs" style="display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+          </div>
+        </div>
+      </div>
+      <!-- Active tab preview line — shows personalized insight for current tab -->
+      <div id="active-tab-insight" style="font-size:13px;color:var(--muted);line-height:1.6;padding:10px 0 4px;min-height:24px;font-style:italic"></div>
       <!-- Tab panels -->
       <div id="report-tab-panels"></div>
       <!-- Revenue section -->
@@ -1035,10 +1068,10 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
       <div class="measure-why-intro">This diagnostic covers the five areas where independent beauty and wellness businesses most consistently lose revenue they've already earned. These five were selected because they're the most recoverable — fixable with process changes and consistent follow-through, not bigger marketing budgets. A business that closes all five gaps will outperform a business spending more on acquisition.</div>
       <div class="mw-cats" id="mw-cats"></div>
     </div>
-    <!-- ══════════════════════════════════════════
+    <!-- ════════════════════════════════════════════════════
          ENTERPRISE SECTION — shown when enterprise flag fires
          Replaces plan cards entirely
-    ══════════════════════════════════════════ -->
+    ════════════════════════════════════════════════════ -->
     <div id="enterprise-section" style="display:none;max-width:680px;margin:0 auto 32px;padding:0 24px">
       <!-- Header -->
       <div style="background:var(--ink);border-radius:16px;padding:28px 32px;margin-bottom:20px">
@@ -1238,17 +1271,19 @@ body{font-family:var(--font);background:var(--g1);color:var(--ink);
   </div><!-- /results -->
 </div><!-- /a-shell -->
 <script>
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    GLOWE REVENUE ASSESSMENT — v5
    Final editorial pass: no self-reference, no founder voice,
    no assessment meta-language. Direct business observations throughout.
    The report stands alone as a business diagnostic.
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
+
 /* ── STATE ── */
 let currentQ = 1;
 const TOTAL_Q = 16; // includes location question (qloc)
 const resp = {}; // keyed by question number; also resp.email, resp.cell_phone
 let assessmentSubmittedToSheet = false; // prevent duplicate gate submissions
+
 /* ── SECTION MAP ── */
 const SECTIONS = {
   1:'Your Business','loc':'Your Business',
@@ -1258,13 +1293,16 @@ const SECTIONS = {
   12:'New Customer Nurture',13:'New Customer Nurture',
   14:'Lead Capture Speed',15:'Lead Capture Speed',16:'Lead Capture Speed'
 };
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    NAVIGATION
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
+
 // Q sequence: 1 → 'loc' → 2 → 3 ... → 15
 // currentQ is numeric for questions 2-15, 'loc' for the location question, 1 for Q1
 const Q_SEQUENCE = [1, 'loc', 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const DISPLAY_NUMS = {1:1, 'loc':2, 2:3, 3:4, 4:5, 5:6, 6:7, 7:8, 8:9, 9:10, 10:11, 11:12, 12:13, 13:14, 14:15, 15:16};
+
 function showQ(qKey) {
   // Hide all numeric q-cards and qloc
   for (let i = 1; i <= 15; i++) {
@@ -1286,6 +1324,7 @@ function showQ(qKey) {
   const nextBtn = document.getElementById('btn-next');
   nextBtn.textContent = (qKey === 15) ? 'See My Results →' : 'Continue →';
 }
+
 function goNext() {
   if (!validateQ(currentQ)) return;
   const idx = Q_SEQUENCE.indexOf(currentQ);
@@ -1297,6 +1336,7 @@ function goNext() {
   showQ(currentQ);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function goBack() {
   const idx = Q_SEQUENCE.indexOf(currentQ);
   if (idx > 0) {
@@ -1331,6 +1371,7 @@ function validateQ(n) {
   if (err) err.classList.remove('show');
   return true;
 }
+
 /* choice selection */
 document.querySelectorAll('.cbtn').forEach(btn => {
   btn.addEventListener('click', function() {
@@ -1350,10 +1391,11 @@ document.querySelectorAll('.cbtn').forEach(btn => {
     };
   });
 });
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    BIZ LABEL — FIXED v2
    Keys now match Q1 data-v values exactly
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function getBizLabel() {
   const bizMap = {
     'lash_studio':  'lash studio',
@@ -1366,6 +1408,7 @@ function getBizLabel() {
   };
   return bizMap[resp[1]?.value] || 'business';
 }
+
 function getBizLabelPlural() {
   const bizMap = {
     'lash_studio':  'lash studios',
@@ -1378,14 +1421,15 @@ function getBizLabelPlural() {
   };
   return bizMap[resp[1]?.value] || 'businesses';
 }
+
 function getBizClientWord() {
   // Returns SINGULAR so ${clientWord}s = 'clients', ${clientWord} = 'client'
   // Med spa uses 'patient' / 'patients'
   return resp[1]?.value === 'medspa' ? 'patient' : 'client';
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    GATE
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function showGate() {
   document.getElementById('assessment-questions').style.display = 'none';
   document.getElementById('prog-wrap').style.display = 'none';
@@ -1393,6 +1437,7 @@ function showGate() {
   document.getElementById('email-gate').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function submitGate() {
   const email = document.getElementById('gate-email').value.trim();
   const err   = document.getElementById('gate-err');
@@ -1428,9 +1473,9 @@ function submitGate() {
   // sendToGHL(buildPayload());
   console.log('[Glowe v2] Assessment submitted:', buildPayload());
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    SCORING
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function calcScores() {
   // Review: 40% rating, 60% process
   const reviewScore = (resp[7]?.score || 0) * 0.4 + (resp[8]?.score || 0) * 0.6;
@@ -1451,6 +1496,7 @@ function calcScores() {
   const total = cats.reduce((s, c) => s + c.score, 0);
   return { cats, total };
 }
+
 function getScoreLabel(total) {
   if (total >= 80) return {
     label: 'Strong Foundation',
@@ -1477,14 +1523,15 @@ function getScoreLabel(total) {
     context: 'Scores below 40 are typical for businesses in their early stages or those that haven\'t yet put follow-up systems in place — which describes most independent beauty businesses. This is a starting point, not a verdict.'
   };
 }
+
 function getTopGap(cats) {
   return cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max))[0];
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    PLAN RECOMMENDATION — IMPROVED v2
    Fixed overbroad Growth routing for small/new operators.
    Added minimum thresholds. Added context-aware rationale.
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function getPlanRecommendation() {
   const clients  = resp[2]?.value || 'under50';
   const visits   = resp[4]?.value || 'under20';
@@ -1538,11 +1585,11 @@ function getPlanRecommendation() {
   }
   return { recommended, rationale, isEnterprise };
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    GAP INSIGHTS — v3
    Education-first. Outcome language throughout.
    Each entry: title(), body(), swk(), strength()
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 const GAP_INSIGHTS = {
   review: {
     title: (biz) => `Review Generation — Your ${biz}'s reputation isn't fully reflecting your work`,
@@ -1813,9 +1860,9 @@ ${(()=>{
     }
   }
 };
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    ACTIONS — concise v2 (removed repetitive emphasis)
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 const ACTIONS = {
   review: [
     {
@@ -1868,10 +1915,12 @@ const ACTIONS = {
     }
   ]
 };
+
 const UNIVERSAL_ACTION = {
   title: 'Audit where you\'re losing clients.',
   body: 'Spend 30 minutes this week tracking your client numbers: how many new clients came in last month? How many returned vs. first-time? How many lapsed? Most business owners don\'t know these numbers — and not knowing them is how the leaks stay invisible.'
 };
+
 function generateActions(cats) {
   const sorted = cats.slice().sort((a, b) => (a.score / a.max) - (b.score / b.max));
   const actions = [];
@@ -1894,9 +1943,9 @@ function generateActions(cats) {
   }
   return actions.slice(0, 5);
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    BUSINESS CONTEXT / REVENUE ESTIMATE
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function getBizContext() {
   const bizType = getBizLabel();
   const clients = resp[2]?.value;
@@ -1936,10 +1985,10 @@ ${hasOpportunity ? 'The areas where revenue is most likely slipping:<br><br>' : 
 }`
   };
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    TRANSITION BRIDGE — new in v2
    Connects report → plan recommendation with context
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function renderTransitionBridge(recommended) {
   const biz = getBizLabel();
   const clientWord = getBizClientWord();
@@ -1957,9 +2006,9 @@ function renderTransitionBridge(recommended) {
   document.getElementById('tb-body').textContent = bodies[recommended] || bodies.growth;
   document.getElementById('transition-bridge').style.display = 'block';
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    SHOW RESULTS
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function showResults() {
   document.getElementById('results').style.display = 'block';
   document.getElementById('trust-bar-top').style.display = 'none';
@@ -2064,7 +2113,7 @@ function showResults() {
     if (entSection)  entSection.style.display  = 'none';
     if (planSection) planSection.style.display = 'block';
   }
-  // ── SCORE VERDICT LINE ───────────────────────────────────────────────
+  // ── SCORE VERDICT LINE ───────────────────────────
   const scoreVerdict = document.getElementById('score-verdict');
   if (scoreVerdict) {
     const verdictMap = {
@@ -2078,7 +2127,7 @@ function showResults() {
     scoreVerdict.textContent = verdictMap[topKey] || 'Your report highlights specific gaps worth closing this week.';
     scoreVerdict.style.display = 'block';
   }
-  // ── BUILD TABS FROM GAP SECTIONS ────────────────────────
+  // ── BUILD TABS FROM GAP SECTIONS ──────────────────
   const tabNav   = document.getElementById('report-tabs');
   const tabPanels = document.getElementById('report-tab-panels');
   const allTabKeys = sorted.map(c => c.key);
@@ -2125,14 +2174,20 @@ function showResults() {
       review: 'Reviews', missed: 'Missed Calls',
       retention: 'Reactivation', nurture: 'Follow-Up', lead: 'Lead Capture'
     };
+    // Store previews for switchTab to access
+    const tabPreviewsRef = tabPreviews;
     tabNav.innerHTML = allTabKeys.map((k, i) => `
       <button class="report-tab-btn ${i === 0 ? 'active' : ''}"
         id="tab-btn-${k}"
-        onclick="switchTab('${k}', ${JSON.stringify(allTabKeys)})">
+        onclick="switchTab('${k}', ${JSON.stringify(allTabKeys)}, tabPreviewsRef)">
         <div class="report-tab-name">${categoryNames[k] || k}</div>
-        <div class="report-tab-preview">${tabPreviews[k] || ''}</div>
       </button>
     `).join('');
+    // Set initial insight line for first tab
+    const insightEl = document.getElementById('active-tab-insight');
+    if (insightEl && allTabKeys.length > 0) {
+      insightEl.textContent = tabPreviews[allTabKeys[0]] || '';
+    }
     // Build tab panels from gap section content
     tabPanels.innerHTML = '';
     sorted.forEach((cat, idx) => {
@@ -2163,7 +2218,7 @@ function showResults() {
   }
   // full-report-section stays hidden until "See my full report ↓" is clicked
   // scrollToReport() reveals it on demand
-  // ── EARLY CTA ─────────────────────────────────────────
+  // ── EARLY CTA ─────────────────────────────────
   const earlyCtaBlock = document.getElementById('early-cta-block');
   const earlyCtaPlanName = document.getElementById('early-cta-plan-name');
   if (earlyCtaBlock) {
@@ -2173,7 +2228,7 @@ function showResults() {
       earlyCtaPlanName.textContent = `${planNames[recommended] || 'Glowe'} is your recommended plan — ready to close these gaps?`;
     }
   }
-  // ── PERSONAL PLAN RATIONALE ────────────────────────
+  // ── PERSONAL PLAN RATIONALE ─────────────────────
   // Already handled by renderPlanRec — enrich with specific numbers
   const planSubEl = document.getElementById('plan-rec-sub');
   if (planSubEl && !isEnterprise) {
@@ -2212,6 +2267,7 @@ function showResults() {
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function renderMeasureWhy() {
   /* v3: replaces placeholder testimonials with an honest explanation
      of what the assessment measures and why. Credible because it's true.
@@ -2250,11 +2306,12 @@ function renderMeasureWhy() {
     `).join('');
   }
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    ENTERPRISE MINI-QUESTIONNAIRE LOGIC
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 const eqResp = {}; // eq1, eq2, eq3, eq4
 let enterpriseConfig = null; // stores calculated enterprise price config for reservation
+
 function selectEQ(btn, qNum) {
   // Deselect siblings in this question
   const parent = btn.parentElement;
@@ -2275,6 +2332,7 @@ function selectEQ(btn, qNum) {
     setTimeout(calcEnterprisePrice, 300);
   }
 }
+
 function calcEnterprisePrice() {
   const locVal  = eqResp[1] || '2-3';
   const gmbVal  = eqResp[2] || 'same';
@@ -2376,28 +2434,60 @@ function calcEnterprisePrice() {
     document.getElementById('ent-price-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 300);
 }
+
 function scrollToReserve() {
   const r = document.getElementById('reserve-section') || document.querySelector('.reserve-section');
   if (r) r.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
 function scrollToReport() {
   const r = document.getElementById('full-report-section');
   if (r) {
     r.style.display = 'block';
-    r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   }
 }
-function switchTab(tabKey, allKeys) {
+
+function switchTab(tabKey, allKeys, previews) {
   allKeys.forEach(k => {
     const btn = document.getElementById('tab-btn-' + k);
     const panel = document.getElementById('tab-panel-' + k);
     if (btn) btn.classList.toggle('active', k === tabKey);
     if (panel) panel.classList.toggle('active', k === tabKey);
   });
+  // Update insight line below tabs
+  const insightEl = document.getElementById('active-tab-insight');
+  if (insightEl && previews && previews[tabKey]) {
+    insightEl.textContent = previews[tabKey];
+  }
+  // Scroll active tab into view
+  const activeBtn = document.getElementById('tab-btn-' + tabKey);
+  if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    PLAN RECOMMENDATION (Tier 1 only)
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
+function togglePlanCard(key) {
+  const featuresEl = document.getElementById('plan-features-' + key);
+  const chevronEl  = document.getElementById('plan-chevron-' + key);
+  const expandEl   = document.getElementById('plan-expand-row-' + key);
+  if (!featuresEl) return;
+  const isOpen = featuresEl.style.display !== 'none';
+  if (isOpen) {
+    // Collapse
+    featuresEl.style.display = 'none';
+    if (chevronEl) chevronEl.style.transform = 'rotate(0deg)';
+    if (expandEl) expandEl.querySelector('span').textContent = 'See what\'s included ↓';
+  } else {
+    // Expand
+    featuresEl.style.display = 'block';
+    if (chevronEl) chevronEl.style.transform = 'rotate(180deg)';
+    if (expandEl) expandEl.querySelector('span').textContent = 'Hide details ↑';
+  }
+}
+
 function renderPlanRec(recommended, rationale) {
   // Plan rec sub
   const verdictPrefix = {
@@ -2466,23 +2556,47 @@ function renderPlanRec(recommended, rationale) {
     const isRec = p.key === recommended;
     const badge = isRec ? p.badge_rec : p.badge_other;
     const rat   = isRec ? rationale : p.rationale_other;
-    return `<div class="plan-card ${isRec ? 'recommended' : ''}">
-      <div class="plan-card-badge">${badge}</div>
-      <div class="plan-card-name">${p.name}</div>
-      <div class="plan-card-price">${p.price}<span style="font-size:14px;font-weight:400;opacity:.6">${p.per}</span></div>
-      <div class="plan-card-per">One-time setup: ${p.setup}</div>
-      <div class="plan-card-rationale">${rat}</div>
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${isRec ? 'rgba(249,248,245,.4)' : 'var(--muted)'};margin:12px 0 8px">What's included</div>
-      <div class="plan-card-features ${isRec ? '' : 'plan-card-features-other'}">${p.features.map(f=>`<div class="plan-feat">${f}</div>`).join('')}</div>
-    </div>`;
+    if (isRec) {
+      // ── RECOMMENDED — fully expanded, unchanged ──
+      return `<div class="plan-card recommended">
+        <div class="plan-card-badge">${badge}</div>
+        <div class="plan-card-name">${p.name}</div>
+        <div class="plan-card-price">${p.price}<span style="font-size:14px;font-weight:400;opacity:.6">${p.per}</span></div>
+        <div class="plan-card-per">One-time setup: ${p.setup}</div>
+        <div class="plan-card-rationale">${rat}</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,248,245,.4);margin:12px 0 8px">What's included</div>
+        <div class="plan-card-features">${p.features.map(f=>`<div class="plan-feat">${f}</div>`).join('')}</div>
+      </div>`;
+    } else {
+      // ── NON-RECOMMENDED — collapsed by default ───
+      return `<div class="plan-card" style="cursor:pointer" onclick="togglePlanCard('${p.key}')">
+        <div class="plan-card-badge" style="opacity:.7">${badge}</div>
+        <div class="plan-card-name" style="opacity:.75">${p.name}</div>
+        <div class="plan-card-price" style="opacity:.6">${p.price}<span style="font-size:14px;font-weight:400;">${p.per}</span></div>
+        <div class="plan-card-per" style="opacity:.6">One-time setup: ${p.setup}</div>
+        <div class="plan-card-rationale" style="opacity:.75">${rat}</div>
+        <div id="plan-expand-row-${p.key}"
+          style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">
+          <span style="font-size:12.5px;font-weight:600;color:var(--green-d)">See what's included ↓</span>
+          <svg id="plan-chevron-${p.key}" width="16" height="16" viewBox="0 0 16 16" fill="none"
+            style="transition:transform .2s;color:var(--green-d)">
+            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div id="plan-features-${p.key}" style="display:none;margin-top:12px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">What's included</div>
+          <div class="plan-card-features plan-card-features-other">${p.features.map(f=>`<div class="plan-feat">${f}</div>`).join('')}</div>
+        </div>
+      </div>`;
+    }
   }).join('');
   // Add plan flexibility note below cards
   const noteEl = document.getElementById('plan-flexibility-note');
   if (noteEl) noteEl.style.display = 'block';
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    NOT-READY PREP STEPS
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function getNotReadySteps() {
   const steps = [];
   const clients  = resp[2]?.value;
@@ -2510,12 +2624,12 @@ function getNotReadySteps() {
   });
   return steps;
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    RESERVATION SUBMIT — FIXED v2
    - Deduplicates against gate submission
    - Stricter phone validation
    - Sends reservation_type flag to distinguish rows
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function submitReservation() {
   // Phone removed — email already captured at gate
   const formattedPhone = '';
@@ -2525,7 +2639,7 @@ function submitReservation() {
   // Hide reserve section
   document.getElementById('reserve-section').style.display = 'none';
   if (isEntConf) {
-    // ── ENTERPRISE CONFIRMATION ─────────────────────
+    // ── ENTERPRISE CONFIRMATION ─────────────────
     const entConf = document.getElementById('enterprise-confirmation-section');
     entConf.style.display = 'block';
     // Set confirmation sub-copy
@@ -2569,7 +2683,7 @@ function submitReservation() {
       document.getElementById('ent-payment-fallback').style.display = 'block';
     });
   } else {
-    // ── TIER 1 CONFIRMATION ─────────────────────
+    // ── TIER 1 CONFIRMATION ──────────────────
     const conf = document.getElementById('confirmation-section');
     conf.style.display = 'block';
     // Render prep guide for Tier 1 only
@@ -2611,9 +2725,9 @@ function submitReservation() {
     : document.getElementById('confirmation-section');
   if (confTarget) window.scrollTo({ top: confTarget.offsetTop - 20, behavior: 'smooth' });
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    PREP GUIDE RENDER
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function renderPrepGuide() {
   const { recommended } = getPlanRecommendation();
   const biz = getBizLabel();
@@ -2676,10 +2790,10 @@ function renderPrepGuide() {
   list.innerHTML = html;
   document.getElementById('prep-guide').style.display = 'block';
 }
-/* ══════════════════════════════════════════
+/* ═════════════════════════════════════════════════
    APPS SCRIPT HELPER — FIXED v2
    Consistent field names. record_type distinguishes rows.
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function sendToAppsScript(payload) {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBC037Ew9xL7arszwKsfJML8BfT4vq6WCDu4WQWzIZ1RnlL72-YAWgh6mXXI_GU0BC/exec';
   fetch(APPS_SCRIPT_URL, {
@@ -2689,11 +2803,12 @@ function sendToAppsScript(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    ZAPIER RESERVATION WEBHOOK
    Fires at reservation — creates/updates GHL contact
    Assessment reservation Zap URL (Zapier)
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function sendToGHL(payload) {
   fetch('https://hooks.zapier.com/hooks/catch/25883126/44q6cal/', {
     method: 'POST',
@@ -2701,13 +2816,14 @@ function sendToGHL(payload) {
     body: JSON.stringify(payload)
   }).catch(function(){});
 }
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    PAYLOAD BUILDER — FIXED v2
    - Uses submitted_at consistently (not timestamp)
    - Adds record_type field
    - Adds recommended_plan
    - Adds biz_label for downstream use
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function buildPayload() {
   const { cats, total } = calcScores();
   const topGap = getTopGap(cats);
@@ -2743,24 +2859,27 @@ function buildPayload() {
     source:              'helloglowe.com / Revenue Assessment v2'
   };
 }
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    DOWNLOAD (print to PDF)
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 function downloadReport() {
   document.title = 'Glowe Revenue Assessment — My Report';
   window.print();
 }
-/* ══════════════════════════════════════════
+
+/* ═════════════════════════════════════════════════
    INIT
-══════════════════════════════════════════ */
+═════════════════════════════════════════════════ */
 showQ(1);
 </script>
 </body>
 <!--
-═══════════════════════════════════════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════
 GOOGLE APPS SCRIPT v2 — UPDATED
 Deploy at: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 Sheet: Glowe Assessment Results
+
 CHANGES FROM v1:
 - Reads 'submitted_at' (not 'timestamp') — fixes field name mismatch bug
 - Added 'Record Type' column to distinguish assessment vs reservation rows
@@ -2768,7 +2887,7 @@ CHANGES FROM v1:
 - Deduplication: reservation rows UPDATE existing assessment row by email
   rather than creating a new row — prevents duplicate lead problem
 - Cell Phone only populated on reservation rows
-═══════════════════════════════════════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════
 
 function doPost(e) {
   try {
@@ -2813,9 +2932,11 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(HEADERS);
     }
+
     var cats = data.cat_scores || {};
     var recordType = data.record_type || 'assessment';
     var email      = data.email || '';
+
     // DEDUPLICATION: if this is a reservation row, try to update existing assessment row
     if (recordType === 'reservation' && email) {
       var lastRow = sheet.getLastRow();
@@ -2836,6 +2957,7 @@ function doPost(e) {
       }
       // No existing row found — fall through to append
     }
+
     // APPEND new row
     sheet.appendRow([
       data.submitted_at          || new Date().toISOString(), // FIXED: was data.timestamp
@@ -2871,17 +2993,20 @@ function doPost(e) {
       data.source                || 'revenue-assessment-v2',
       JSON.stringify(data)
     ]);
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'ok', action: 'appended' }))
       .setMimeType(ContentService.MimeType.JSON);
+
   } catch(err) {
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'error', message: err.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
-═══════════════════════════════════════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════════════════════════════════════════
 END OF GOOGLE APPS SCRIPT v2
-═══════════════════════════════════════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════
 -->
 </html>
