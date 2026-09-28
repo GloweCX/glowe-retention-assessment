@@ -2812,9 +2812,10 @@ function sendToAppsScript(payload) {
 function sendToGHL(payload) {
   fetch('https://hooks.zapier.com/hooks/catch/25883126/44q6cal/', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // No custom Content-Type: a JSON header makes browsers block this cross-site
+    // request to Zapier. Zapier still parses the JSON body.
     body: JSON.stringify(payload)
-  }).catch(function(){});
+  }).catch(function(e){ console.error('Zapier reservation webhook failed', e); });
 }
 
 /* ═════════════════════════════════════════════════
